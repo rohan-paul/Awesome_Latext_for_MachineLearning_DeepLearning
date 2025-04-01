@@ -596,7 +596,9 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Jaro Similarity**
 
-# $sim_J(s_1, s_2) = \begin{cases} 0 & \text{if } m = 0 \\ \frac{1}{3} \left( \frac{m}{|s_1|} + \frac{m}{|s_2|} + \frac{m-t}{m} \right) & \text{otherwise} \end{cases}$` (where m = matching chars, t = transpositions)
+# $`sim_J(s_1, s_2) = \begin{cases} 0 & \text{if } m = 0 \\ \frac{1}{3} \left( \frac{m}{|s_1|} + \frac{m}{|s_2|} + \frac{m-t}{m} \right) & \text{otherwise} \end{cases}`$
+
+(where m = matching chars, t = transpositions)
 
 *   String similarity measure considering matching characters and transpositions within a proximity window. Good for record linkage (matching names/addresses).
 
@@ -612,7 +614,11 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Kullback-Leibler (KL) Divergence**
 
-# $D_{KL}(P \| Q) = \sum_{x} P(x) \log \frac{P(x)}{Q(x)}$` or`$\int p(x) \log \frac{p(x)}{q(x)} dx`$
+# $`D_{KL}(P \| Q) = \sum_{x} P(x) \log \frac{P(x)}{Q(x)}`$
+
+or
+
+$`\int p(x) \log \frac{p(x)}{q(x)} dx`$
 
 *   Measures information loss when approximating distribution P with Q. Asymmetric ($D_{KL}(P\|Q) \neq D_{KL}(Q\|P)$). Central to variational inference.
 
