@@ -1100,23 +1100,43 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 -------------------
 
-## **Max Sigmoid Unit (MSU)** - $` f(x, W, b) = \max_{i} (\sigma(W_i x + b_i)) `$` - Takes the maximum across several sigmoid units applied to the input; allows the neuron to select the most active sigmoidal response, increasing representational power.
+## **Max Sigmoid Unit (MSU)** -
+
+# $` f(x, W, b) = \max_{i} (\sigma(W_i x + b_i)) `$
+
+- Takes the maximum across several sigmoid units applied to the input; allows the neuron to select the most active sigmoidal response, increasing representational power.
 
 -------------------
 
-## **Shifted Softplus** - $` f(x) = \log(1 + e^{x - \text{shift}}) `$` - A Softplus function shifted horizontally; useful in contexts like variational autoencoders (VAEs) to control the mean or location of distributions represented by the activation.
+## **Shifted Softplus** -
+
+# $` f(x) = \log(1 + e^{x - \text{shift}}) `$
+
+- A Softplus function shifted horizontally; useful in contexts like variational autoencoders (VAEs) to control the mean or location of distributions represented by the activation.
 
 -------------------
 
-## **Rectified Exponential Unit (REU)** - $` f(x) = \begin{cases} x & x \ge 0 \\ \alpha (e^x - 1) & x < 0 \end{cases} `$` - (Note: This is identical to ELU provided earlier, sometimes just named REU). An alternative name for ELU, emphasizing its rectified nature for positive inputs and exponential for negative ones.
+## **Rectified Exponential Unit (REU)** -
+
+# $` f(x) = \begin{cases} x & x \ge 0 \\ \alpha (e^x - 1) & x < 0 \end{cases} `$
+
+- (Note: This is identical to ELU provided earlier, sometimes just named REU). An alternative name for ELU, emphasizing its rectified nature for positive inputs and exponential for negative ones.
 
 -------------------
 
-## **Symmetric Elliott Activation** - $` f(x) = \frac{x}{1+|x|} `$` - (Note: This is identical to Softsign/Elliott provided earlier). A symmetric variant of the faster sigmoid approximation, mapping outputs to`$(-1, 1)$` like Tanh.
+## **Symmetric Elliott Activation** -
+
+# $` f(x) = \frac{x}{1+|x|} `$
+
+- (Note: This is identical to Softsign/Elliott provided earlier). A symmetric variant of the faster sigmoid approximation, mapping outputs to`$(-1, 1)$` like Tanh.
 
 -------------------
 
-## **Learnable Sigmoid-like Unit (LSU)** - $` f(x) = \frac{1}{(1 + |\beta x|^\gamma)^{1/\delta}} `$` -`$\beta, \gamma, \delta`$: learnable parameters - A flexible sigmoid/tanh-like activation whose shape (steepness, saturation points) can be learned during training, adapting to the specific task.
+## **Learnable Sigmoid-like Unit (LSU)** -
+
+# $` f(x) = \frac{1}{(1 + |\beta x|^\gamma)^{1/\delta}} `$
+
+-`$\beta, \gamma, \delta`$: learnable parameters - A flexible sigmoid/tanh-like activation whose shape (steepness, saturation points) can be learned during training, adapting to the specific task.
 
 =====================================================================
 ### 📣 Loss Functions
