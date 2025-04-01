@@ -14,7 +14,7 @@
 
 # $` \hat{y} = w^T x + b `$
 
-### –`$w,b`$
+### – $` w,b`$
 
 weights, bias – predicts continuous output via linear combination. It is sensitive to outliers, so robust variants are often preferred in noisy datasets.
 
