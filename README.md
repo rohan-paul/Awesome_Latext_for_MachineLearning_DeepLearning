@@ -1,4 +1,4 @@
-- ### [Find me in Twitter](https://twitter.com/rohanpaul_ai)
+# [Find me in Twitter](https://twitter.com/rohanpaul_ai)
 
 ## [📚 I write daily for my 112K+ readers on actionable AI developments. Get a 1300+ page Python book as soon as you subscribing (its FREE) ↓↓)](https://www.rohan-paul.com/s/daily-ai-newsletter/archive?sort=new)
 
@@ -2676,16 +2676,15 @@ Incorporates a time gate that “opens” and “closes” based on an oscillati
 ## **Clockwork RNN**
 
 ```math
-{
 \Huge
 h_{t}^{(k)} =
 \begin{cases}
-\phi\bigl(W_{x}^{(k)} x_t + W_{h}^{(k,k)} h_{t-1}^{(k)} + \sum_{j<k} W_{h}^{(k,j)} h_{t}^{(j)}\bigr)
-& \text{if } t \bmod \tau_k = 0,\\[1ex]
+\phi\bigl(W_{x}^{(k)} x_t + W_{h}^{(k,k)} h_{t-1}^{(k)} + \sum_{j<k} W_{h}^{(k,j)} h_{t}^{(j)}\bigr) & \text{if } t \bmod \tau_k = 0,\\
 h_{t-1}^{(k)} & \text{otherwise}
 \end{cases}
-}
 ```
+
+
 Partitions hidden units into modules running at different clock rates. Faster modules update frequently, slower ones more sparsely. This improves computational efficiency while capturing multi-timescale information in speech or sensor data.
 
 ---
