@@ -1,7 +1,3 @@
-### Hi there 👋
-
-- 🔭 **Machine Learning Engineer, working with Large Language Models | Kaggle Master**
-
 - ### [Find me in Twitter](https://twitter.com/rohanpaul_ai)
 
 ## [📚 I write daily for my 112K+ readers on actionable AI developments. Get a 1300+ page Python book as soon as you subscribing (its FREE) ↓↓)](https://www.rohan-paul.com/s/daily-ai-newsletter/archive?sort=new)
@@ -10,30 +6,13 @@
 
 [![Rohan's Newsletter][logo]](https://www.rohan-paul.com/) &nbsp;
 
-
-- 📫 Connect with me on these platforms.
-
-
-   <a href="https://twitter.com/rohanpaul_ai">
-    <img align="left" alt="Rohan Paul | Twitter" width="24px" src="https://github.com/rohan-paul/rohan-paul/blob/master/assets/twitter.svg" />
-  </a>
-
-  <a href="https://www.youtube.com/channel/UC0_a8SNpTFkmVv5SLMs1CIA/videos">
-    <img align="left" alt="Rohan Paul | Youtube" width="24px" src="https://github.com/rohan-paul/rohan-paul/blob/master/assets/youtube.svg" />
-  </a>
-
-   <a href="https://www.linkedin.com/in/rohan-paul-b27285129/">
-    <img align="left" alt="Rohan Paul | Linkedin" width="24px" src="https://github.com/rohan-paul/rohan-paul/blob/master/assets/Linkedin.svg" />
-  </a>
-
-
 =====================================================================
 ### 📣 Classical ML Algorithms
 =====================================================================
 
 ## **Linear Regression** –
 
-# $ \hat{y} = w^T x + b $
+# $` \hat{y} = w^T x + b `$
 
 ### – $w,b$
 
