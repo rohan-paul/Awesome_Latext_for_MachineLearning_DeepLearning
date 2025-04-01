@@ -3870,7 +3870,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 ## **Ensemble Distillation** –
 
 
-# $\( \displaystyle \mathcal{L} = \alpha\,\mathcal{L}_{\mathrm{CE}}(y, s) + (1-\alpha)\,\mathrm{KL}\!\bigl(p_{\mathrm{ensemble}} \,\|\, p_{\mathrm{student}}\bigr) \)$$
+# $` \displaystyle \mathcal{L} = \alpha\,\mathcal{L}_{\mathrm{CE}}(y, s) + (1-\alpha)\,\mathrm{KL}\bigl(p_{\mathrm{ensemble}} \,|\, p_{\mathrm{student}}\bigr) `$
 
 
 – transfers ensemble “knowledge” into a single student network – reduces deployment complexity. If the ensemble is too large or heterogeneous, distillation can become cumbersome, diminishing the speed gain.
@@ -3885,7 +3885,11 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 -------------------
 
-## **Snapshot Ensemble** – \( \displaystyle \hat{y} = \frac{1}{M}\sum_{m=1}^M f^{(m)}(x) \) – collects multiple neural network “snapshots” saved at different local minima during cyclic learning rate scheduling – ensemble in one training run. Wide learning rate oscillations can produce more diverse snapshots, boosting final accuracy.
+## **Snapshot Ensemble** –
+
+\( \displaystyle \hat{y} = \frac{1}{M}\sum_{m=1}^M f^{(m)}(x) \)
+
+– collects multiple neural network “snapshots” saved at different local minima during cyclic learning rate scheduling – ensemble in one training run. Wide learning rate oscillations can produce more diverse snapshots, boosting final accuracy.
 
 -------------------
 
