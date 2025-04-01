@@ -688,7 +688,7 @@ An information-theoretic metric measuring distance between clusterings. Obeys th
 
 ## **Normalized Mutual Information (NMI) (Similarity)**
 
-# $NMI(X, Y) = \frac{I(X; Y)}{\sqrt{H(X) H(Y)}}$` or`$\frac{2 I(X;Y)}{H(X)+H(Y)}$
+# $`NMI(X, Y) = \frac{I(X; Y)}{\sqrt{H(X) H(Y)}}$` or`$\frac{2 I(X;Y)}{H(X)+H(Y)}`$
 
 Measures mutual dependence between two clusterings, normalized to [0, 1]. Widely used for evaluating clustering algorithm performance against ground truth.
 
@@ -696,7 +696,9 @@ Measures mutual dependence between two clusterings, normalized to [0, 1]. Widely
 
 ## **Russell-Rao Coefficient (Distance)**
 
-# $d_{RR}(x, y) = \frac{n_{01} + n_{10}}{n}$` (for binary vectors:`$n_{ab}$` = count of`$a$` in`$x`$,`$b$` in`$y`$)
+# $`d_{RR}(x, y) = \frac{n_{01} + n_{10}}{n}`$
+
+(for binary vectors: $`n_{ab}`$ = count of $`a`$ in $`x`$,`$b$` in`$y`$)
 
 Proportion of mismatches (0-1 or 1-0) in binary vectors. Simple but often less informative than Jaccard for sparse data.
 
