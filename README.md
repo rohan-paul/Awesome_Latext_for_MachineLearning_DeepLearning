@@ -22,7 +22,7 @@ weights, bias – predicts continuous output via linear combination. It is sensi
 
 ## **Normal Equation** –
 
-# $ w^* = (X^T X)^{-1} X^T y $
+# $` w^* = (X^T X)^{-1} X^T y $
 
 – $X,y$: data matrix, targets – closed-form solution for least squares. It can be computationally expensive for large feature sets because matrix inversion is typically \(O(n^3)\).
 
@@ -30,7 +30,7 @@ weights, bias – predicts continuous output via linear combination. It is sensi
 
 ## **Logistic Regression** –
 
-# $ \log\frac{p}{1-p} = w^T x + b$
+# $` \log\frac{p}{1-p} = w^T x + b$
 
 # $p$: $P(y=1|x)$
 
@@ -40,7 +40,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Bayes’ Theorem** –
 
-# $ P(Y|X) = \frac{P(X|Y)\,P(Y)}{P(X)} $
+# $` P(Y|X) = \frac{P(X|Y)\,P(Y)}{P(X)} `$
 
 – $P(X|Y)$: likelihood – updates class probability given evidence. It underpins many ML algorithms by formally combining prior knowledge with new evidence for better predictive accuracy.
 
@@ -48,15 +48,15 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Naïve Bayes** –
 
-# $ P(y|x_{1:n}) \propto P(y)\prod_{i=1}^n P(x_i|y) $
+# $` P(y|x_{1:n}) \propto P(y)\prod_{i=1}^n P(x_i|y) `$
 
- – assumes features $x_i$ independent – simple probabilistic classifier. Despite the "naïve" assumption, it often performs surprisingly well in text classification and spam filtering tasks.
+ – assumes features $x_i$` independent – simple probabilistic classifier. Despite the "naïve" assumption, it often performs surprisingly well in text classification and spam filtering tasks.
 
 ----------------------
 
 ## **Entropy (Shannon)** –
 
-# $ H(p) = -\sum_i p_i \log p_i $
+# $` H(p) = -\sum_i p_i \log p_i $
 
 – $p_i$: class prob – measures impurity/uncertainty of a distribution. Low entropy implies high confidence in predictions, making it crucial for measuring model uncertainty in classification tasks.
 
@@ -64,7 +64,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Gini Impurity** –
 
-# $ G(p) = \sum_i p_i(1-p_i) $
+# $` G(p) = \sum_i p_i(1-p_i) `$
 
 – $p_i$: class prob – alternate impurity metric for decision tree splits. It's computationally simpler than entropy, which can make decision tree training faster in practice.
 
@@ -72,7 +72,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Information Gain** –
 
-# $ \Delta H = H(\text{parent}) - \sum_k \frac{N_k}{N}H(\text{child}_k) $
+# $` \Delta H = H(\text{parent}) - \sum_k \frac{N_k}{N}H(\text{child}_k) `$
 
 – $N_k$: child size – entropy reduction by a split. Sometimes replaced by Gini gain for efficiency, but conceptually highlights how a split reduces uncertainty.
 
@@ -80,7 +80,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Linear Decision Boundary** –
 
-# $ w^T x + b = 0 $
+# $` w^T x + b = 0 $
 
 – $w$: normal vector – defines a hyperplane separating classes in feature space. In high-dimensional spaces, hyperplanes can separate data more easily, but risk overfitting if dimensions vastly exceed samples.
 
@@ -88,7 +88,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Perceptron Update** –
 
-# $ w \leftarrow w + \eta\,y\,x $ (if $y\,w^T x < 0$)
+# $` w \leftarrow w + \eta\,y\,x $` (if $y\,w^T x < 0$)
 
  – $\eta$: learning rate – adjusts linear classifier until data separable. Converges only if the data is linearly separable; otherwise, it may never find a perfect boundary.
 
@@ -96,7 +96,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **SVM Decision (Kernel)** –
 
-# $ f(x) = \text{sign}\!\Big(\sum_{i\in SV}\alpha_i y_i K(x_i,x) + b\Big) $
+# $` f(x) = \text{sign}\!\Big(\sum_{i\in SV}\alpha_i y_i K(x_i,x) + b\Big) `$
 
 – $K$: kernel – classification using support vectors in feature space. Choosing an appropriate kernel is crucial, as it implicitly defines the feature space for separation.
 
@@ -104,7 +104,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **RBF Kernel** –
 
-# $ K(x,z) = \exp\!\Big(-\frac{\|x-z\|^2}{2\sigma^2}\Big) $
+# $` K(x,z) = \exp\!\Big(-\frac{\|x-z\|^2}{2\sigma^2}\Big) `$
 
 – $\sigma$: bandwidth – popular kernel mapping into infinite-dimensional space. A small sigma leads to complex boundaries, risking overfit; a large sigma oversmooths the boundary.
 
@@ -112,7 +112,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Fisher’s LDA** –
 
-# $ J(w) = \frac{w^T S_B\,w}{w^T S_W\,w} $
+# $` J(w) = \frac{w^T S_B\,w}{w^T S_W\,w} `$
 
 – $S_B,S_W$: between/within-class scatter – finds projection maximizing class separability. It’s closely related to PCA but specifically optimizes class separability rather than just variance in data.
 
@@ -121,7 +121,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Gaussian Mixture** –
 
-# $ p(x) = \sum_{k=1}^K \pi_k\,\mathcal{N}(x|\mu_k,\Sigma_k) $
+# $` p(x) = \sum_{k=1}^K \pi_k\,\mathcal{N}(x|\mu_k,\Sigma_k) `$
 
 – $\pi_k$: mixture weights – models data as weighted sum of Gaussians. Can capture multimodal distributions, but might need careful initialization to avoid poor local optima in parameter estimation.
 
@@ -137,15 +137,15 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Ridge Regression** –
 
-# $ w^* = (X^T X + \lambda I)^{-1} X^T y $
+# $` w^* = (X^T X + \lambda I)^{-1} X^T y $
 
-– $\lambda$: regularizer – closed-form solution adding $L2$ penalty (prevents overfit). Balances fitting error and coefficient shrinkage, often outperforming ordinary least squares in the presence of multicollinearity.
+– $\lambda$: regularizer – closed-form solution adding $L2$` penalty (prevents overfit). Balances fitting error and coefficient shrinkage, often outperforming ordinary least squares in the presence of multicollinearity.
 
 ----------------------
 
 ## **Bayes Optimal Classifier** –
 
-# $ y^* = \arg\max_y P(Y=y\,|\,x) $
+# $` y^* = \arg\max_y P(Y=y\,|\,x) `$
 
  – posterior $P(Y|x)$
 
@@ -156,7 +156,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Bias–Variance Split** –
 
-# $ \mathbb{E}[(\hat{f}-f)^2] = \text{Bias}^2 + \text{Var} + \sigma^2 $
+# $` \mathbb{E}[(\hat{f}-f)^2] = \text{Bias}^2 + \text{Var} + \sigma^2 $
 
  – decomposes generalization error – highlights trade-off in model complexity. Ensemble methods often reduce variance but can raise bias; controlling both is key for robust performance.
 
@@ -164,7 +164,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Maximum Likelihood** –
 
-# $ \hat{\theta}_{MLE} = \arg\max_\theta \prod_{i=1}^N p(x_i|\theta) $
+# $` \hat{\theta}_{MLE} = \arg\max_\theta \prod_{i=1}^N p(x_i|\theta) `$
 
 – $\theta$: model parameters – chooses parameters that maximize data probability. It might overfit without regularization, so in high-dimensional data, more robust methods are often preferred.
 
@@ -173,7 +173,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Maximum a Posteriori** –
 
-# $ \hat{\theta}_{MAP} = \arg\max_\theta [\log p(D|\theta) + \log p(\theta)] $
+# $` \hat{\theta}_{MAP} = \arg\max_\theta [\log p(D|\theta) + \log p(\theta)] $
 
  – includes prior $p(\theta)$
 
@@ -183,7 +183,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **0–1 Loss** –
 
-# $ L(y,\hat{y}) = \mathbf{1}\{y \neq \hat{y}\} $
+# $` L(y,\hat{y}) = \mathbf{1}\{y \neq \hat{y}\} `$
 
  – indicator misclassification – basic error count (non-differentiable, basis of accuracy). Despite its simplicity, many practical algorithms minimize differentiable surrogates like cross-entropy for computational tractability.
 
@@ -191,7 +191,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 
 ## **Mutual Information** –
 
-# $ I(X;Y) = \sum_{x,y} p(x,y)\log\frac{p(x,y)}{p(x)p(y)} $
+# $` I(X;Y) = \sum_{x,y} p(x,y)\log\frac{p(x,y)}{p(x)p(y)} `$
 
  – measures dependency between $X,Y$
 
@@ -437,33 +437,33 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Euclidean Distance** –
 
-# $ d_2(x,z) = \sqrt{\sum_{i}(x_i - z_i)^2} $
+# $` d_2(x,z) = \sqrt{\sum_{i}(x_i - z_i)^2} `$
 
- – standard $L2$ norm – straight-line distance in $\mathbb{R}^n$, used in KNN and clustering. Also arises in PCA for measuring reconstruction error.
+ – standard $L2$` norm – straight-line distance in $\mathbb{R}^n$, used in KNN and clustering. Also arises in PCA for measuring reconstruction error.
 
 -------------------
 
 ## **Manhattan Distance** –
 
-# $ d_1(x,z) = \sum_{i}|x_i - z_i| $
+# $` d_1(x,z) = \sum_{i}|x_i - z_i| $
 
  – sum of absolute differences
 
- – $L1$ metric, robust to outliers in some cases. Often influences feature selection by promoting sparsity in L1 regularization.
+ – $L1$` metric, robust to outliers in some cases. Often influences feature selection by promoting sparsity in L1 regularization.
 
 -------------------
 
 ## **Minkowski Distance** –
 
-# $ d_p(x,z) = \Big(\sum_{i}|x_i - z_i|^p\Big)^{1/p} $
+# $` d_p(x,z) = \Big(\sum_{i}|x_i - z_i|^p\Big)^{1/p} `$
 
- – general $L_p$ norm – unifies $L1$, $L2$ and others by parameter $p$. Fractional p values can emphasize large or small differences differently than L1 or L2.
+ – general $L_p$` norm – unifies $L1$, $L2$` and others by parameter $p$. Fractional p values can emphasize large or small differences differently than L1 or L2.
 
 -------------------
 
 ## **Mahalanobis Distance** –
 
-# $ d_M(x,z) = \sqrt{(x-z)^T S^{-1}(x-z)} $
+# $` d_M(x,z) = \sqrt{(x-z)^T S^{-1}(x-z)} `$
 
 – $S$: covariance matrix – distance accounting for feature correlations (used in anomaly detection). Crucial in linear discriminant analysis for class-based dimensionality reduction.
 
@@ -471,7 +471,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Hamming Distance** –
 
-# $ d_H(u,v) = \sum_{i}\mathbf{1}\{u_i \neq v_i\} $
+# $` d_H(u,v) = \sum_{i}\mathbf{1}\{u_i \neq v_i\} `$
 
  – counts differing components – distance for binary strings/categorical vectors (used in hashing, error-correcting). Essential in cryptography for distinguishing codewords or hashing seeds.
 
@@ -479,7 +479,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Cosine Similarity** –
 
-# $ \cos(x,z) = \frac{x \cdot z}{\|x\|\,\|z\|} $
+# $` \cos(x,z) = \frac{x \cdot z}{\|x\|\,\|z\|} `$
 
  – dot-product normalized – measures angle closeness between vectors (used in recommender systems, embeddings). Invariant to vector magnitude, making it vital for orientation-based similarity.
 
@@ -573,7 +573,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Jaro Similarity**
 
-# $sim_J(s_1, s_2) = \begin{cases} 0 & \text{if } m = 0 \\ \frac{1}{3} \left( \frac{m}{|s_1|} + \frac{m}{|s_2|} + \frac{m-t}{m} \right) & \text{otherwise} \end{cases}$ (where m = matching chars, t = transpositions)
+# $sim_J(s_1, s_2) = \begin{cases} 0 & \text{if } m = 0 \\ \frac{1}{3} \left( \frac{m}{|s_1|} + \frac{m}{|s_2|} + \frac{m-t}{m} \right) & \text{otherwise} \end{cases}$` (where m = matching chars, t = transpositions)
 
 *   String similarity measure considering matching characters and transpositions within a proximity window. Good for record linkage (matching names/addresses).
 
@@ -581,7 +581,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Jaro-Winkler Similarity**
 
-# $sim_W(s_1, s_2) = sim_J + l \cdot p (1 - sim_J)$ (where l = length of common prefix, p = scaling factor)
+# $sim_W(s_1, s_2) = sim_J + l \cdot p (1 - sim_J)$` (where l = length of common prefix, p = scaling factor)
 
 *   Refines Jaro similarity by giving extra weight to matching prefixes. Improves accuracy significantly for names or identifiers where prefixes often match.
 
@@ -589,7 +589,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Kullback-Leibler (KL) Divergence**
 
-# $D_{KL}(P \| Q) = \sum_{x} P(x) \log \frac{P(x)}{Q(x)}$ or $\int p(x) \log \frac{p(x)}{q(x)} dx$
+# $D_{KL}(P \| Q) = \sum_{x} P(x) \log \frac{P(x)}{Q(x)}$` or $\int p(x) \log \frac{p(x)}{q(x)} dx$
 
 *   Measures information loss when approximating distribution P with Q. Asymmetric ($D_{KL}(P\|Q) \neq D_{KL}(Q\|P)$). Central to variational inference.
 
@@ -613,7 +613,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Hellinger Distance**
 
-# $H(P, Q) = \frac{1}{\sqrt{2}} \sqrt{\sum_{i} (\sqrt{p_i} - \sqrt{q_i})^2}$ or $H(P,Q) = \frac{1}{\sqrt{2}} \|\sqrt{p} - \sqrt{q}\|_2$
+# $H(P, Q) = \frac{1}{\sqrt{2}} \sqrt{\sum_{i} (\sqrt{p_i} - \sqrt{q_i})^2}$` or $H(P,Q) = \frac{1}{\sqrt{2}} \|\sqrt{p} - \sqrt{q}\|_2$
 
 *   A symmetric metric measuring distance between probability distributions, related to Bhattacharyya distance. Bounded between 0 and 1.
 
@@ -629,7 +629,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Haversine Distance**
 
-# $d = 2r \arcsin\left(\sqrt{\sin^2\left(\frac{\phi_2-\phi_1}{2}\right) + \cos(\phi_1) \cos(\phi_2) \sin^2\left(\frac{\lambda_2-\lambda_1}{2}\right)}\right)$ (r=radius, $\phi$=lat, $\lambda$=lon)
+# $d = 2r \arcsin\left(\sqrt{\sin^2\left(\frac{\phi_2-\phi_1}{2}\right) + \cos(\phi_1) \cos(\phi_2) \sin^2\left(\frac{\lambda_2-\lambda_1}{2}\right)}\right)$` (r=radius, $\phi$=lat, $\lambda$=lon)
 
 *   Calculates great-circle distance between two points on a sphere given latitudes/longitudes. Essential for geospatial data analysis and location-based services.
 
@@ -637,7 +637,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Dynamic Time Warping (DTW)**
 
-# $DTW(X, Y) = \min_{\pi} \sqrt{\sum_{(i, j) \in \pi} d(x_i, y_j)^2}$ (where $\pi$ is a warping path)
+# $DTW(X, Y) = \min_{\pi} \sqrt{\sum_{(i, j) \in \pi} d(x_i, y_j)^2}$` (where $\pi$` is a warping path)
 
 *   Finds optimal alignment between two time series that may vary in speed or timing. Widely used in speech recognition and time series analysis.
 
@@ -645,7 +645,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Variation of Information (VI)**
 
-# $VI(X; Y) = H(X) + H(Y) - 2I(X; Y)$ (H=entropy, I=mutual information)
+# $VI(X; Y) = H(X) + H(Y) - 2I(X; Y)$` (H=entropy, I=mutual information)
 
 *   An information-theoretic metric measuring distance between clusterings. Obeys the triangle inequality, making it a true metric.
 
@@ -653,7 +653,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Normalized Mutual Information (NMI) (Similarity)**
 
-# $NMI(X, Y) = \frac{I(X; Y)}{\sqrt{H(X) H(Y)}}$ or $\frac{2 I(X;Y)}{H(X)+H(Y)}$
+# $NMI(X, Y) = \frac{I(X; Y)}{\sqrt{H(X) H(Y)}}$` or $\frac{2 I(X;Y)}{H(X)+H(Y)}$
 
 *   Measures mutual dependence between two clusterings, normalized to [0, 1]. Widely used for evaluating clustering algorithm performance against ground truth.
 
@@ -661,7 +661,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Russell-Rao Coefficient (Distance)**
 
-# $d_{RR}(x, y) = \frac{n_{01} + n_{10}}{n}$ (for binary vectors: $n_{ab}$ = count of $a$ in $x$, $b$ in $y$)
+# $d_{RR}(x, y) = \frac{n_{01} + n_{10}}{n}$` (for binary vectors: $n_{ab}$` = count of $a$` in $x$, $b$` in $y$)
 
 *   Proportion of mismatches (0-1 or 1-0) in binary vectors. Simple but often less informative than Jaccard for sparse data.
 
@@ -687,7 +687,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Binary Step** –
 
-# $ f(x) = \begin{cases}1 & x>0\\0 & x\le 0\end{cases} $
+# $` f(x) = \begin{cases}1 & x>0\\0 & x\le 0\end{cases} `$
 
  – threshold at 0 – outputs binary state; non-differentiable (used in perceptrons, not in gradient-based training). Found in early neural networks like the McCulloch-Pitts model.
 
@@ -695,7 +695,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Identity (Linear)** –
 
-# $ f(x) = x $
+# $` f(x) = x $
 
 – $x$: input – returns input unchanged – used for regression outputs and skip connections. Purely linear usage nullifies deep network expressiveness.
 
@@ -703,15 +703,15 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Sigmoid** –
 
-# $ \sigma(x) = \frac{1}{1 + e^{-x}} $
+# $` \sigma(x) = \frac{1}{1 + e^{-x}} `$
 
-– $x$: input – squashes to $(0,1)$ range – smooth activation for probabilities (prone to saturation for large $|x|$). Still favored in output layers for binary classification.
+– $x$: input – squashes to $(0,1)$` range – smooth activation for probabilities (prone to saturation for large $|x|$). Still favored in output layers for binary classification.
 
 -------------------
 
 ## **Tanh** –
 
-# $ \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} $
+# $` \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} `$
 
 – $x$: input – outputs in $(-1,1)$
 
@@ -721,7 +721,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **ReLU** –
 
-# $ f(x) = \max(0,\,x) $
+# $` f(x) = \max(0,\,x) `$
 
 – $x$: input – passes positive values, zeros out negative – simple, sparse activation that avoids vanishing gradient (popular in deep nets). However, it can produce skewed outputs if not initialized carefully.
 
@@ -729,7 +729,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Leaky ReLU** –
 
-# $ f(x) = \begin{cases}x & x\ge 0\\ \alpha x & x<0\end{cases} $
+# $` f(x) = \begin{cases}x & x\ge 0\\ \alpha x & x<0\end{cases} `$
 
 – $\alpha$: small slope – allows small negative gradient – prevents “dying ReLU” by letting negativity through. It helps maintain non-zero gradients for negative inputs.
 
@@ -737,7 +737,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **PReLU** –
 
-# $ f(x) = \begin{cases}x & x\ge 0\\ a\,x & x<0\end{cases} $
+# $` f(x) = \begin{cases}x & x\ge 0\\ a\,x & x<0\end{cases} `$
 
 – $a$: learnable slope – adaptive leaky ReLU – learns optimum negative slope per neuron. Empirically shown to speed up training versus standard ReLU variants.
 
@@ -745,7 +745,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **ELU** –
 
-# $ f(x) = \begin{cases}x & x\ge 0\\ \alpha(e^x - 1) & x<0\end{cases} $
+# $` f(x) = \begin{cases}x & x\ge 0\\ \alpha(e^x - 1) & x<0\end{cases} `$
 
 – $\alpha$: scale (>0) – smooth exponential for $x<0$
 
@@ -755,7 +755,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **SELU** –
 
-# $ f(x) = \lambda \begin{cases}x & x\ge 0\\ \alpha(e^x - 1) & x<0\end{cases} $
+# $` f(x) = \lambda \begin{cases}x & x\ge 0\\ \alpha(e^x - 1) & x<0\end{cases} `$
 
  – fixed $\alpha,\lambda$
 
@@ -765,7 +765,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Softplus** –
 
-# $ f(x) = \log(1 + e^x) $
+# $` f(x) = \log(1 + e^x) `$
 
  – smooth approximation of ReLU – always differentiable – never truly zero, so avoids dead neurons. Also useful to enforce positivity in model parameters.
 
@@ -773,7 +773,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Softsign** –
 
-# $ f(x) = \frac{x}{1 + |x|} $
+# $` f(x) = \frac{x}{1 + |x|} `$
 
  – sigmoid-like curve – maps to $(-1,1)$
 
@@ -783,7 +783,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Swish (SiLU)** –
 
-# $ f(x) = x\,\sigma(x) $
+# $` f(x) = x\,\sigma(x) `$
 
 – $\sigma$: sigmoid – input scaled by its sigmoid – non-monotonic, outperforms ReLU in some deep models (used in EfficientNet). Emerging as a default in advanced architectures for enhanced gradient flow.
 
@@ -791,7 +791,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Mish** –
 
-# $ f(x) = x \tanh(\ln(1+e^x)) $
+# $` f(x) = x \tanh(\ln(1+e^x)) `$
 
  – smooth, non-monotonic – retains small negative values – empirically boosts vision model accuracy (used in some YOLO versions). Introduced by Diganta Misra, it can sometimes outperform Swish.
 
@@ -799,7 +799,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Hard Sigmoid** –
 
-# $ f(x) = \max(0,\,\min(1,\;\frac{x+1}{2})) $
+# $` f(x) = \max(0,\,\min(1,\;\frac{x+1}{2})) `$
 
  – piecewise-linear sigmoid approximation – cheaper to compute – used in mobileNets for efficiency. Despite being approximate, it delivers good results with lower overhead.
 
@@ -807,9 +807,9 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Hard Tanh** –
 
-# $ f(x) = \max(-1,\,\min(1,\,x)) $
+# $` f(x) = \max(-1,\,\min(1,\,x)) `$
 
- – clips $x$ to $[-1,1]$
+ – clips $x$` to $[-1,1]$
 
  – fast approximation of $\tanh$
 
@@ -819,7 +819,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Hard Swish** –
 
-# $ f(x) = x \frac{\max(0,\min(6,x+3))}{6} $
+# $` f(x) = x \frac{\max(0,\min(6,x+3))}{6} `$
 
  – linear approximation of swish – implemented as $x * \text{ReLU6}(x+3)/6$
 
@@ -829,7 +829,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Softmax** –
 
-# $ \sigma(z)_i = \frac{e^{z_i}}{\sum_j e^{z_j}} $
+# $` \sigma(z)_i = \frac{e^{z_i}}{\sum_j e^{z_j}} `$
 
 – $z$: logits – converts vector to probability distribution – used in output layer for multi-class classification. Temperature scaling can adjust smoothness, affecting model confidence.
 
@@ -837,7 +837,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Maxout** –
 
-# $ f(x) = \max_{j\in\{1,\dots,k\}} (w_j^T x + b_j) $
+# $` f(x) = \max_{j\in\{1,\dots,k\}} (w_j^T x + b_j) `$
 
 – $k$: linear pieces – learns piecewise linear activation by selecting maximal affine output – increases model capacity per neuron. It can capture convex hulls of multiple linear functions, albeit at higher parameter costs.
 
@@ -845,7 +845,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **ReLU6** –
 
-# $ f(x) = \min(\max(0,x), 6) $
+# $` f(x) = \min(\max(0,x), 6) `$
 
  – ReLU capped at 6; crucial for fixed-point inference efficiency on mobile devices (like MobileNets), preventing activations from growing unbounded while maintaining compatibility with hardware constraints.
 
@@ -853,7 +853,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **CELU (Continuously Differentiable ELU)** –
 
-# $ f(x) = \max(0,x) + \min(0, \alpha(\exp(x/\alpha) - 1)) $
+# $` f(x) = \max(0,x) + \min(0, \alpha(\exp(x/\alpha) - 1)) `$
 
 – $\alpha$: scale (>0) – A variant of ELU designed to be continuously differentiable everywhere, including at $x=0$, which can potentially aid optimization stability in some contexts.
 
@@ -861,7 +861,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **ISRU (Inverse Square Root Unit)** –
 
-# $ f(x) = \frac{x}{\sqrt{1 + \alpha x^2}} $
+# $` f(x) = \frac{x}{\sqrt{1 + \alpha x^2}} `$
 
 – $\alpha$: scale parameter – A non-monotonic function that implicitly performs a form of normalization; can sometimes achieve faster convergence than ReLU variants in specific architectures.
 
@@ -869,7 +869,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **ISRLU (Inverse Square Root Linear Unit)** –
 
-# $ f(x) = \begin{cases} x & x \ge 0 \\ \frac{x}{\sqrt{1 + \alpha x^2}} & x < 0 \end{cases} $
+# $` f(x) = \begin{cases} x & x \ge 0 \\ \frac{x}{\sqrt{1 + \alpha x^2}} & x < 0 \end{cases} `$
 
 – $\alpha$: scale parameter – Combines linear behavior for positive inputs (like ReLU) with the ISRU function for negative inputs, aiming to prevent dying neurons while offering ISRU's properties.
 
@@ -877,7 +877,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **APL (Adaptive Piecewise Linear)** –
 
-# $ f(x) = \max(0, x) + \sum_{s=1}^S a_i^s \max(0, -x + b_i^s) $
+# $` f(x) = \max(0, x) + \sum_{s=1}^S a_i^s \max(0, -x + b_i^s) `$
 
 – $a_i^s, b_i^s$: learnable parameters – Learns a hinge-shaped piecewise linear activation function during training, allowing the network to approximate complex functions more flexibly than fixed activations.
 
@@ -885,7 +885,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Gaussian** –
 
-# $ f(x) = \exp(-x^2) $
+# $` f(x) = \exp(-x^2) `$
 
  – Bell-shaped curve centered at 0; primarily used in Radial Basis Function (RBF) networks or as a component in attention mechanisms, sensitive to inputs near zero.
 
@@ -893,7 +893,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Bipolar Sigmoid** –
 
-# $ f(x) = \frac{1 - e^{-x}}{1 + e^{-x}} $
+# $` f(x) = \frac{1 - e^{-x}}{1 + e^{-x}} `$
 
  – Equivalent to Tanh, mapping inputs to $(-1, 1)$; historically used alongside binary (-1, 1) targets, providing zero-centered outputs beneficial for gradient flow compared to standard sigmoid.
 
@@ -901,7 +901,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **LogSigmoid** –
 
-# $ f(x) = \log(\sigma(x)) = \log\left(\frac{1}{1 + e^{-x}}\right) $
+# $` f(x) = \log(\sigma(x)) = \log\left(\frac{1}{1 + e^{-x}}\right) `$
 
 – $x$: input – Computes the logarithm of the sigmoid function; often used directly in loss functions (like binary cross-entropy) for numerical stability, especially with large negative inputs.
 
@@ -909,23 +909,23 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **HardShrink** –
 
-# $ f(x) = \begin{cases} x & \text{if } x > \lambda \\ x & \text{if } x < -\lambda \\ 0 & \text{otherwise} \end{cases} $
+# $` f(x) = \begin{cases} x & \text{if } x > \lambda \\ x & \text{if } x < -\lambda \\ 0 & \text{otherwise} \end{cases} `$
 
-– $\lambda$: threshold – Sets values within $[-\lambda, \lambda]$ to zero, keeping others unchanged; used in sparse coding and related algorithms to promote sparsity by thresholding.
+– $\lambda$: threshold – Sets values within $[-\lambda, \lambda]$` to zero, keeping others unchanged; used in sparse coding and related algorithms to promote sparsity by thresholding.
 
 -------------------
 
 ## **SoftShrinkage** –
 
-# $ f(x) = \begin{cases} x - \lambda & \text{if } x > \lambda \\ x + \lambda & \text{if } x < -\lambda \\ 0 & \text{otherwise} \end{cases} $
+# $` f(x) = \begin{cases} x - \lambda & \text{if } x > \lambda \\ x + \lambda & \text{if } x < -\lambda \\ 0 & \text{otherwise} \end{cases} `$
 
-– $\lambda$: threshold – Shrinks values towards zero by $\lambda$ and thresholds values within $[-\lambda, \lambda]$; central to iterative shrinkage-thresholding algorithms (ISTA) used in sparse signal recovery.
+– $\lambda$: threshold – Shrinks values towards zero by $\lambda$` and thresholds values within $[-\lambda, \lambda]$; central to iterative shrinkage-thresholding algorithms (ISTA) used in sparse signal recovery.
 
 -------------------
 
 ## **TanhShrink** –
 
-# $ f(x) = x - \tanh(x) $
+# $` f(x) = x - \tanh(x) `$
 
  – Subtracts the Tanh activation from the input; this function emphasizes values far from zero, finding use in specific signal processing or decomposition tasks within networks.
 
@@ -933,7 +933,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Thresholded ReLU** –
 
-# $ f(x) = \begin{cases} x & \text{if } x > \theta \\ 0 & \text{otherwise} \end{cases} $
+# $` f(x) = \begin{cases} x & \text{if } x > \theta \\ 0 & \text{otherwise} \end{cases} `$
 
 – $\theta$: threshold (>0) – A variant of ReLU where activation only occurs if the input exceeds a specific threshold $\theta$; useful when only significantly strong signals should propagate.
 
@@ -941,7 +941,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **CReLU (Concatenated ReLU)** –
 
-# $ f(x) = [\max(0, x), \max(0, -x)] $
+# $` f(x) = [\max(0, x), \max(0, -x)] $
 
  – Concatenates the output of ReLU applied to the input and its negation; doubles the output dimension but preserves complete information, potentially improving representational capacity early in networks.
 
@@ -949,15 +949,15 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **RReLU (Randomized Leaky ReLU)** –
 
-# $ f(x) = \begin{cases} x & x \ge 0 \\ \alpha x & x < 0 \end{cases} $ where $ \alpha \sim U(l, u) $
+# $` f(x) = \begin{cases} x & x \ge 0 \\ \alpha x & x < 0 \end{cases} `$` where $` \alpha \sim U(l, u) `$
 
- – Negative slope $\alpha$ is randomly sampled from a uniform distribution during training, fixed during inference; acts as a regularizer reducing overfitting.
+ – Negative slope $\alpha$` is randomly sampled from a uniform distribution during training, fixed during inference; acts as a regularizer reducing overfitting.
 
 -------------------
 
 ## **GLU (Gated Linear Unit)** –
 
-# $ f(x, W, V, b, c) = \sigma(xW + b) \odot (xV + c) $
+# $` f(x, W, V, b, c) = \sigma(xW + b) \odot (xV + c) `$
 
 – $\sigma$: sigmoid, $\odot$: element-wise product – Uses a sigmoid gate to control information flow through a linear transformation; powerful in sequence modeling (e.g., Gated CNNs, Transformer variants).
 
@@ -965,7 +965,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **ReGLU (ReLU Gated Linear Unit)** –
 
-# $ f(x, W, V, b, c) = \max(0, xW + b) \odot (xV + c) $
+# $` f(x, W, V, b, c) = \max(0, xW + b) \odot (xV + c) `$
 
 – $\odot$: element-wise product – A GLU variant using ReLU for the gating mechanism instead of sigmoid; often performs competitively or better than standard GLU in Transformers.
 
@@ -973,7 +973,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **GeGLU (GELU Gated Linear Unit)** –
 
-# $ f(x, W, V, b, c) = \text{GELU}(xW + b) \odot (xV + c) $
+# $` f(x, W, V, b, c) = \text{GELU}(xW + b) \odot (xV + c) `$
 
 – $\odot$: element-wise product – A GLU variant employing the smoother GELU activation for gating; used in some large language models for improved performance over ReLU/Sigmoid gates.
 
@@ -981,7 +981,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **SwiGLU (Swish Gated Linear Unit)** –
 
-# $ f(x, W, V, b, c) = \text{Swish}(xW + b) \odot (xV + c) $
+# $` f(x, W, V, b, c) = \text{Swish}(xW + b) \odot (xV + c) `$
 
 – $\odot$: element-wise product – A GLU variant using the Swish (SiLU) activation for gating; demonstrated strong performance in recent large language models like PaLM, often outperforming other GLU variants.
 
@@ -989,7 +989,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Softmin** –
 
-# $ \text{softmin}(z)_i = \frac{e^{-z_i}}{\sum_j e^{-z_j}} $
+# $` \text{softmin}(z)_i = \frac{e^{-z_i}}{\sum_j e^{-z_j}} `$
 
 – $z$: logits vector – Similar to Softmax but emphasizes the *minimum* value by using negative exponents; useful in attention mechanisms or scenarios where selecting the least likely option is desired.
 
@@ -997,15 +997,15 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Bent Identity** –
 
-# $ f(x) = \frac{\sqrt{x^2 + 1} - 1}{2} + x $
+# $` f(x) = \frac{\sqrt{x^2 + 1} - 1}{2} + x $
 
- – A simple non-linear function that behaves like identity for large positive $x$ and approaches $x/2$ for large negative $x$; provides non-linearity without saturation.
+ – A simple non-linear function that behaves like identity for large positive $x$` and approaches $x/2$` for large negative $x$; provides non-linearity without saturation.
 
 -------------------
 
 ## **SQNL (Squared Non-Linearity)** –
 
-# $ f(x) = \begin{cases} 1 & x > 2 \\ x - x^2/4 & 0 \le x \le 2 \\ x + x^2/4 & -2 \le x < 0 \\ -1 & x < -2 \end{cases} $
+# $` f(x) = \begin{cases} 1 & x > 2 \\ x - x^2/4 & 0 \le x \le 2 \\ x + x^2/4 & -2 \le x < 0 \\ -1 & x < -2 \end{cases} `$
 
  – A piecewise quadratic function providing smooth transitions and bounded output $[-1, 1]$; designed as an alternative to Tanh with potentially simpler computation.
 
@@ -1013,7 +1013,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **FReLU (Funnel ReLU)** –
 
-# $ f(x, T(x)) = \max(x, T(x)) $
+# $` f(x, T(x)) = \max(x, T(x)) `$
 
 – $T(x)$: learnable spatial condition (Parametric Pooling) – Extends ReLU by adding a learnable, spatially-aware condition, allowing pixel-level modeling capacity; effective in visual recognition tasks by capturing spatial context.
 
@@ -1021,7 +1021,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **ACON (Activate Or Not)** –
 
-# $ f(x) = (p_1 - p_2)x \cdot \sigma(\beta (p_1 - p_2)x) + p_2 x $
+# $` f(x) = (p_1 - p_2)x \cdot \sigma(\beta (p_1 - p_2)x) + p_2 x $
 
 – $p_1, p_2, \beta$: learnable parameters per channel – Generalizes activations from ReLU to Swish by learning whether to activate ($p_1$) or not ($p_2$) via a smooth maximum function controlled by $\beta$; adapts activation dynamically.
 
@@ -1029,7 +1029,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **DyReLU (Dynamic ReLU)** –
 
-# $ f(x) = \max_{k=1..K} (\alpha^k(x) x + \beta^k(x)) $
+# $` f(x) = \max_{k=1..K} (\alpha^k(x) x + \beta^k(x)) `$
 
 – $\alpha^k(x), \beta^k(x)$: parameters generated by an attention mechanism based on input $x$
 
@@ -1039,7 +1039,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Snake Activation** –
 
-# $ f(x) = x + \frac{1}{\alpha} \sin^2(\alpha x) $
+# $` f(x) = x + \frac{1}{\alpha} \sin^2(\alpha x) `$
 
 – $\alpha$: frequency parameter (can be learnable) – Adds a periodic component to the identity function, enabling the network to better learn periodic patterns present in data, particularly useful in physics-informed NNs or time-series.
 
@@ -1047,7 +1047,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Gaussian Error Function (erf)** –
 
-# $ \text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt $
+# $` \text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt $
 
  – The integral of the Gaussian distribution; provides a smooth, sigmoid-like shape saturating at $\pm 1$, related to GELU but simpler in form.
 
@@ -1055,7 +1055,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Elliott Function (Approximation Sigmoid)** –
 
-# $ f(x) = \frac{x}{1 + |x|} $
+# $` f(x) = \frac{x}{1 + |x|} `$
 
  – (Note: This is identical to Softsign provided earlier, but sometimes referred to as Elliott). A computationally cheaper approximation to Tanh/Sigmoid; useful when hardware division is faster than exponentiation.
 
@@ -1063,7 +1063,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **LiSHT (Linearly Scaled Hyperbolic Tangent)** –
 
-# $ f(x) = x \cdot \tanh(x) $
+# $` f(x) = x \cdot \tanh(x) `$
 
  – Scales the input by its Tanh value; similar motivation to Swish (gating) but using Tanh instead of Sigmoid, resulting in a non-monotonic curve centered around zero.
 
@@ -1071,29 +1071,29 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Serf (Sigmoid-Weighted Linear Unit with Error Function)** –
 
-# $ f(x) = x \cdot \text{erf}(\ln(1+e^x)) $
+# $` f(x) = x \cdot \text{erf}(\ln(1+e^x)) `$
 
  – A smooth, non-monotonic activation inspired by Mish, but using the Gaussian Error Function (erf) instead of Tanh; aims for similar benefits with a different mathematical formulation.
 
 -------------------
 
-## **Max Sigmoid Unit (MSU)** - $ f(x, W, b) = \max_{i} (\sigma(W_i x + b_i)) $ - Takes the maximum across several sigmoid units applied to the input; allows the neuron to select the most active sigmoidal response, increasing representational power.
+## **Max Sigmoid Unit (MSU)** - $` f(x, W, b) = \max_{i} (\sigma(W_i x + b_i)) `$` - Takes the maximum across several sigmoid units applied to the input; allows the neuron to select the most active sigmoidal response, increasing representational power.
 
 -------------------
 
-## **Shifted Softplus** - $ f(x) = \log(1 + e^{x - \text{shift}}) $ - A Softplus function shifted horizontally; useful in contexts like variational autoencoders (VAEs) to control the mean or location of distributions represented by the activation.
+## **Shifted Softplus** - $` f(x) = \log(1 + e^{x - \text{shift}}) `$` - A Softplus function shifted horizontally; useful in contexts like variational autoencoders (VAEs) to control the mean or location of distributions represented by the activation.
 
 -------------------
 
-## **Rectified Exponential Unit (REU)** - $ f(x) = \begin{cases} x & x \ge 0 \\ \alpha (e^x - 1) & x < 0 \end{cases} $ - (Note: This is identical to ELU provided earlier, sometimes just named REU). An alternative name for ELU, emphasizing its rectified nature for positive inputs and exponential for negative ones.
+## **Rectified Exponential Unit (REU)** - $` f(x) = \begin{cases} x & x \ge 0 \\ \alpha (e^x - 1) & x < 0 \end{cases} `$` - (Note: This is identical to ELU provided earlier, sometimes just named REU). An alternative name for ELU, emphasizing its rectified nature for positive inputs and exponential for negative ones.
 
 -------------------
 
-## **Symmetric Elliott Activation** - $ f(x) = \frac{x}{1+|x|} $ - (Note: This is identical to Softsign/Elliott provided earlier). A symmetric variant of the faster sigmoid approximation, mapping outputs to $(-1, 1)$ like Tanh.
+## **Symmetric Elliott Activation** - $` f(x) = \frac{x}{1+|x|} `$` - (Note: This is identical to Softsign/Elliott provided earlier). A symmetric variant of the faster sigmoid approximation, mapping outputs to $(-1, 1)$` like Tanh.
 
 -------------------
 
-## **Learnable Sigmoid-like Unit (LSU)** - $ f(x) = \frac{1}{(1 + |\beta x|^\gamma)^{1/\delta}} $ - $\beta, \gamma, \delta$: learnable parameters - A flexible sigmoid/tanh-like activation whose shape (steepness, saturation points) can be learned during training, adapting to the specific task.
+## **Learnable Sigmoid-like Unit (LSU)** - $` f(x) = \frac{1}{(1 + |\beta x|^\gamma)^{1/\delta}} `$` - $\beta, \gamma, \delta$: learnable parameters - A flexible sigmoid/tanh-like activation whose shape (steepness, saturation points) can be learned during training, adapting to the specific task.
 
 =====================================================================
 ### 📣 Loss Functions
@@ -1399,7 +1399,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Gradient Descent Step** –
 
-# $ \theta_{t+1} = \theta_t - \eta\,\nabla_\theta L $
+# $` \theta_{t+1} = \theta_t - \eta\,\nabla_\theta L $
 
 – $\eta$: learning rate – moves parameters opposite to loss gradient – foundational iterative optimizer. Despite high dimensionality, gradient descent can often escape poor local minima thanks to the geometry of neural loss surfaces.
 
@@ -1407,7 +1407,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Momentum Update** –
 
-# $ v_t = \beta v_{t-1} + \nabla_\theta L_t,\;\; \theta_{t+1} = \theta_t - \eta\,v_t $
+# $` v_t = \beta v_{t-1} + \nabla_\theta L_t,\;\; \theta_{t+1} = \theta_t - \eta\,v_t $
 
 – $\beta$: momentum factor – accumulates gradient velocity – accelerates descent in consistent direction, damps oscillations. It reduces variance in parameter updates, leading to smoother paths in complex error landscapes.
 
@@ -1415,7 +1415,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Nesterov Accelerated Grad.** –
 
-# $ v_t = \beta v_{t-1} + \nabla_\theta L(\theta_t - \beta v_{t-1}),\;\; \theta_{t+1} = \theta_t - \eta\,v_t $
+# $` v_t = \beta v_{t-1} + \nabla_\theta L(\theta_t - \beta v_{t-1}),\;\; \theta_{t+1} = \theta_t - \eta\,v_t $
 
  – looks ahead before gradient – often improves momentum convergence. It corrects velocity before computing the gradient, typically yielding sharper speed gains than classical momentum in many tasks.
 
@@ -1423,7 +1423,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **AdaGrad** –
 
-# $ r_t = r_{t-1} + g_t^2,\;\; \theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{r_t}+\epsilon}\,g_t $
+# $` r_t = r_{t-1} + g_t^2,\;\; \theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{r_t}+\epsilon}\,g_t $
 
 – $g_t$: gradient, $r_t$: accumulative square – per-parameter learning rate adapts (decreases) with accumulated gradient magnitude – good for sparse features. Its adaptive steps can cause early learning rate decay, so high-dimensional tasks sometimes require advanced variants or manual damping.
 
@@ -1431,7 +1431,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **RMSProp** –
 
-# $ r_t = \rho r_{t-1} + (1-\rho) g_t^2,\;\; \theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{r_t}+\epsilon}\,g_t $
+# $` r_t = \rho r_{t-1} + (1-\rho) g_t^2,\;\; \theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{r_t}+\epsilon}\,g_t $
 
 – $\rho$: decay – like AdaGrad but with exponential moving average of squared gradients – prevents learning rate from decaying too drastically. Its exponential moving average stabilizes updates but can still be sensitive to tuning the decay parameter across different problems.
 
@@ -1439,7 +1439,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Adam Optimizer** –
 
-# $ m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t,\;\; v_t = \beta_2 v_{t-1} + (1-\beta_2)g_t^2 $ (with bias correction), $ \theta_{t+1} = \theta_t - \frac{\eta\,m_t}{\sqrt{v_t}+\epsilon} $
+# $` m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t,\;\; v_t = \beta_2 v_{t-1} + (1-\beta_2)g_t^2 $` (with bias correction), $` \theta_{t+1} = \theta_t - \frac{\eta\,m_t}{\sqrt{v_t}+\epsilon} `$
 
  – combines momentum (first moment $m_t$) and AdaGrad (second moment $v_t$) – widely used adaptive optimizer for faster convergence. Bias correction is crucial; ignoring it can slow early training phases and degrade performance on large-scale tasks.
 
@@ -1447,7 +1447,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **AdamW (Decoupled Weight Decay)** –
 
-# $ \theta_{t+1} = \theta_t - \eta \Big( \frac{m_t}{\sqrt{v_t}+\epsilon} + \lambda \theta_t \Big)$
+# $` \theta_{t+1} = \theta_t - \eta \Big( \frac{m_t}{\sqrt{v_t}+\epsilon} + \lambda \theta_t \Big)$
 
 – $\lambda$: weight decay – Adam with L2 regularization applied separately (prevents Adam from diminishing regularization effect). Separating weight decay from gradient-based updates preserves the intended regularization strength, especially beneficial in large language models.
 
@@ -1455,9 +1455,9 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **AdaMax** –
 
-# $ u_t = \max(\beta_2 u_{t-1},\,|g_t|),\;\; \theta_{t+1} = \theta_t - \frac{\eta}{1-\beta_1^t} \frac{m_t}{u_t} $
+# $` u_t = \max(\beta_2 u_{t-1},\,|g_t|),\;\; \theta_{t+1} = \theta_t - \frac{\eta}{1-\beta_1^t} \frac{m_t}{u_t} `$
 
- – Adam variant using $\ell_\infty$ norm of gradients ($u_t$) instead of $v_t$
+ – Adam variant using $\ell_\infty$` norm of gradients ($u_t$) instead of $v_t$
 
  – more stable when second moment diverges. Using the infinity norm can mitigate outliers, helping networks remain more robust under extreme gradient bursts.
 
@@ -1465,23 +1465,23 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Nadam** –
 
-# $ m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t $ (similar to Adam), $ \theta_{t+1} = \theta_t - \eta \Big( \frac{\beta_1 m_t + (1-\beta_1)g_t}{\sqrt{v_t}+\epsilon} \Big) $
+# $` m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t $` (similar to Adam), $` \theta_{t+1} = \theta_t - \eta \Big( \frac{\beta_1 m_t + (1-\beta_1)g_t}{\sqrt{v_t}+\epsilon} \Big) `$
 
  – incorporates Nesterov momentum into Adam – slightly faster convergence in some cases. Its gradient lookahead synergy can reduce the need for meticulous manual tuning of momentum-related hyperparameters.
 
 ----------------------
 
-## **AMSGrad** – (Adam with max-correction) $ \hat{v}_t = \max(\hat{v}_{t-1},\,v_t),\;\; \theta_{t+1} = \theta_t - \frac{\eta\,m_t}{\sqrt{\hat{v}_t}+\epsilon} $
+## **AMSGrad** – (Adam with max-correction) `$` \hat{v}_t = \max(\hat{v}_{t-1},\,v_t),\;\; \theta_{t+1} = \theta_t - \frac{\eta\,m_t}{\sqrt{\hat{v}_t}+\epsilon} `$
 
  – ensures non-increasing second moment $\hat{v}_t$
 
- – provides convergence guarantee by preventing $v_t$ from decreasing. Ensuring a non-increasing second moment helps stabilize updates, especially in adversarial or highly non-stationary learning environments.
+ – provides convergence guarantee by preventing $v_t$` from decreasing. Ensuring a non-increasing second moment helps stabilize updates, especially in adversarial or highly non-stationary learning environments.
 
 ----------------------
 
 ## **Lion Optimizer** –
 
-# $ m_t = \beta_1 m_{t-1} + (1-\beta_1)\mathrm{sign}(g_t),\;\; \theta_{t+1} = \theta_t - \eta\, m_t $
+# $` m_t = \beta_1 m_{t-1} + (1-\beta_1)\mathrm{sign}(g_t),\;\; \theta_{t+1} = \theta_t - \eta\, m_t $
 
  – uses sign of gradients with momentum – memory-efficient like SGD, but benefits from sign-based updates (Evolved Sign Momentum). Its sign-based approach can accelerate training but may lose some sensitivity to gradient magnitude details.
 
@@ -1489,15 +1489,15 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Sophia Optimizer** –
 
-# $ H_t = \beta_2 H_{t-1} + (1-\beta_2)\nabla^2 L_t,\;\; \theta_{t+1} = \theta_t - \eta\,\frac{g_t}{\text{diag}(H_t)+\epsilon} $
+# $` H_t = \beta_2 H_{t-1} + (1-\beta_2)\nabla^2 L_t,\;\; \theta_{t+1} = \theta_t - \eta\,\frac{g_t}{\text{diag}(H_t)+\epsilon} `$
 
- – approximates diagonal Hessian $H_t$ to precondition gradients – second-order method for faster convergence in large language model training. Its Hessian approximation needs careful maintenance; inaccurate diagonal estimates can hamper training stability.
+ – approximates diagonal Hessian $H_t$` to precondition gradients – second-order method for faster convergence in large language model training. Its Hessian approximation needs careful maintenance; inaccurate diagonal estimates can hamper training stability.
 
 ----------------------
 
 ## **Newton’s Method** –
 
-# $ \theta_{t+1} = \theta_t - H^{-1} \nabla_\theta L $
+# $` \theta_{t+1} = \theta_t - H^{-1} \nabla_\theta L $
 
 – $H$: Hessian matrix – uses second-order curvature info to jump to optimum in one step for quadratic loss – fast convergence near minima (costly in high dimensions). Hessian inversion scales poorly, so practical usage often relies on approximations or special structures in the loss.
 
@@ -1509,7 +1509,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Cosine Decay** –
 
-# $ \eta(t) = \eta_{\min} + \frac{\eta_{\max}-\eta_{\min}}{2}\Big(1 + \cos\frac{\pi t}{T}\Big) $
+# $` \eta(t) = \eta_{\min} + \frac{\eta_{\max}-\eta_{\min}}{2}\Big(1 + \cos\frac{\pi t}{T}\Big) `$
 
 – $t$: current step, $T$: total steps – gradually anneals learning rate to minimum following a cosine curve – encourages better final convergence. By gradually reducing the learning rate, it can help avoid overshooting minima, often stabilizing later training epochs.
 
@@ -1517,7 +1517,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Gradient Clipping** –
 
-# $ g \leftarrow \min\!\Big(1,\;\frac{\tau}{\|g\|_2}\Big)\,g $
+# $` g \leftarrow \min\!\Big(1,\;\frac{\tau}{\|g\|_2}\Big)\,g $
 
 – $\tau$: threshold – rescales gradient if norm exceeds $\tau$
 
@@ -1527,15 +1527,15 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Stochastic Weight Averaging** –
 
-# $ \bar{\theta} = \frac{1}{M}\sum_{t=T_0}^{T_0+M-1} \theta_t $
+# $` \bar{\theta} = \frac{1}{M}\sum_{t=T_0}^{T_0+M-1} \theta_t $
 
- – average of weights over last $M$ epochs – produces flat minimum solution – often improves generalization (less overfitting). Averaging multiple local minima flattens the loss surface, boosting robustness and reducing variance among parameter configurations.
+ – average of weights over last $M$` epochs – produces flat minimum solution – often improves generalization (less overfitting). Averaging multiple local minima flattens the loss surface, boosting robustness and reducing variance among parameter configurations.
 
 ----------------------
 
 ## **Linear Warmup** –
 
-# $ \eta(t) = \eta_0 \frac{t}{T_w} $ for $t<T_w$ (then use base schedule) – gradually increase learning rate from 0 to $\eta_0$ over $T_w$ steps – avoids instability from too-high initial lr in early training. It helps the optimizer adapt gradually, preventing destructive large updates during the sensitive startup phase of training.
+# $` \eta(t) = \eta_0 \frac{t}{T_w} `$` for $t<T_w$` (then use base schedule) – gradually increase learning rate from 0 to $\eta_0$` over $T_w$` steps – avoids instability from too-high initial lr in early training. It helps the optimizer adapt gradually, preventing destructive large updates during the sensitive startup phase of training.
 
 ----------------------
 
@@ -1741,7 +1741,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **L2 Regularization** –
 
-# $ \Omega(w) = \frac{\lambda}{2}\sum_i w_i^2 $
+# $` \Omega(w) = \frac{\lambda}{2}\sum_i w_i^2 $
 
 – $\lambda$: strength – penalizes large weights (weight decay) – reduces variance and overfitting by shrinking parameters. It also acts as a smooth penalty that can simplify the optimization landscape by encouraging smaller parameter magnitudes.
 
@@ -1749,7 +1749,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **L1 Regularization** –
 
-# $ \Omega(w) = \lambda \sum_i |w_i| $
+# $` \Omega(w) = \lambda \sum_i |w_i| $
 
  – Lasso penalty – encourages sparsity in weights (drives small weights to zero) – feature selection effect. It can produce exact zero coefficients, making models more interpretable and aiding dimensionality reduction.
 
@@ -1757,7 +1757,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Elastic Net** –
 
-# $ \Omega(w) = \lambda_1 \sum_i |w_i| + \lambda_2 \sum_i w_i^2 $
+# $` \Omega(w) = \lambda_1 \sum_i |w_i| + \lambda_2 \sum_i w_i^2 $
 
  – convex combo of L1 and L2 – promotes sparsity while preserving groups of correlated features (used in regression). It balances the trade-off between feature selection and coefficient stability, reducing bias from correlated predictors.
 
@@ -1765,9 +1765,9 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Dropout** –
 
-# $ h_i' = \frac{h_i \cdot m_i}{p} $ with $m_i \sim \text{Bernoulli}(p)$
+# $` h_i' = \frac{h_i \cdot m_i}{p} `$` with $m_i \sim \text{Bernoulli}(p)$
 
- – randomly drop units (set $h_i$ to 0) during training, scale outputs by $1/p$
+ – randomly drop units (set $h_i$` to 0) during training, scale outputs by $1/p$
 
  – prevents co-adaptation, improves generalization in neural nets. It effectively enforces an ensemble-like training, reducing reliance on particular neurons for more robust predictions.
 
@@ -1775,7 +1775,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Label Smoothing** –
 
-# $ y^{\text{smooth}}_c = (1-\epsilon) y_c + \frac{\epsilon}{C} $
+# $` y^{\text{smooth}}_c = (1-\epsilon) y_c + \frac{\epsilon}{C} `$
 
 – $\epsilon$: smoothing coeff – mixes one-hot label with uniform – prevents overconfidence by training on soft targets (improves calibration). It also mitigates label noise issues by distributing probability mass, yielding better uncertainty estimates under noisy conditions.
 
@@ -1783,7 +1783,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Mixup Augmentation** –
 
-# $ \tilde{x} = \lambda x_i + (1-\lambda) x_j,\;\; \tilde{y} = \lambda y_i + (1-\lambda) y_j $
+# $` \tilde{x} = \lambda x_i + (1-\lambda) x_j,\;\; \tilde{y} = \lambda y_i + (1-\lambda) y_j $
 
  – mixes two samples and labels – provides virtual training examples – improves robustness and generalization. It encourages linear behavior in-between training examples, which can help reduce memorization and improve boundary smoothness.
 
@@ -1791,7 +1791,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Knowledge Distillation** –
 
-# $ L = (1-\alpha)H(y,p_s) + \alpha T^2\,D_{KL}(p_t^{(T)}\|p_s^{(T)}) $
+# $` L = (1-\alpha)H(y,p_s) + \alpha T^2\,D_{KL}(p_t^{(T)}\|p_s^{(T)}) `$
 
 – $p_s,p_t$: student/teacher predictions, $T$: temperature – student learns from softened teacher outputs + true labels – transfers knowledge to smaller model. Temperature scaling reveals dark knowledge in teacher logits, allowing the student to learn nuanced class relationships.
 
@@ -1799,15 +1799,15 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Adversarial Training** –
 
-# $ \min_\theta \max_{\|\delta\|\le \epsilon} L(f_\theta(x+\delta),y) $
+# $` \min_\theta \max_{\|\delta\|\le \epsilon} L(f_\theta(x+\delta),y) `$
 
- – inner loop finds worst-case perturbation $\delta$ of input (bounded by $\epsilon$), outer loop trains model to resist it – improves robustness to adversarial examples. It can significantly increase computational cost but provides a strong defense against gradient-based attacks in practical settings.
+ – inner loop finds worst-case perturbation $\delta$` of input (bounded by $\epsilon$), outer loop trains model to resist it – improves robustness to adversarial examples. It can significantly increase computational cost but provides a strong defense against gradient-based attacks in practical settings.
 
 ----------------------
 
 ## **Max-Norm Constraint** –
 
-# $ w \leftarrow w \cdot \min\!\big(1,\;\frac{c}{\|w\|}\big) $
+# $` w \leftarrow w \cdot \min\!\big(1,\;\frac{c}{\|w\|}\big) `$
 
 – $c$: norm cap – projects weight vectors to a maximum length $c$
 
@@ -1904,7 +1904,7 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 
 ## **Batch Normalization** –
 
-# $ \hat{x} = \frac{x - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}},\;\; y = \gamma\,\hat{x} + \beta $
+# $` \hat{x} = \frac{x - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}},\;\; y = \gamma\,\hat{x} + \beta $
 
 – $\mu_B,\sigma_B^2$: batch mean, var; $\gamma,\beta$: learnable scale/shift – normalizes layer activations per mini-batch – accelerates training and provides slight regularization. Be cautious with small batch sizes, as unstable estimates of mean/variance can degrade BN's effectiveness.
 
@@ -1912,15 +1912,15 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 
 ## **Layer Normalization** –
 
-# $ \hat{h}_i = \frac{h_i - \mu_L}{\sqrt{\sigma_L^2 + \epsilon}},\;\; y_i = \alpha\,\hat{h}_i + \beta $
+# $` \hat{h}_i = \frac{h_i - \mu_L}{\sqrt{\sigma_L^2 + \epsilon}},\;\; y_i = \alpha\,\hat{h}_i + \beta $
 
- – normalize $h$ across features for each sample (own mean $\mu_L$, var $\sigma_L^2$) – stabilizes activations in RNNs/Transformers (independent of batch). It can be combined with residual connections to enhance gradient flow and reduce training instability in deep sequences.
+ – normalize $h$` across features for each sample (own mean $\mu_L$, var $\sigma_L^2$) – stabilizes activations in RNNs/Transformers (independent of batch). It can be combined with residual connections to enhance gradient flow and reduce training instability in deep sequences.
 
 ----------------------
 
 ## **Instance Normalization** –
 
-# $ \hat{x}_{n,c} = \frac{x_{n,c} - \mu_{nc}}{\sqrt{\sigma_{nc}^2+\epsilon}} $
+# $` \hat{x}_{n,c} = \frac{x_{n,c} - \mu_{nc}}{\sqrt{\sigma_{nc}^2+\epsilon}} `$
 
  – normalize per sample per channel (especially in image style transfer) – keeps sample statistics, removes instance-specific mean/var – used where batch stat not meaningful. It's particularly effective for style transfer tasks, allowing consistent style normalization across varying batch sizes.
 
@@ -1928,7 +1928,7 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 
 ## **Group Normalization** –
 
-# $ \hat{x}_{(g)} = \frac{x - \mu_{(g)}}{\sqrt{\sigma_{(g)}^2+\epsilon}} $
+# $` \hat{x}_{(g)} = \frac{x - \mu_{(g)}}{\sqrt{\sigma_{(g)}^2+\epsilon}} `$
 
  – divide channels into groups, normalize within each group – effective small-batch alternative to BN (used in object detection nets). It strikes a balance between instance and layer normalization, making it robust in multi-GPU and small-batch regimes.
 
@@ -1936,7 +1936,7 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 
 ## **Weight Normalization** –
 
-# $ \mathbf{w} = \frac{\mathbf{v}}{\|\mathbf{v}\|} g $
+# $` \mathbf{w} = \frac{\mathbf{v}}{\|\mathbf{v}\|} g $
 
 – $\mathbf{v}$: underlying weights, $g$: scale – parameterized re-normalization of weights – decouples length and direction – speeds up training by smoother optimization. By separating magnitude and direction, it can reduce dependency on weight initialization and facilitate better hyperparameter tuning.
 
@@ -1944,7 +1944,7 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 
 ## **Spectral Normalization** –
 
-# $ W_{\text{SN}} = \frac{W}{\sigma_{\max}(W)} $
+# $` W_{\text{SN}} = \frac{W}{\sigma_{\max}(W)} `$
 
  – divides weights by their largest singular value $\sigma_{\max}$
 
@@ -2085,7 +2085,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 
 ## **Fully-Connected Layer** –
 
-# $ h_i^{(l)} = \sum_{j} W_{ij}^{(l)} a_j^{(l-1)} + b_i^{(l)} $
+# $` h_i^{(l)} = \sum_{j} W_{ij}^{(l)} a_j^{(l-1)} + b_i^{(l)} `$
 
 – $W^{(l)},b^{(l)}$: weights, bias; $a^{(l-1)}$: inputs – computes weighted sum of previous layer outputs – basic neuron operation in dense networks. Fully-Connected Layers can account for the majority of parameters in large networks, often contributing significantly to memory usage and overfitting risk.
 
@@ -2093,7 +2093,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 
 ## **Convolution (2D)** –
 
-# $ (f * g)(i,j) = \sum_{u=0}^{H-1}\sum_{v=0}^{W-1} g(u,v)\,f(i+u,\;j+v) $
+# $` (f * g)(i,j) = \sum_{u=0}^{H-1}\sum_{v=0}^{W-1} g(u,v)\,f(i+u,\;j+v) `$
 
 – $f$: input image/feature, $g$: kernel of size $H \times W$
 
@@ -2103,7 +2103,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 
 ## **Depthwise Convolution** –
 
-# $ y_{c}(i,j) = \sum_{u,v} W_{c}(u,v)\,x_{c}(i+u,j+v) $
+# $` y_{c}(i,j) = \sum_{u,v} W_{c}(u,v)\,x_{c}(i+u,j+v) `$
 
  – filter per input channel – convolves each channel independently – used in separable convolution to reduce computation (MobileNets). In some architectures, it drastically cuts computation and memory cost while preserving accuracy, enabling deep models on resource-constrained devices worldwide.
 
@@ -2111,41 +2111,41 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 
 ## **Pointwise Convolution** –
 
-# $ y_{c'}(i,j) = \sum_{c=1}^{C} W_{c',c}\,x_{c}(i,j) $
+# $` y_{c'}(i,j) = \sum_{c=1}^{C} W_{c',c}\,x_{c}(i,j) `$
 
-– $1\times1$ convolution mixing channels – learns cross-channel interactions without spatial context – often follows depthwise conv. This operation is key to channel fusion, often used after depthwise convolutions to form efficient depthwise-separable pipelines in mobile architectures.
+– $1\times1$` convolution mixing channels – learns cross-channel interactions without spatial context – often follows depthwise conv. This operation is key to channel fusion, often used after depthwise convolutions to form efficient depthwise-separable pipelines in mobile architectures.
 
 ----------------------
 
 ## **Dilated Convolution** –
 
-# $ y(i) = \sum_{u} x(i + r\cdot u)\,w(u) $
+# $` y(i) = \sum_{u} x(i + r\cdot u)\,w(u) `$
 
  – dilation rate $r$
 
- – inserts $r-1$ zeros between filter taps – expands receptive field without increasing filter size or computations (used in WaveNet, Atrous conv in segmentation). They expand receptive fields exponentially without extra computations, beneficial in tasks requiring contextual understanding like semantic segmentation and audio generation.
+ – inserts $r-1$` zeros between filter taps – expands receptive field without increasing filter size or computations (used in WaveNet, Atrous conv in segmentation). They expand receptive fields exponentially without extra computations, beneficial in tasks requiring contextual understanding like semantic segmentation and audio generation.
 
 ----------------------
 
 ## **Residual Connection** –
 
-# $ y = F(x) + x $
+# $` y = F(x) + x $
 
-– $F(x)$: output of few layers – skip connection adding input $x$ to output – mitigates vanishing gradients and enables very deep networks (He et al.’15 ResNet). They enable gradient flow through deep structures and are often crucial for training state-of-the-art architectures such as ResNets and Transformers.
+– $F(x)$: output of few layers – skip connection adding input $x$` to output – mitigates vanishing gradients and enables very deep networks (He et al.’15 ResNet). They enable gradient flow through deep structures and are often crucial for training state-of-the-art architectures such as ResNets and Transformers.
 
 ----------------------
 
 ## **Global Avg Pooling** –
 
-# $ z_c = \frac{1}{HW}\sum_{i=1}^H\sum_{j=1}^W x_{c}(i,j) $
+# $` z_c = \frac{1}{HW}\sum_{i=1}^H\sum_{j=1}^W x_{c}(i,j) `$
 
- – average feature map $c$ over spatial dims – produces channel descriptor – used in classification heads (reduces parameters vs fully-connected). Besides reducing parameters, it can alleviate overfitting by enforcing spatial invariance, making features robust for final classification layers in a network.
+ – average feature map $c$` over spatial dims – produces channel descriptor – used in classification heads (reduces parameters vs fully-connected). Besides reducing parameters, it can alleviate overfitting by enforcing spatial invariance, making features robust for final classification layers in a network.
 
 ----------------------
 
 ## **Squeeze-and-Excitation** –
 
-# $ s_c = \frac{1}{HW}\sum_{i,j} x_c(i,j),\;\; z = \sigma(W_2\,\delta(W_1 s)),\;\; y_c = z_c \, x_c $
+# $` s_c = \frac{1}{HW}\sum_{i,j} x_c(i,j),\;\; z = \sigma(W_2\,\delta(W_1 s)),\;\; y_c = z_c \, x_c $
 
  – global pooling “squeezes” to channel vector $s$, then two FC ($\delta$: ReLU, $\sigma$: sigmoid) to “excite” channels by gating $x$
 
@@ -2253,7 +2253,7 @@ y_{n,c} = \sigma_s \frac{x_{n,c} - \mu(x_{n,c})}{\sigma(x_{n,c})} + \mu_s
 
 ## **Recurrent Neuron (RNN)** –
 
-# $ h_t = \phi(W_{xh} x_t + W_{hh} h_{t-1} + b_h) $
+# $` h_t = \phi(W_{xh} x_t + W_{hh} h_{t-1} + b_h) `$
 
 – $x_t$: input, $h_{t-1}$: prev hidden, $\phi$: activation (tanh) – retains state across time – processes sequences by recurrent self-connection. They can struggle with long sequences due to vanishing gradients, requiring specialized architectures or gating to effectively capture extended dependencies.
 
@@ -2269,9 +2269,9 @@ y_{n,c} = \sigma_s \frac{x_{n,c} - \mu(x_{n,c})}{\sigma(x_{n,c})} + \mu_s
 
 ## **GRU Cell** –
 
-# $ z_t = \sigma(W_z[h_{t-1},x_t]),\;\; r_t = \sigma(W_r[h_{t-1},x_t]),\;\; \tilde{h}_t = \tanh(W_h[r_t \odot h_{t-1},\;x_t]),\;\; h_t = (1-z_t)\odot h_{t-1} + z_t \odot \tilde{h}_t $
+# $` z_t = \sigma(W_z[h_{t-1},x_t]),\;\; r_t = \sigma(W_r[h_{t-1},x_t]),\;\; \tilde{h}_t = \tanh(W_h[r_t \odot h_{t-1},\;x_t]),\;\; h_t = (1-z_t)\odot h_{t-1} + z_t \odot \tilde{h}_t $
 
- – update gate $z_t$ controls retention of past, reset gate $r_t$ controls influence of prev $h_{t-1}$
+ – update gate $z_t$` controls retention of past, reset gate $r_t$` controls influence of prev $h_{t-1}$
 
  – simpler than LSTM, still handles long dependencies. They often perform comparably to LSTMs with fewer parameters, making them popular in resource-limited or production-oriented sequence modeling applications for practical deployments.
 
@@ -2519,7 +2519,7 @@ It iteratively “mogrifies” input and hidden vectors before standard LSTM gat
 
 ## **Scaled Dot-Product Attn** –
 
-# $ \text{Attn}(Q,K,V) = \text{softmax}\!\Big(\frac{QK^T}{\sqrt{d}}\Big)\,V $
+# $` \text{Attn}(Q,K,V) = \text{softmax}\!\Big(\frac{QK^T}{\sqrt{d}}\Big)\,V $
 
 – $Q,K,V$: query, key, value matrices; $d$: key dim – computes weighted sum of values by similarity of queries and keys – core of transformer self-attention. The sqrt(d) scaling helps stabilize training by reducing variance in dot products, ensuring consistent gradients across tokens.
 
@@ -2527,7 +2527,7 @@ It iteratively “mogrifies” input and hidden vectors before standard LSTM gat
 
 ## **Multi-Head Attention** –
 
-# $ \text{MHA}(Q,K,V) = [\text{head}_1,\dots,\text{head}_h] W^O,\;\; \text{head}_i = \text{Attn}(Q W_i^Q,\;K W_i^K,\;V W_i^V) $
+# $` \text{MHA}(Q,K,V) = [\text{head}_1,\dots,\text{head}_h] W^O,\;\; \text{head}_i = \text{Attn}(Q W_i^Q,\;K W_i^K,\;V W_i^V) `$
 
  – multiple attention “heads” project input into subspaces with learned $W_i$
 
@@ -2537,7 +2537,7 @@ It iteratively “mogrifies” input and hidden vectors before standard LSTM gat
 
 ## **Additive Attention** –
 
-# $ e_{ij} = v^T \tanh(W_q q_i + W_k k_j) $, $ \alpha_{ij} = \frac{e^{e_{ij}}}{\sum_{j'} e^{e_{ij'}}} $, $c_i = \sum_j \alpha_{ij} v_j $
+# $` e_{ij} = v^T \tanh(W_q q_i + W_k k_j) `$, $` \alpha_{ij} = \frac{e^{e_{ij}}}{\sum_{j'} e^{e_{ij'}}} `$, $c_i = \sum_j \alpha_{ij} v_j $
 
 – $q_i$: query (decoder state), $k_j,v_j$: key, value (encoder) – uses a small neural network to compute attention scores $e_{ij}$
 
@@ -2545,19 +2545,19 @@ It iteratively “mogrifies” input and hidden vectors before standard LSTM gat
 
 ----------------------
 
-## **Self- vs Cross-Attn** – *Self:* $Q=K=V=X$ (same sequence attends to itself); *Cross:* $Q = X_{\text{target}},\;K=V=X_{\text{source}}$
+## **Self- vs Cross-Attn** – *Self:* $Q=K=V=X$` (same sequence attends to itself); *Cross:* $Q = X_{\text{target}},\;K=V=X_{\text{source}}$
 
  – self-attention relates elements within a sequence (e.g. words in sentence), cross-attention integrates information from another sequence (e.g. decoder attending encoder outputs in translation). Combining self- and cross-attention in multi-stage processing allows models to refine internal representations before integrating external context from other sequences.
 
 ----------------------
 
-## **FlashAttention-2** – *Computes* $A = \text{softmax}(QK^T/\sqrt{d})V$ *in tiled blocks to reduce memory* – reorders operations to keep only small submatrices in memory at once – achieves linear memory usage in sequence length – enables training with much longer sequences (faster GPU attention by better parallelism). Its block-based memory footprint enables training with sequence lengths previously too large for GPUs, unlocking new breakthroughs in language modeling.
+## **FlashAttention-2** – *Computes* $A = \text{softmax}(QK^T/\sqrt{d})V$` *in tiled blocks to reduce memory* – reorders operations to keep only small submatrices in memory at once – achieves linear memory usage in sequence length – enables training with much longer sequences (faster GPU attention by better parallelism). Its block-based memory footprint enables training with sequence lengths previously too large for GPUs, unlocking new breakthroughs in language modeling.
 
 ----------------------
 
 ## **Linear Attention (Performer)** –
 
-# $ \text{Attn}(Q,K,V) \approx \phi(Q)[\phi(K)^T V] $
+# $` \text{Attn}(Q,K,V) \approx \phi(Q)[\phi(K)^T V] $
 
 – $\phi$: feature map (e.g. random Fourier mapping) – expresses softmax attention as kernel dot-products – reduces complexity to $O(n)$
 
@@ -2567,7 +2567,7 @@ It iteratively “mogrifies” input and hidden vectors before standard LSTM gat
 
 ## **Local (Windowed) Attn** –
 
-# $ \alpha_{ij} = 0 $ if $|i-j| > w $ (only attend within window $w$) – restricts attention to fixed local context – linear complexity in sequence length – used in Longformer/BigBird for long documents. Despite reduced global context, strategically overlapping windows can preserve essential dependencies in tasks like question answering over lengthy documents.
+# $` \alpha_{ij} = 0 $` if $|i-j| > w $` (only attend within window $w$) – restricts attention to fixed local context – linear complexity in sequence length – used in Longformer/BigBird for long documents. Despite reduced global context, strategically overlapping windows can preserve essential dependencies in tasks like question answering over lengthy documents.
 
 
 
@@ -2581,7 +2581,7 @@ It iteratively “mogrifies” input and hidden vectors before standard LSTM gat
 
 ## **Feed-Forward Layer** –
 
-# $ \text{FFN}(x) = W_2\,\sigma(W_1 x + b_1) + b_2 $
+# $` \text{FFN}(x) = W_2\,\sigma(W_1 x + b_1) + b_2 $
 
  – two linear transformations with ReLU ($\sigma$) – position-wise MLP applied to each sequence element – expands model capacity after attention layer (Transformers typically use high FFN dimension). Scaling up the hidden dimension here significantly boosts model capacity, often at relatively low computational cost compared to deeper layers.
 
@@ -2589,7 +2589,7 @@ It iteratively “mogrifies” input and hidden vectors before standard LSTM gat
 
 ## **Causal Mask** –
 
-# $ a_{ij} = \begin{cases} \frac{q_i \cdot k_j}{\sqrt{d}} & j \le i \\ -\infty & j>i \end{cases} $ (before softmax) – masks out future positions ($j>i$) in self-attention – ensures decoder can’t attend to “future” tokens when generating sequentially (autoregressive property). This strictly enforces left-to-right generation, vital for tasks like language modeling where partial future leakage can degrade performance.
+# $` a_{ij} = \begin{cases} \frac{q_i \cdot k_j}{\sqrt{d}} & j \le i \\ -\infty & j>i \end{cases} `$` (before softmax) – masks out future positions ($j>i$) in self-attention – ensures decoder can’t attend to “future” tokens when generating sequentially (autoregressive property). This strictly enforces left-to-right generation, vital for tasks like language modeling where partial future leakage can degrade performance.
 
 -------------------
 
@@ -2660,7 +2660,7 @@ An interesting fact: By attending each sequence to the other, co-attention captu
 
 ----------------------
 
-## **Sparse/Top-$k$ Attention** –
+## **Sparse/Top-$k$` Attention** –
 
 \[
 \alpha_{ij} =
@@ -2669,7 +2669,7 @@ An interesting fact: By attending each sequence to the other, co-attention captu
 0, & \text{otherwise}
 \end{cases}
 \]
-– $\Omega_i$ contains only top-$k$ scoring keys for query $i$
+– $\Omega_i$` contains only top-$k$` scoring keys for query $i$
 
  – reduces computational cost by pruning low-scoring alignments.
 
@@ -2696,7 +2696,7 @@ An interesting fact: LSH attention dramatically reduces memory usage for very lo
 \Pi = \text{Sinkhorn}\big(\exp(QK^T)\big),\quad
 \text{Attn}(Q,K,V)=\Pi\,V
 \]
-– replaces softmax with a doubly-stochastic matrix $\Pi$ computed by Sinkhorn’s algorithm – encourages balanced attention distribution over queries and keys.
+– replaces softmax with a doubly-stochastic matrix $\Pi$` computed by Sinkhorn’s algorithm – encourages balanced attention distribution over queries and keys.
 
 An interesting fact: By imposing row/column constraints, Sinkhorn attention can learn balanced assignments, resembling a bipartite matching process that may enhance structure in tasks like sorting or more fine-grained alignment scenarios.
 
@@ -2719,7 +2719,7 @@ An interesting fact: Routing transforms the attention map into a structured clus
 \[
 \text{AxialAttn}(X) = \text{Attn}\big(X_{\text{rows}}\big)+\text{Attn}\big(X_{\text{cols}}\big)
 \]
-– processes rows and columns separately in grid-like data (e.g. images) – drastically reduces 2D attention cost from $O(n^2 \times m^2)$ to $O(n \times m^2 + n^2 \times m)$.
+– processes rows and columns separately in grid-like data (e.g. images) – drastically reduces 2D attention cost from $O(n^2 \times m^2)$` to $O(n \times m^2 + n^2 \times m)$.
 
 An interesting fact: Axial attention was pivotal for image-based transformers, splitting attention across each dimension, offering a more efficient approach to capturing spatial relations in high-resolution images or tabular data.
 
@@ -2806,7 +2806,7 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 
 ## **Autoregressive Factorization** –
 
-# $ P(x_1,\ldots,x_n) = \prod_{t=1}^n P(x_t\,|\,x_{<t}) $
+# $` P(x_1,\ldots,x_n) = \prod_{t=1}^n P(x_t\,|\,x_{<t}) `$
 
  – chain rule decomposition of joint probability – basis of sequence models (e.g. language modeling: predict next token given all previous). This factorization can slow inference since each new token depends on all previously generated outputs.
 
@@ -2814,9 +2814,9 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 
 ## **Reparameterization Trick** –
 
-# $ z = \mu(x) + \sigma(x) \odot \epsilon,\;\; \epsilon \sim \mathcal{N}(0,I) $
+# $` z = \mu(x) + \sigma(x) \odot \epsilon,\;\; \epsilon \sim \mathcal{N}(0,I) `$
 
-– $\mu,\sigma$: encoder outputs – expresses random latent $z$ as deterministic transform of input $x$ and noise $\epsilon$
+– $\mu,\sigma$: encoder outputs – expresses random latent $z$` as deterministic transform of input $x$` and noise $\epsilon$
 
  – enables backpropagation through stochastic sampling in VAEs. It also reduces gradient variance, stabilizing the training of variational autoencoders.
 
@@ -2824,7 +2824,7 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 
 ## **Normalizing Flow** –
 
-# $ \log p_X(x) = \log p_Z(f(x)) + \log\!\Big|\det \frac{\partial f(x)}{\partial x}\Big| $
+# $` \log p_X(x) = \log p_Z(f(x)) + \log\!\Big|\det \frac{\partial f(x)}{\partial x}\Big| $
 
 – $f$: invertible transform, $p_Z$: base density (e.g. Gaussian) – computes exact likelihood via change of variables – used to train flow-based generative models (e.g. NICE, RealNVP, Glow). These invertible transforms can be composed to model complex distributions with exact log-likelihoods.
 
@@ -2832,7 +2832,7 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 
 ## **Diffusion Forward** –
 
-# $ q(x_t|x_{t-1}) = \mathcal{N}(x_t;\sqrt{1-\beta_t}\,x_{t-1},\;\beta_t I) $
+# $` q(x_t|x_{t-1}) = \mathcal{N}(x_t;\sqrt{1-\beta_t}\,x_{t-1},\;\beta_t I) `$
 
 – $\beta_t$: noise schedule – gradually adds Gaussian noise at each time step $t$
 
@@ -2842,9 +2842,9 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 
 ## **Diffusion Denoising Loss** –
 
-# $ L(\theta) = \mathbb{E}_{t,\epsilon}\big[\|\epsilon - \epsilon_\theta(x_t,t)\|^2\big] $
+# $` L(\theta) = \mathbb{E}_{t,\epsilon}\big[\|\epsilon - \epsilon_\theta(x_t,t)\|^2\big] $
 
- – model $\epsilon_\theta$ predicts added noise $\epsilon$ at step $t$
+ – model $\epsilon_\theta$` predicts added noise $\epsilon$` at step $t$
 
  – trains diffusion model to reverse the forward noising by predicting noise and subtracting it. It also serves as a form of score matching, learning the gradient of the log-density at each diffusion step.
 
@@ -2852,25 +2852,25 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 
 ## **GAN (Minimax) Objective** –
 
-# $ \min_G \max_D \;\mathbb{E}_{x\sim p_{\text{data}}}[\log D(x)] + \mathbb{E}_{z\sim p(z)}[\log(1 - D(G(z)))] $
+# $` \min_G \max_D \;\mathbb{E}_{x\sim p_{\text{data}}}[\log D(x)] + \mathbb{E}_{z\sim p(z)}[\log(1 - D(G(z)))] $
 
- – adversarial game between generator $G$ and discriminator $D$
+ – adversarial game between generator $G$` and discriminator $D$
 
-– $G$ tries to produce real-like samples $G(z)$ to maximize $D$’s error, $D$ tries to correctly classify real vs fake. Convergence can be delicate, often requiring techniques like gradient penalties or spectral normalization.
+– $G$` tries to produce real-like samples $G(z)$` to maximize $D$’s error, $D$` tries to correctly classify real vs fake. Convergence can be delicate, often requiring techniques like gradient penalties or spectral normalization.
 
 
 
 ## **Energy-Based Model** –
 
-# $ p(x) = \frac{1}{Z} \exp(-E(x)) $
+# $` p(x) = \frac{1}{Z} \exp(-E(x)) `$
 
-– $E(x)$: energy function, $Z$: partition function – assigns unnormalized probability via energy – used in Boltzmann machines, Hopkins (learn generative model by shaping energy landscape). Estimating or approximating the partition function $Z$ is a central challenge often tackled with MCMC.
+– $E(x)$: energy function, $Z$: partition function – assigns unnormalized probability via energy – used in Boltzmann machines, Hopkins (learn generative model by shaping energy landscape). Estimating or approximating the partition function $Z$` is a central challenge often tackled with MCMC.
 
 
 
 ## **Word2Vec Skip-Gram** –
 
-# $ L = -\Big[\log \sigma(u_{w}\!\cdot v_{c^+}) + \sum_{c^-}\log \sigma(-\,u_{w}\!\cdot v_{c^-})\Big] $
+# $` L = -\Big[\log \sigma(u_{w}\!\cdot v_{c^+}) + \sum_{c^-}\log \sigma(-\,u_{w}\!\cdot v_{c^-})\Big] $
 
 – $u_w$: target word vector, $v_{c^+}$: context vector (positive), $v_{c^-}$: negatives – trains word embeddings by making dot-product high for word with its context $c^+$, low with random negatives $c^-$(negative sampling). Subsampling frequent words further speeds up training while retaining embedding quality.
 
@@ -2878,7 +2878,7 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 
 ## **PixelCNN Autoregression** –
 
-# $ p(X) = \prod_{i,j} p(x_{i,j}\,|\,x_{<i,j}, x_{i,<j}) $
+# $` p(X) = \prod_{i,j} p(x_{i,j}\,|\,x_{<i,j}, x_{i,<j}) `$
 
  – image pixels ordered raster-scan – predicts each pixel given those above and to the left – used in PixelCNN generative model for images (autoregressive pixel modeling). Despite high-quality samples, sequential pixel-by-pixel generation can be computationally expensive for large images.
 
@@ -2886,7 +2886,7 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 
 ## **Perplexity (LM)** –
 
-# $ \mathrm{PP} = \exp\!\Big(-\frac{1}{N}\sum_{i=1}^N \log P(w_i|w_{<i})\Big) $
+# $` \mathrm{PP} = \exp\!\Big(-\frac{1}{N}\sum_{i=1}^N \log P(w_i|w_{<i})\Big) `$
 
  – exponential of average cross-entropy for a sequence – lower perplexity indicates a better language model (each word is less “surprising” on average). Improvements in perplexity often align with better text generation but may not ensure gains in all downstream tasks.
 
@@ -3637,25 +3637,25 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Bagging (Bootstrap Aggreg.)** –
 
-# $ \displaystyle \hat{y} = \frac{1}{M}\sum_{m=1}^M f^{(m)}(x) $
+# $` \displaystyle \hat{y} = \frac{1}{M}\sum_{m=1}^M f^{(m)}(x) `$
 
- – average of $M$ model predictions $f^{(m)}$ (each trained on random data subset) – reduces variance by model averaging (random forest uses bagged decision trees). Even a small correlation among base learners can hamper bagging’s benefit, making diversity crucial for performance.
+ – average of $M$` model predictions $f^{(m)}$` (each trained on random data subset) – reduces variance by model averaging (random forest uses bagged decision trees). Even a small correlation among base learners can hamper bagging’s benefit, making diversity crucial for performance.
 
 ----------------------
 
 ## **AdaBoost Weight** –
 
-# $ \displaystyle \alpha^{(m)} = \frac{1}{2}\ln\!\frac{1 - err^{(m)}}{err^{(m)}} $
+# $` \displaystyle \alpha^{(m)} = \frac{1}{2}\ln\!\frac{1 - err^{(m)}}{err^{(m)}} `$
 
 – $err^{(m)}$: error of weak learner $m$
 
- – computes model weight $\alpha$ for ensemble – higher weight for more accurate weak models (AdaBoost). It can sometimes overemphasize misclassified examples, leading to potential overfitting if not carefully regularized.
+ – computes model weight $\alpha$` for ensemble – higher weight for more accurate weak models (AdaBoost). It can sometimes overemphasize misclassified examples, leading to potential overfitting if not carefully regularized.
 
 ----------------------
 
 ## **Gradient Boosting** –
 
-# $ F_0(x) = \bar{y},\quad F_{m}(x) = F_{m-1}(x) + \nu\,h_m(x) $
+# $` F_0(x) = \bar{y},\quad F_{m}(x) = F_{m-1}(x) + \nu\,h_m(x) `$
 
 – $h_m$: new weak learner fit to residuals, $\nu$: shrinkage – stagewise additive model – each tree corrects errors of previous ensemble – powerful ensemble method (XGBoost). Early stopping is crucial to prevent models from memorizing noise in residuals, preserving generalization performance.
 
@@ -3663,7 +3663,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Random Forest Vote** –
 
-# $ \displaystyle \hat{y} = \arg\max_c \sum_{m=1}^M \mathbf{1}(h_m(x)=c) $
+# $` \displaystyle \hat{y} = \arg\max_c \sum_{m=1}^M \mathbf{1}(h_m(x)=c) `$
 
 – $h_m$: $m$th tree prediction – majority voting across ensemble of randomized decision trees – improves generalization and stability over single tree. Increasing the number of trees eventually saturates accuracy but also boosts computational overhead, so balancing is key.
 
@@ -3713,9 +3713,9 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **LoRA (Low-Rank Adaptation)** –
 
-# $ \Delta W = B\,A $ with $B \in \mathbb{R}^{d\times r}, A \in \mathbb{R}^{r\times k}$
+# $` \Delta W = B\,A $` with $B \in \mathbb{R}^{d\times r}, A \in \mathbb{R}^{r\times k}$
 
- – rank-$r$ decomposition of weight update – during fine-tuning, $W = W_0 + \Delta W$
+ – rank-$r$` decomposition of weight update – during fine-tuning, $W = W_0 + \Delta W$
 
  – drastically reduces trainable parameters for large language models by updating via low-rank matrices. Enables quick domain shifts in LLM fine-tuning with minimal overhead, fostering efficient adaptation for specialized tasks.
 
@@ -3723,7 +3723,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Mixture-of-Experts** –
 
-# $ y = \sum_{i=1}^M \pi_i(x)\,f_i(x) $
+# $` y = \sum_{i=1}^M \pi_i(x)\,f_i(x) `$
 
 – $\pi_i(x)$: gating soft assignment (sums to 1), $f_i$: expert model outputs – conditionally routes input to a few expert networks – enables extremely large models with sparse activation (Switch Transformers). Allows distributed training across many experts, improving scalability and model capacity with reduced computational footprint.
 
@@ -3731,31 +3731,31 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Neural ODE** –
 
-# $ \frac{dh(t)}{dt} = f(h(t),\,t;\theta) $
+# $` \frac{dh(t)}{dt} = f(h(t),\,t;\theta) `$
 
- – treats hidden states $h(t)$ as continuous dynamical system defined by ODE – solutions via integrators (e.g. Runge-Kutta) – enables continuous-depth models (memory efficient, adaptive computation). Allows dynamic trade-offs between speed and accuracy by adjusting ODE solver steps during inference.
+ – treats hidden states $h(t)$` as continuous dynamical system defined by ODE – solutions via integrators (e.g. Runge-Kutta) – enables continuous-depth models (memory efficient, adaptive computation). Allows dynamic trade-offs between speed and accuracy by adjusting ODE solver steps during inference.
 
 ----------------------
 
 ## **Backpropagation** –
 
-# $ \displaystyle \frac{\partial L}{\partial w_{ij}^{(l)}} = \delta_j^{(l)}\,a_i^{(l-1)},\;\; \text{with}\;\; \delta^L = \nabla_a L,\;\; \delta^{(l)} = ((W^{(l+1)})^T \delta^{(l+1)}) \odot \phi'(z^{(l)}) $
+# $` \displaystyle \frac{\partial L}{\partial w_{ij}^{(l)}} = \delta_j^{(l)}\,a_i^{(l-1)},\;\; \text{with}\;\; \delta^L = \nabla_a L,\;\; \delta^{(l)} = ((W^{(l+1)})^T \delta^{(l+1)}) \odot \phi'(z^{(l)}) `$
 
- – recursively computes gradients from output layer $L$ back to weights – chain rule applied through network layers – core algorithm for training neural nets. Paved the way for deep networks by efficiently computing gradients, inspiring algorithms like forward-mode auto-differentiation and second-order methods.
+ – recursively computes gradients from output layer $L$` back to weights – chain rule applied through network layers – core algorithm for training neural nets. Paved the way for deep networks by efficiently computing gradients, inspiring algorithms like forward-mode auto-differentiation and second-order methods.
 
 ----------------------
 
 ## **Xavier Initialization** –
 
-# $ \mathrm{Var}(w) = \frac{2}{n_{in}+n_{out}} $
+# $` \mathrm{Var}(w) = \frac{2}{n_{in}+n_{out}} `$
 
- – set initial weights with variance $2/(fan_{in}+fan_{out})$ (often via $U[-\sqrt{6}/\sqrt{fan_{in}+fan_{out}},\,+\sqrt{6}/\sqrt{fan_{in}+fan_{out}}]$) – keeps activations variance stable across layers (good for sigmoid/tanh). Avoids early saturation of activation functions, stabilizing gradient flow and improving training speed in deeper networks.
+ – set initial weights with variance $2/(fan_{in}+fan_{out})$` (often via $U[-\sqrt{6}/\sqrt{fan_{in}+fan_{out}},\,+\sqrt{6}/\sqrt{fan_{in}+fan_{out}}]$) – keeps activations variance stable across layers (good for sigmoid/tanh). Avoids early saturation of activation functions, stabilizing gradient flow and improving training speed in deeper networks.
 
 ----------------------
 
 ## **He Initialization** –
 
-# $ \mathrm{Var}(w) = \frac{2}{n_{in}} $
+# $` \mathrm{Var}(w) = \frac{2}{n_{in}} `$
 
  – larger init variance for ReLU-based layers – preserves signal magnitude through layers by compensating ReLU’s zero output on half inputs – helps avoid vanishing/exploding activations at start. Also suitable for leaky ReLUs, maintaining balanced variance and accelerating convergence in architectures beyond standard ReLU-based layers.
 
@@ -3763,7 +3763,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Bellman Optimality (Q)** –
 
-# $ Q^*(s,a) = r(s,a) + \gamma \mathbb{E}_{s'}[\max_{a'} Q^*(s',a')] $
+# $` Q^*(s,a) = r(s,a) + \gamma \mathbb{E}_{s'}[\max_{a'} Q^*(s',a')] $
 
 – $r(s,a)$: immediate reward, $\gamma$: discount – recursive definition of optimal Q-value – foundation of dynamic programming in RL (solved via value iteration). Forms the theoretical backbone for Q-learning, ensuring that iteratively applying the relation converges to the optimal policy.
 
@@ -3771,7 +3771,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Q-Learning Update** –
 
-# $ Q_{new}(s,a) \leftarrow Q(s,a) + \alpha\,[r + \gamma \max_{a'} Q(s',a') - Q(s,a)] $
+# $` Q_{new}(s,a) \leftarrow Q(s,a) + \alpha\,[r + \gamma \max_{a'} Q(s',a') - Q(s,a)] $
 
 – $\alpha$: learning rate – off-policy TD algorithm – iteratively updates Q towards Bellman target $r+\gamma \max Q(s',\cdot)$
 
@@ -3781,17 +3781,17 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Policy Gradient (REINFORCE)** –
 
-# $ \nabla_\theta J = \mathbb{E}_{\tau \sim \pi_\theta} \Big[\sum_{t=0}^T \nabla_\theta \log \pi_\theta(a_t|s_t)\,G_t \Big] $
+# $` \nabla_\theta J = \mathbb{E}_{\tau \sim \pi_\theta} \Big[\sum_{t=0}^T \nabla_\theta \log \pi_\theta(a_t|s_t)\,G_t \Big] $
 
 – $G_t$: cumulative reward from $t$
 
- – update weights $\theta$ in direction that increases log-probability of actions proportional to observed return – basic policy optimization in RL. Can suffer from high variance, often mitigated by baselines or variance-reduction techniques like advantage functions and reward normalization.
+ – update weights $\theta$` in direction that increases log-probability of actions proportional to observed return – basic policy optimization in RL. Can suffer from high variance, often mitigated by baselines or variance-reduction techniques like advantage functions and reward normalization.
 
 ----------------------
 
 ## **Bellman Expectation (Value)** –
 
-# $ V^\pi(s) = \mathbb{E}_{a\sim\pi} [\,r(s,a) + \gamma V^\pi(s')\,] $
+# $` V^\pi(s) = \mathbb{E}_{a\sim\pi} [\,r(s,a) + \gamma V^\pi(s')\,] $
 
  – under policy $\pi$
 
@@ -3801,15 +3801,15 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Advantage Function** –
 
-# $ A(s,a) = Q(s,a) - V(s) $
+# $` A(s,a) = Q(s,a) - V(s) `$
 
- – extra reward advantage of action $a$ over average – measures how much better an action is than typical – used in actor-critic and PPO to reduce variance of policy gradient (by subtracting baseline $V(s)$). Encapsulates how each action compares to average performance, guiding efficient exploration and faster convergence in policy optimization.
+ – extra reward advantage of action $a$` over average – measures how much better an action is than typical – used in actor-critic and PPO to reduce variance of policy gradient (by subtracting baseline $V(s)$). Encapsulates how each action compares to average performance, guiding efficient exploration and faster convergence in policy optimization.
 
 ----------------------
 
 ## **Rotary Positional Embed.** –
 
-# $ (q_{2i}, q_{2i+1}) \mapsto (q_{2i}\cos \theta + q_{2i+1}\sin \theta,\;\; -\,q_{2i}\sin \theta + q_{2i+1}\cos \theta) $ with $\theta = \frac{pos}{10000^{2i/d}}$
+# $` (q_{2i}, q_{2i+1}) \mapsto (q_{2i}\cos \theta + q_{2i+1}\sin \theta,\;\; -\,q_{2i}\sin \theta + q_{2i+1}\cos \theta) `$` with $\theta = \frac{pos}{10000^{2i/d}}$
 
  – applies a rotation to each query/key pair of dimensions $(2i,2i+1)$
 
@@ -3819,35 +3819,35 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **AdaDelta** –
 
-# $ s_t = \rho s_{t-1} + (1-\rho) g_t^2,\;\; \Delta \theta_t = -\,\frac{\sqrt{\Delta \theta_{t-1}^2+\epsilon}}{\sqrt{s_t+\epsilon}}\,g_t $
+# $` s_t = \rho s_{t-1} + (1-\rho) g_t^2,\;\; \Delta \theta_t = -\,\frac{\sqrt{\Delta \theta_{t-1}^2+\epsilon}}{\sqrt{s_t+\epsilon}}\,g_t $
 
- – no external learning rate – adapts step $\Delta \theta$ using running RMS of gradients $s_t$ and updates – improvement over AdaGrad for continuing training without decay. Eliminates the need for a global learning rate, allowing more robust parameter updates across a wide range of training scenarios.
+ – no external learning rate – adapts step $\Delta \theta$` using running RMS of gradients $s_t$` and updates – improvement over AdaGrad for continuing training without decay. Eliminates the need for a global learning rate, allowing more robust parameter updates across a wide range of training scenarios.
 
 ----------------------
 
 ## **FGSM Attack** –
 
-# $ \delta = \epsilon\,\mathrm{sign}(\nabla_x L(x,y)) $
+# $` \delta = \epsilon\,\mathrm{sign}(\nabla_x L(x,y)) `$
 
-– $\epsilon$: small step – Fast Gradient Sign Method – generates adversarial example $x+\delta$ by taking a single step in input space along gradient sign – exposes model vulnerabilities, used to augment training for robustness. Demonstrates how small, adversarial perturbations exploit local gradients, prompting development of stronger defenses like adversarial training.
+– $\epsilon$: small step – Fast Gradient Sign Method – generates adversarial example $x+\delta$` by taking a single step in input space along gradient sign – exposes model vulnerabilities, used to augment training for robustness. Demonstrates how small, adversarial perturbations exploit local gradients, prompting development of stronger defenses like adversarial training.
 
 ----------------------
 
 ## **Weight Quantization** –
 
-# $ q = \text{round}\!\Big(\frac{w}{\Delta}\Big) \cdot \Delta $
+# $` q = \text{round}\!\Big(\frac{w}{\Delta}\Big) \cdot \Delta $
 
-– $\Delta$: quantization step (scale) – converts full-precision weight $w$ to nearest discrete level – reduces model to low-bit representation (e.g. int8) for faster inference and smaller storage at slight accuracy cost. May involve post-training calibration or quantization-aware training, balancing hardware constraints with acceptable performance trade-offs.
+– $\Delta$: quantization step (scale) – converts full-precision weight $w$` to nearest discrete level – reduces model to low-bit representation (e.g. int8) for faster inference and smaller storage at slight accuracy cost. May involve post-training calibration or quantization-aware training, balancing hardware constraints with acceptable performance trade-offs.
 
 ----------------------
 
-## **Model Pruning** – remove weights where $|w| < \tau$ (below threshold) or lowest-magnitude $p\%$ weights – eliminates least important connections – yields sparse model with fewer parameters – trade-off: compress model with minimal loss in accuracy (often combined with fine-tuning). Structured pruning targets entire filters or channels, providing more efficient inference on hardware with parallel processing constraints.
+## **Model Pruning** – remove weights where $|w| < \tau$` (below threshold) or lowest-magnitude $p\%$` weights – eliminates least important connections – yields sparse model with fewer parameters – trade-off: compress model with minimal loss in accuracy (often combined with fine-tuning). Structured pruning targets entire filters or channels, providing more efficient inference on hardware with parallel processing constraints.
 
 ----------------------
 
 ## **Natural Gradient** –
 
-# $ \theta_{t+1} = \theta_t - \eta\,F^{-1} \nabla_\theta L $
+# $` \theta_{t+1} = \theta_t - \eta\,F^{-1} \nabla_\theta L $
 
 – $F$: Fisher information matrix – preconditions gradient by curvature (FIM) – moves in parameter space invariant to reparameterization – used in advanced optimizers (e.g. in policy gradient methods for RL to improve convergence). Can be computationally expensive for large models, but approximations like Kronecker-Factored Curvature reduce overhead significantly.
 
@@ -3855,25 +3855,25 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **One-Hot Encoding** –
 
-# $ \text{onehot}(y)_i = \mathbf{1}\{y = i\} $
+# $` \text{onehot}(y)_i = \mathbf{1}\{y = i\} `$
 
- – represents categorical variable $y$ as binary vector (1 at index of category, 0 elsewhere) – enables categorical inputs to be used in ML models (converted to numerical features). Expands feature space quickly for high-cardinality data, motivating alternatives like embeddings or hashing tricks.
+ – represents categorical variable $y$` as binary vector (1 at index of category, 0 elsewhere) – enables categorical inputs to be used in ML models (converted to numerical features). Expands feature space quickly for high-cardinality data, motivating alternatives like embeddings or hashing tricks.
 
 ----------------------
 
 ## **SVM Dual Form** –
 
-# $ L_D(\alpha) = \sum_{i=1}^N \alpha_i - \frac{1}{2}\sum_{i,j} \alpha_i \alpha_j y_i y_j K(x_i,x_j) $ s.t. $\sum_i \alpha_i y_i = 0,\;\alpha_i \ge 0$
+# $` L_D(\alpha) = \sum_{i=1}^N \alpha_i - \frac{1}{2}\sum_{i,j} \alpha_i \alpha_j y_i y_j K(x_i,x_j) `$` s.t. $\sum_i \alpha_i y_i = 0,\;\alpha_i \ge 0$
 
  – Lagrange dual of SVM
 
- – $\alpha_i$ are support values – solution gives $\alpha_i$ for support vectors defining decision boundary (enables kernel trick). Allows nonlinear decision boundaries in high-dimensional spaces through kernels, boosting performance without explicitly mapping data.
+ – $\alpha_i$` are support values – solution gives $\alpha_i$` for support vectors defining decision boundary (enables kernel trick). Allows nonlinear decision boundaries in high-dimensional spaces through kernels, boosting performance without explicitly mapping data.
 
 ----------------------
 
 ## **t-SNE KL Loss** –
 
-# $ C = \sum_{i,j} p_{ij} \log \frac{p_{ij}}{q_{ij}} $
+# $` C = \sum_{i,j} p_{ij} \log \frac{p_{ij}}{q_{ij}} `$
 
 – $p_{ij}$: high-dim Gaussian affinity, $q_{ij}$: low-dim Student t affinity – t-SNE finds low-dimensional embedding that minimizes KL divergence between original and embedded pairwise similarities – used for visualizing high-dimensional data clusters. Careful selection of perplexity and learning rate is crucial to avoid misleading cluster patterns or excessive crowding in plots.
 
