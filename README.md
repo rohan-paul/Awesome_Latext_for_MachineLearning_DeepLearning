@@ -202,6 +202,7 @@ Linear logits yield sigmoid-class probability. It can be extended with regulariz
 ## **K-Means** –
 
 \[
+\Huge
 \min_{C_1,\dots,C_K}\sum_{k=1}^K\sum_{x\in C_k}\|x-\mu_k\|^2
 \]
 
@@ -219,6 +220,7 @@ w^* = \arg\min_{w}\Bigl(\|y - Xw\|^2 + \alpha\lambda\|w\|_1 + \frac{1-\alpha}{2}
 ## **K-Nearest Neighbors** –
 
 \[
+\Huge
 \hat{y} = \text{majority}\bigl(\{y_i \mid x_i \in N_k(x)\}\bigr)\quad\text{or}\quad \hat{y}=\frac{1}{k}\sum_{x_i\in N_k(x)}y_i
 \]
 – classification/regression –
@@ -233,6 +235,7 @@ Balances L1’s feature selection with L2’s stability, often outperforming pur
 ## **Decision Tree** –
 
 \[
+\Huge
 \text{Split}(D)=\arg\max_{\text{feature},\,\text{threshold}} \bigl[\text{ImpurityReduction}(D)\bigr]
 \]
 – recursively partitions –
@@ -243,6 +246,7 @@ Uses a greedy approach to split data until stopping criteria. It’s easy to int
 ## **Random Forest** –
 
 \[
+\Huge
 \hat{f}(x) = \frac{1}{M}\sum_{m=1}^M f_m(x)
 \]
 – bagged decision trees –
@@ -263,6 +267,7 @@ Clusters points in dense regions and labels outliers as noise, automatically dis
 ## **Hierarchical Clustering** –
 
 \[
+\Huge
 \text{Dendrogram construction via} \quad d(C_i,C_j)=\min(\|x_p - x_q\|)
 \]
 – e.g., single linkage –
@@ -283,6 +288,7 @@ Separates a multivariate signal into additive subcomponents assumed non-Gaussian
 ## **Principal Component Analysis (PCA)** –
 
 \[
+\Huge
 \max_{W}\,\text{trace}\bigl(W^T S_X W\bigr)\quad\text{subject to}\;W^T W=I
 \]
 – finds directions of max variance –
@@ -293,6 +299,7 @@ Reduces dimensionality by projecting data onto uncorrelated axes of maximal vari
 ## **Kernel PCA** –
 
 \[
+\Huge
 \max_{\alpha}\,\alpha^T K \alpha\quad\text{subject to}\;\alpha^T \mathbf{1} = 0,\;\|\alpha\|=1
 \]
 – nonlinear PCA –
@@ -334,6 +341,7 @@ Captures sequences where observations depend on underlying hidden states that ev
 ## **Kalman Filter** –
 
 \[
+\Huge
 \hat{x}_{t\mid t}=\hat{x}_{t\mid t-1}+K_t\Bigl(y_t - H\,\hat{x}_{t\mid t-1}\Bigr)
 \]
 – linear-Gaussian state estimation –
@@ -364,6 +372,7 @@ Updates Q-values based on the actual action chosen (\(a'\)), maintaining consist
 ## **Policy Gradient** –
 
 \[
+\Huge
 \nabla_\theta J(\theta) \;=\; \mathbb{E}_{\tau\sim\pi_\theta}\Bigl[\sum_{t}\nabla_\theta \log\pi_\theta(a_t\mid s_t)\,R(\tau)\Bigr]
 \]
 – direct optimization of policy –
@@ -374,6 +383,7 @@ Optimizes parameterized policies by following the gradient of expected returns. 
 ## **Actor-Critic** –
 
 \[
+\Huge
 \nabla_\theta J(\theta) \approx \nabla_\theta \log\pi_\theta(a_t\mid s_t)\,\delta_t,\quad \delta_t=r_t+\gamma V_{\phi}(s_{t+1})-V_{\phi}(s_t)
 \]
 – hybrid RL approach –
@@ -414,6 +424,7 @@ Specialized for grid-like data (e.g., images), using convolution to extract loca
 ## **GAN (Generative Adversarial Network)** –
 
 \[
+\Huge
 \min_G \max_D \; V(D,G) = \mathbb{E}_{x\sim p_{data}}[\log D(x)] + \mathbb{E}_{z\sim p_z}[\log (1 - D(G(z)))]
 \]
 – generator vs. discriminator –
@@ -424,6 +435,7 @@ Trains two competing networks: a generator synthesizes data while a discriminato
 ## **VAE (Variational Autoencoder)** –
 
 \[
+\Huge
 \mathcal{L}(\theta,\phi) = \mathbb{E}_{q_\phi(z\mid x)}[\log p_\theta(x\mid z)] - D_{\mathrm{KL}}\bigl(q_\phi(z\mid x)\,\|\,p(z)\bigr)
 \]
 – probabilistic generative model –
@@ -1546,6 +1558,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 ## **Adadelta** –
 
 \[
+\Huge
 \Delta \theta_t = -\,\frac{\sqrt{E[\Delta \theta^2]_{t-1} + \epsilon}}{\sqrt{E[g^2]_t + \epsilon}}\; g_t,
 \quad
 E[\Delta \theta^2]_t = \rho \,E[\Delta \theta^2]_{t-1} \;+\; (1-\rho)\,\Delta \theta_t^{2}
@@ -1557,6 +1570,7 @@ E[\Delta \theta^2]_t = \rho \,E[\Delta \theta^2]_{t-1} \;+\; (1-\rho)\,\Delta \t
 ## **RAdam (Rectified Adam)** – combines Adam’s moments with a “variance rectification” term. When the running variance of gradients is small, it modifies the effective step size:
 
 \[
+\Huge
 \theta_{t+1} = \theta_t \;-\; \eta \,\frac{m_t}{\sqrt{\widehat{v}_t} + \epsilon} \times \mathrm{rectification}(t)
 \]
 – often mitigates unstable early steps, improving overall training reliability.
@@ -1566,6 +1580,7 @@ E[\Delta \theta^2]_t = \rho \,E[\Delta \theta^2]_{t-1} \;+\; (1-\rho)\,\Delta \t
 ## **AdaBound** –
 
 \[
+\Huge
 \eta_t = \mathrm{clip}\!\Bigl(\tfrac{\eta}{\sqrt{\widehat{v}_t} + \epsilon},\;\alpha_{\text{low}},\,\alpha_{\text{high}}\Bigr),
 \quad
 \theta_{t+1} = \theta_t \;-\; \eta_t \, m_t
@@ -1577,6 +1592,7 @@ E[\Delta \theta^2]_t = \rho \,E[\Delta \theta^2]_{t-1} \;+\; (1-\rho)\,\Delta \t
 ## **AccSGD** –
 
 \[
+\Huge
 \theta_{t+1} = \theta_t \;-\; \eta \,\Bigl( \nabla L(\theta_t) + \gamma \,\sum_{i=1}^k \alpha_i \,(\theta_t - \theta_{t-i})\Bigr)
 \]
 – an accelerated variant of SGD that uses historical parameter states in the update. It can converge faster than plain SGD, especially on convex or smooth problems, by reducing gradient variance over iterations.
@@ -1598,6 +1614,7 @@ C_t = \beta_2 C_{t-1} + (1-\beta_2)\,\mathrm{row\_sum}(g_t^2),
 ## **Apollo** – performs a local quadratic approximation of the objective:
 
 \[
+\Huge
 \theta_{t+1}
 = \theta_t \;-\; \eta \,\Bigl(\alpha_t + \|g_t\|^2\Bigr)^{-1} \,g_t
 \]
@@ -1639,6 +1656,7 @@ F(\theta) \approx A(\theta) \otimes G(\theta),
 ## **Natural Gradient Descent** –
 
 \[
+\Huge
 \theta_{t+1} = \theta_t \;-\;\eta \,F(\theta_t)^{-1}\,\nabla_\theta L(\theta_t)
 \]
 where \(F(\theta)\) is the Fisher information matrix. It aligns updates with the underlying manifold of model parameters, often resulting in more stable progress, especially in probabilistic models and policy gradients.
@@ -1648,6 +1666,7 @@ where \(F(\theta)\) is the Fisher information matrix. It aligns updates with the
 ## **SVRG** (Stochastic Variance Reduced Gradient) –
 
 \[
+\Huge
 \theta_{t+1}
 = \theta_t \;-\; \eta \,\Bigl(\nabla f(\theta_t) - \nabla f(\tilde{\theta}) \;+\; \tfrac{1}{n}\sum_{i=1}^n \nabla f_i(\tilde{\theta})\Bigr)
 \]
@@ -1702,6 +1721,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 ## **Evolution Strategies** – a broader class of gradient-free algorithms:
 
 \[
+\Huge
 \theta_{t+1} = \theta_t + \alpha \,\frac{1}{\mu}\sum_{k=1}^\mu r_k \,\nabla_{\theta}\log \pi_\theta(x_k)
 \]
 – rely on sampling and performance-based selection. They optimize parameters by simulating population-based mutations, useful for non-differentiable or deceptive objective surfaces.
@@ -1711,6 +1731,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 ## **TRPO (Trust Region Policy Optimization)** –
 
 \[
+\Huge
 \max_\theta \;\mathbb{E}\!\Bigl[\tfrac{\pi_{\theta}(a\mid s)}{\pi_{\theta_{\mathrm{old}}}(a\mid s)}\,A^{\pi_{\theta_{\mathrm{old}}}}(s,a)\Bigr]
 \quad
 \text{subject to } D_{\mathrm{KL}}\bigl(\pi_{\theta_{\mathrm{old}}}\|\pi_\theta\bigr) < \delta
@@ -1722,6 +1743,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 ## **FTRL (Follow-The-Regularized-Leader)** –
 
 \[
+\Huge
 \theta_{t+1} = \arg\min_\theta \,\Bigl(\sum_{\tau=1}^t g_\tau^T \theta + \tfrac{1}{\alpha}\,R(\theta)\Bigr)
 \]
 – integrates a regularization term each step to balance accumulated gradient information. Often used in sparse, online learning contexts (like ad click prediction) for controlled and robust parameter updates.
@@ -1731,6 +1753,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 ## **SAGA** –
 
 \[
+\Huge
 \theta_{t+1} = \theta_t - \eta \,\Bigl(\nabla f_i(\theta_t) - \nabla f_i(\alpha_i) + \tfrac{1}{n}\!\sum_{j=1}^n \nabla f_j(\alpha_j)\Bigr)
 \]
 – a stochastic gradient method with memory. It maintains a stored gradient for each sample, updating one at a time, achieving fast linear convergence on smooth, strongly convex problems without full batch passes.
@@ -1836,6 +1859,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 ## **CutMix** –
 
 \[
+\Huge
 \tilde{x} = M \odot x_i + (1 - M)\odot x_j, \quad
 \tilde{y} = \lambda\,y_i + (1 - \lambda)\,y_j
 \]
@@ -1885,6 +1909,7 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 ## **Gradient Penalty** –
 
 \[
+\Huge
 \Omega_{\text{GP}} = \lambda \,\bigl(\|\nabla_{\hat{x}}D(\hat{x})\|_{2} - 1\bigr)^{2}
 \]
 – used in WGAN-GP to enforce the Lipschitz constraint – stabilizes GAN training and reduces mode collapse by penalizing large gradient norms.
@@ -1894,6 +1919,7 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 ## **Jacobian Regularization** –
 
 \[
+\Huge
 \Omega_{\text{Jac}} = \lambda \,\bigl\|\nabla_{x} f_{\theta}(x)\bigr\|_F^2
 \]
 – penalizes high sensitivity of outputs w.r.t. inputs – promotes smoother decision boundaries. It lessens vulnerability to small input perturbations while aiding generalization in deep networks.
@@ -1955,6 +1981,7 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 ## **Batch Renormalization** –
 
 \[
+\Huge
 \hat{x}^{(i)} = \frac{x^{(i)} - \hat{\mu}_B}{\sqrt{\hat{\sigma}_B^2 + \epsilon}}
 \quad\text{where}\quad
 \hat{\mu}_B = r\,\mu_B + d,\quad
@@ -1976,6 +2003,7 @@ y = \frac{x}{\sqrt{\eta + \mathrm{mean}(x^2)}}\,\gamma + \beta
 ## **Online Normalization** –
 
 \[
+\Huge
 \hat{x}_t = \frac{x_t - \widehat{\mu}_t}{\sqrt{\widehat{\sigma}_t^2 + \epsilon}}
 \]
 – incrementally updates mean/variance for each incoming sample. It supports data streaming scenarios with large or unbounded datasets and is useful when full-batch statistics are unavailable or memory-consuming to compute at scale.
@@ -1985,6 +2013,7 @@ y = \frac{x}{\sqrt{\eta + \mathrm{mean}(x^2)}}\,\gamma + \beta
 ## **Cross-Channel Normalization (CCN)** –
 
 \[
+\Huge
 \hat{x}_{n,c,h,w} = \frac{x_{n,c,h,w}}{\sqrt{k + \alpha \sum_{c' \in \mathcal{C}} \left(x_{n,c',h,w}\right)^2}}
 \]
 – normalizes a neuron’s response using neighboring channel intensities. Typically found in early CNN architectures (inspired by biological lateral inhibition), it can help reduce redundancy and encourage competition among feature channels.
@@ -1994,6 +2023,7 @@ y = \frac{x}{\sqrt{\eta + \mathrm{mean}(x^2)}}\,\gamma + \beta
 ## **Local Contrast Normalization (LCN)** –
 
 \[
+\Huge
 \hat{x}_{n,c,h,w} = \frac{x_{n,c,h,w} - \mu_{n,c,h,w}}{\max\!\Big(\sigma_{n,c,h,w},\,\sigma_0\Big)}
 \]
 – subtracts local mean and divides by local standard deviation within a spatial neighborhood. It enhances local feature discrimination by reducing low-frequency biases, commonly used in early vision-based models.
@@ -2003,6 +2033,7 @@ y = \frac{x}{\sqrt{\eta + \mathrm{mean}(x^2)}}\,\gamma + \beta
 ## **RMS Normalization (RMSNorm)** –
 
 \[
+\Huge
 \mathrm{RMSNorm}(x) = \gamma \cdot \frac{x}{\sqrt{\frac{1}{d}\sum_{i=1}^{d} x_i^2 + \epsilon}}
 \]
 – uses the root mean square of activations for normalization, without mean subtraction. This approach can stabilize training in deep sequence models and sometimes outperforms layer normalization for certain Transformer variants.
@@ -2012,6 +2043,7 @@ y = \frac{x}{\sqrt{\eta + \mathrm{mean}(x^2)}}\,\gamma + \beta
 ## **Switchable Normalization** –
 
 \[
+\Huge
 \hat{x} = \alpha_{\mathrm{BN}}\cdot \hat{x}_{\mathrm{BN}} + \alpha_{\mathrm{IN}}\cdot \hat{x}_{\mathrm{IN}} + \alpha_{\mathrm{LN}}\cdot \hat{x}_{\mathrm{LN}},\quad \alpha_{\mathrm{BN}} + \alpha_{\mathrm{IN}} + \alpha_{\mathrm{LN}} = 1
 \]
 – learns to combine Batch, Instance, and Layer Normalization adaptively. This hybrid approach can dynamically select the most suitable normalization statistics, improving model robustness across varied tasks and batch sizes.
@@ -2021,6 +2053,7 @@ y = \frac{x}{\sqrt{\eta + \mathrm{mean}(x^2)}}\,\gamma + \beta
 ## **Batch-Instance Normalization (BIN)** –
 
 \[
+\Huge
 \hat{x} = \lambda \cdot \hat{x}_{\mathrm{BN}} + (1 - \lambda) \cdot \hat{x}_{\mathrm{IN}}
 \]
 – interpolates between batch and instance statistics. Useful in style transfer tasks and content-sensitive applications, offering a balance between batch-level consistency and per-instance adaptation for more flexible feature transformations.
@@ -2039,6 +2072,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 ## **AdaBatchNorm** –
 
 \[
+\Huge
 \hat{x} = \gamma \left(\frac{x - \mu_{adapt}}{\sqrt{\sigma_{adapt}^2 + \epsilon}}\right) + \beta
 \]
 – adapts running mean and variance with domain-specific parameters or different tasks. Particularly suited for domain adaptation or multi-task learning, where different data distributions share the same model but require customized normalization statistics.
@@ -2048,6 +2082,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 ## **Weight Standardization** –
 
 \[
+\Huge
 \mathbf{W}_{std} = \frac{\mathbf{W} - \mu_w}{\sqrt{\sigma_w^2 + \epsilon}}
 \]
 – normalizes weights channel-wise before convolution/linear operations. Unlike weight normalization, it subtracts the mean and divides by standard deviation for each filter, leading to smoother loss landscapes and often improving performance in CNNs.
@@ -2057,6 +2092,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 ## **Divisive Normalization** –
 
 \[
+\Huge
 \hat{x}_{i} = \frac{x_i}{\alpha + \sum_{j} \beta_{ij} x_j^2}
 \]
 – a biologically inspired model that divides activations by a combination of themselves and their neighbors. This reduces global activity levels and has been used to improve contrast and feature competition in early visual layers.
@@ -2066,6 +2102,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 ## **Power Normalization** –
 
 \[
+\Huge
 \hat{x} = \left(\frac{x}{\|x\|_p + \epsilon}\right)^{\!\!\alpha}\,\gamma + \beta
 \]
 – rescales features by their \(\ell_p\) norm, raised to a learnable or fixed exponent \(\alpha\). It can emphasize or de-emphasize sparse components and is useful in tasks like fine-grained recognition or robust embedding learning.
@@ -2075,6 +2112,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 ## **Cross-GPU Batch Normalization (SyncBN)** –
 
 \[
+\Huge
 \hat{x} = \frac{x - \mu_{\mathrm{sync}}}{\sqrt{\sigma_{\mathrm{sync}}^2 + \epsilon}}
 \]
 – synchronizes mean and variance across multiple GPUs to maintain consistent batch statistics in data-parallel training. It alleviates discrepancies in normalization when per-device batch sizes are small, often boosting multi-GPU performance.
@@ -2179,6 +2217,7 @@ x & x \ge 0 \\
 ## **Gated Recurrent Unit (GRU)** –
 
 \[
+\Huge
 \begin{aligned}
 z_t &= \sigma(W_z x_t + U_z h_{t-1}),\\
 r_t &= \sigma(W_r x_t + U_r h_{t-1}),\\
@@ -2193,6 +2232,7 @@ h_t &= (1 - z_t)\,h_{t-1} + z_t\,\tilde{h}_t
 ## **Long Short-Term Memory (LSTM)** –
 
 \[
+\Huge
 \begin{aligned}
 f_t &= \sigma(W_f [h_{t-1}, x_t] + b_f),\\
 i_t &= \sigma(W_i [h_{t-1}, x_t] + b_i),\\
@@ -2280,6 +2320,7 @@ y_{n,c} = \sigma_s \frac{x_{n,c} - \mu(x_{n,c})}{\sigma(x_{n,c})} + \mu_s
 ## **Bidirectional RNN (BiRNN)**
 
 \[
+\Huge
 \overrightarrow{h}_t = \phi\big(W_{\overrightarrow{h}x}x_t + W_{\overrightarrow{h}\overrightarrow{h}}\overrightarrow{h}_{t-1} + b_{\overrightarrow{h}}\big),
 \quad
 \overleftarrow{h}_t = \phi\big(W_{\overleftarrow{h}x}x_t + W_{\overleftarrow{h}\overleftarrow{h}}\overleftarrow{h}_{t+1} + b_{\overleftarrow{h}}\big)
@@ -2301,6 +2342,7 @@ i_t = \sigma\big(W_{i}[h_{t-1}, x_t, c_{t-1}] + b_i\big),
 o_t = \sigma\big(W_{o}[h_{t-1}, x_t, c_{t}] + b_o\big)
 \]
 \[
+\Huge
 \tilde{c}_t = \tanh\big(W_{c}[h_{t-1}, x_t] + b_c\big),
 \quad
 c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t,
@@ -2420,6 +2462,7 @@ They skip certain timesteps, connecting \(h_t\) with \(h_{t-D}\) instead of \(h_
 ## **Phased LSTM**
 
 \[
+\Huge
 \alpha_t = \text{pulse}(t; \tau, r),
 \quad
 \tilde{c}_t = \tanh\big(W_c[h_{t-1}, x_t]\big),
@@ -2479,6 +2522,7 @@ Uses highway “transform” gates to regulate hidden-state updates. This approa
 ## **HyperLSTM**
 
 \[
+\Huge
 \theta_t = LSTM_{\text{hyper}}\big(x_t, \theta_{t-1}\big),
 \quad
 h_t = LSTM_{\text{main}}\big(x_t, h_{t-1}, \theta_t\big)
@@ -2609,6 +2653,7 @@ An interesting fact: Despite its simplicity, Luong’s formulation can match add
 ## **Hard Monotonic Attention** –
 
 \[
+\Huge
 \alpha_{ij} = \begin{cases}
 \prod_{k=1}^{j-1}(1 - p_{ik}) \cdot p_{ij} & j \le \text{length}(x) \\
 0 & \text{otherwise}
@@ -2623,6 +2668,7 @@ An interesting fact: Hard monotonic attention can reduce computational overhead 
 ## **Gated Attention** –
 
 \[
+\Huge
 \text{GA}(Q,K,V) = \sigma\big(U\,[Q\,||\,K]\big) \odot V
 \]
 – concatenates query and key, passes through a learned gate`$\sigma(\cdot)$, then scales values`$V`$
@@ -2636,6 +2682,7 @@ An interesting fact: Gated attention merges the gating concept from LSTM/GRU wit
 ## **Hierarchical Attention** –
 
 \[
+\Huge
 \alpha_{ij}^{(\text{word})} = \frac{\exp\big(u_{ij}\big)}{\sum_{k}\exp\big(u_{ik}\big)},\quad
 \alpha_{i}^{(\text{sentence})} = \frac{\exp\big(u_{i}\big)}{\sum_{m}\exp\big(u_{m}\big)}
 \]
@@ -2663,6 +2710,7 @@ An interesting fact: By attending each sequence to the other, co-attention captu
 ## **Sparse/Top-$k$` Attention** –
 
 \[
+\Huge
 \alpha_{ij} =
 \begin{cases}
 \frac{\exp(e_{ij})}{\sum_{k \in \Omega_i}\exp(e_{ik})}, & j \in \Omega_i \\
@@ -2680,6 +2728,7 @@ An interesting fact: Sparse attention not only speeds up training for lengthy se
 ## **LSH Attention (Reformer)** –
 
 \[
+\Huge
 \text{Attn}_{\text{LSH}}(Q,K,V)=\text{concat}\Big(\sum_{j\in \mathcal{B}_i}\alpha_{ij}v_j\Big),
 \]
 – uses locality-sensitive hashing to group similar queries/keys into buckets`$\mathcal{B}_i`$
@@ -2693,6 +2742,7 @@ An interesting fact: LSH attention dramatically reduces memory usage for very lo
 ## **Sinkhorn Attention** –
 
 \[
+\Huge
 \Pi = \text{Sinkhorn}\big(\exp(QK^T)\big),\quad
 \text{Attn}(Q,K,V)=\Pi\,V
 \]
@@ -2705,6 +2755,7 @@ An interesting fact: By imposing row/column constraints, Sinkhorn attention can 
 ## **Routing Attention (Routing Transformer)** –
 
 \[
+\Huge
 \text{cluster}(Q,K)\to \{\mathcal{C}_1,\dots,\mathcal{C}_r\};\quad
 \text{Attn}(Q,K,V)=\sum_{c=1}^r \text{Attn}\big(Q_{\mathcal{C}_c},K_{\mathcal{C}_c},V_{\mathcal{C}_c}\big)
 \]
@@ -2717,6 +2768,7 @@ An interesting fact: Routing transforms the attention map into a structured clus
 ## **Axial Attention** –
 
 \[
+\Huge
 \text{AxialAttn}(X) = \text{Attn}\big(X_{\text{rows}}\big)+\text{Attn}\big(X_{\text{cols}}\big)
 \]
 – processes rows and columns separately in grid-like data (e.g. images) – drastically reduces 2D attention cost from`$O(n^2 \times m^2)$` to`$O(n \times m^2 + n^2 \times m)$.
@@ -2728,6 +2780,7 @@ An interesting fact: Axial attention was pivotal for image-based transformers, s
 ## **Nystrom Attention (Nystromformer)** –
 
 \[
+\Huge
 \tilde{A} = P \left(D^{-1} \tilde{K} \tilde{Q}^T D^{-1}\right) U
 \]
 – approximates the softmax kernel via Nystrom method, reducing complexity to`$O(n)$
@@ -2753,6 +2806,7 @@ An interesting fact: Double attention can highlight multi-step relationships: fi
 ## **Dynamic Convolution Attention** –
 
 \[
+\Huge
 \text{DynConv}(x) = \sum_{k=0}^{K-1}\alpha_k \cdot \text{Conv1D}_k(x),\quad
 \alpha = \text{softmax}(W\,x)
 \]
@@ -2765,6 +2819,7 @@ An interesting fact: By blending learned convolution kernels dynamically, it fus
 ## **Deformable Attention (Deformable DETR)** –
 
 \[
+\Huge
 \text{DeformAttn}(q) = \sum_{h=1}^{H} \omega_h \sum_{r=1}^{R}\text{softmax}_r(\delta_{r,h}) \cdot V\big(\phi(q)+\Delta p_{r,h}\big)
 \]
 – samples key-value pairs from sparse reference points – designed for object detection in images.
@@ -2776,6 +2831,7 @@ An interesting fact: Deformable attention significantly accelerates DETR-like mo
 ## **ProbSparse Attention (Informer)** –
 
 \[
+\Huge
 \alpha_{ij} \approx
 \begin{cases}
 \frac{e^{e_{ij}}}{\sum_{k \in \Theta_i} e^{e_{ik}}}, & j \in \Theta_i \\
@@ -2895,6 +2951,7 @@ An interesting fact: Memory compression trades exact token-level alignment for d
 ## **ELBO (VAE) Objective** –
 
 \[
+\Huge
 \mathcal{L}_{\text{ELBO}} \;=\; \mathbb{E}_{q_\phi(z \mid x)}\bigl[\log p_\theta(x \mid z)\bigr] \;-\; D_{\mathrm{KL}}\bigl(q_\phi(z \mid x)\,\|\,p_\theta(z)\bigr)
 \]
 Enforces a balance between reconstruction fidelity and latent-space regularization. It underpins variational autoencoders, letting us optimize a lower bound on the data log-likelihood via gradient descent, crucial for stable end-to-end training.
@@ -2904,6 +2961,7 @@ Enforces a balance between reconstruction fidelity and latent-space regularizati
 ## **Beta-VAE Objective** –
 
 \[
+\Huge
 \mathcal{L}_{\beta\text{-VAE}} \;=\; \mathbb{E}_{q_\phi(z \mid x)}\bigl[\log p_\theta(x \mid z)\bigr] \;-\; \beta\,D_{\mathrm{KL}}\bigl(q_\phi(z \mid x)\,\|\,p_\theta(z)\bigr)
 \]
 Promotes disentangled latent factors by weighting the KL term with \(\beta\). Higher \(\beta\) encourages factorized representations of data, aiding interpretability but risking reduced reconstruction quality if \(\beta\) is set too large.
@@ -2913,6 +2971,7 @@ Promotes disentangled latent factors by weighting the KL term with \(\beta\). Hi
 ## **WGAN Objective** –
 
 \[
+\Huge
 \min_{G} \max_{D}\;\; \mathbb{E}_{x \sim p_{\text{data}}}\bigl[D(x)\bigr] \;-\; \mathbb{E}_{z \sim p(z)}\bigl[D\bigl(G(z)\bigr)\bigr]
 \]
 Minimizes the Earth Mover (Wasserstein) distance between real and generated distributions, improving training stability over original GANs. It requires a Lipschitz discriminator, often enforced through weight clipping or gradient penalties.
@@ -2922,6 +2981,7 @@ Minimizes the Earth Mover (Wasserstein) distance between real and generated dist
 ## **WGAN-GP Regularizer** –
 
 \[
+\Huge
 \mathbb{E}_{\hat{x} \sim p_{\hat{x}}}\!\Bigl[\bigl(\|\nabla_{\hat{x}}D(\hat{x})\|\!-\!1\bigr)^2\Bigr]
 \]
 Penalizes gradients to maintain the 1-Lipschitz constraint in WGANs. It stabilizes adversarial training by reducing mode collapse and improving sample diversity, leading to more consistent discriminator updates and robust generator improvements.
@@ -2931,6 +2991,7 @@ Penalizes gradients to maintain the 1-Lipschitz constraint in WGANs. It stabiliz
 ## **CycleGAN Objective** –
 
 \[
+\Huge
 \min_{G_X, G_Y}\max_{D_X,D_Y}\;\; \mathcal{L}_{\text{GAN}}(G_X,D_X) \;+\; \mathcal{L}_{\text{GAN}}(G_Y,D_Y) \;+\; \lambda\,\mathcal{L}_{\text{cyc}}(G_X,G_Y)
 \]
 Enables unpaired image-to-image translation by enforcing cycle-consistency losses. Each generator learns to map one domain to another and back, ensuring structural consistency without requiring paired training examples for supervision.
@@ -2950,6 +3011,7 @@ Provides a differentiable approximation for discrete sampling, allowing backprop
 ## **Discrete VAE Loss** –
 
 \[
+\Huge
 \mathcal{L} \;=\; \mathbb{E}_{q_{\phi}(z \mid x)}\bigl[-\log p_{\theta}(x \mid z)\bigr] \;+\; D_{\mathrm{KL}}\!\Bigl(q_{\phi}(z \mid x)\,\Big\|\,p(z)\Bigr)
 \]
 Models data with discrete latent codes instead of continuous vectors. This helps capture categorical features, potentially improving interpretability and robustness when modeling multimodal distributions in image, text, or audio domains.
@@ -2959,6 +3021,7 @@ Models data with discrete latent codes instead of continuous vectors. This helps
 ## **Score Matching** –
 
 \[
+\Huge
 \mathcal{L}(\theta)
 \;=\; \tfrac{1}{2} \,\int p_{\text{data}}(x)\,\sum_{i=1}^d \Bigl(\partial_{x_i} \log f_\theta(x)\Bigr)^{2}\,dx
 \]
@@ -2969,6 +3032,7 @@ Forces the model’s gradient of log-density to match that of the data distribut
 ## **Contrastive Divergence (RBM)** –
 
 \[
+\Huge
 \frac{\partial}{\partial w_{ij}} \,\mathcal{L}_{CD}
 \;=\; \langle v_i\,h_j \rangle_{\text{data}}
 \;-\; \langle v_i\,h_j \rangle_{\text{model}}
@@ -2980,6 +3044,7 @@ Updates weights in Restricted Boltzmann Machines by contrasting positive phase s
 ## **Wake-Sleep Algorithm** –
 
 \[
+\Huge
 \text{Wake: } \nabla_\theta \approx \mathbb{E}_{q_\phi(z\mid x)}\bigl[\nabla_\theta \log p_\theta(x,z)\bigr],
 \quad
 \text{Sleep: } \nabla_\phi \approx \mathbb{E}_{p_\theta(x,z)}\bigl[\nabla_\phi \log q_\phi(z\mid x)\bigr]
@@ -3000,6 +3065,7 @@ Stacks RBMs in a hierarchical fashion, initializing each layer in an unsupervise
 ## **Latent Dirichlet Allocation (LDA)** –
 
 \[
+\Huge
 \theta_d \!\sim\! \mathrm{Dirichlet}(\alpha),\;\;
 z_{d,n} \!\sim\! \mathrm{Categorical}(\theta_d),\;\;
 \phi_k \!\sim\! \mathrm{Dirichlet}(\beta),\;\;
@@ -3041,6 +3107,7 @@ Combines neural networks with mixture models to predict multi-modal output distr
 ## **Vector Quantized-VAE (VQ-VAE) Loss** –
 
 \[
+\Huge
 \mathcal{L}
 \;=\;
 \|x-\hat{x}\|^2 \;+\; \|\mathrm{sg}[z_e(x)] - e\|^2 \;+\; \beta\,\|\mathrm{sg}[e] - z_e(x)\|^2
@@ -3052,6 +3119,7 @@ Uses a discrete codebook for latent representations, improving reconstruction wh
 ## **Nonlinear ICA Factorization** –
 
 \[
+\Huge
 \mathbf{x} \;=\; f(\mathbf{s}),
 \quad
 \mathbf{s} \sim p(\mathbf{s}),
@@ -3078,6 +3146,7 @@ A deterministic variant of diffusion-based sampling. DDIM allows faster generati
 ## **Classifier-Free Guidance** –
 
 \[
+\Huge
 \epsilon_\theta(x_t,\varnothing)
 \;=\;
 w\,\epsilon_\theta(x_t,y)
@@ -3372,6 +3441,7 @@ MoNet generalizes convolution via learnable kernel functions \(w_k\). It capture
 ## **Graph Autoencoder (GAE)**
 
 \[
+\Huge
 \hat{A} = \sigma\!\bigl(Z \,Z^{T}\bigr),
 \quad
 Z = \text{Encoder}(X,A)
@@ -3395,6 +3465,7 @@ VGAE introduces probabilistic embeddings, capturing uncertainty in node represen
 ## **Deep Graph Infomax (DGI)**
 
 \[
+\Huge
 \mathcal{L}_{\text{DGI}}
 = \mathbb{E}_{\tilde{A},\tilde{X}}\bigl[\log D(\mathbf{h}, \mathbf{h}_{\tilde{A},\tilde{X}})\bigr]
 + \mathbb{E}_{A,X}\bigl[\log \bigl(1 - D(\mathbf{h}, \mathbf{h}_{A,X})\bigr)\bigr]
@@ -3417,6 +3488,7 @@ DiffPool provides end-to-end hierarchical pooling by learning a cluster assignme
 ## **Graph U-Net**
 
 \[
+\Huge
 \bigl(X^{(l+1)}, A^{(l+1)}\bigr)
 = \text{Unpool}\!\Big(\text{Pool}\bigl(X^{(l)}, A^{(l)}\bigr)\Big)
 \]
@@ -3427,6 +3499,7 @@ Graph U-Net uses pooling and unpooling operators analogous to image U-Nets. It s
 ## **Node2Vec**
 
 \[
+\Huge
 \min_{\Phi} \sum_{(u,v)\in D}
 -\log \sigma\bigl(\Phi(u)^{\top}\,\Phi(v)\bigr)
 \;-\;\sum_{n\in N_{\mathrm{neg}}}\log \sigma\bigl(-\Phi(u)^{\top}\,\Phi(n)\bigr)
@@ -3438,6 +3511,7 @@ Node2Vec extends random walks with biased sampling to capture homophily and stru
 ## **DeepWalk**
 
 \[
+\Huge
 \min_{\Phi} \sum_{(u,v)\in\text{Context}}
 -\log p\bigl(v\mid u\bigr),
 \quad
@@ -3451,6 +3525,7 @@ DeepWalk treats truncated random walks on a graph as word-like sequences. By app
 ## **LINE**
 
 \[
+\Huge
 \mathcal{L}_{\mathrm{1st}}
 = -\sum_{(i,j)\in E} w_{ij}\,\log p_{j}(i),
 \quad
@@ -3495,6 +3570,7 @@ ARMA filters approximate rational polynomial spectral kernels with fewer paramet
 ## **GNN Explainer**
 
 \[
+\Huge
 \min_{\Omega}
 \;\mathcal{L}\bigl(\mathrm{GNN}(A \odot M_\Omega,\;X \odot F_\Omega),\,y\bigr)
 \;+\;\lambda\,\|\Omega\|_{1}
@@ -3506,6 +3582,7 @@ GNN Explainer learns edge and feature masks \(\Omega\) that best justify a GNN�
 ## **SEAL (Subgraph Embedding-based Link Prediction)**
 
 \[
+\Huge
 \mathrm{Score}(i,j)
 = \mathrm{GNN}\!\bigl(\mathcal{G}_{i,j}, \,\text{Embeddings}\bigr),
 \quad
@@ -3547,6 +3624,7 @@ ST-GCN interleaves graph convolutions for spatial relations with standard 2D con
 ## **Graph Transformer**
 
 \[
+\Huge
 \alpha_{ij}
 = \mathrm{Softmax}\!\Bigl(
 \frac{\bigl(x_{i}W_Q\bigr)\bigl(x_{j}W_K\bigr)^{\top}}{\sqrt{d}}
@@ -3562,6 +3640,7 @@ Graph Transformers apply self-attention on node pairs. They learn global depende
 ## **NetGAN**
 
 \[
+\Huge
 \min_{G} \max_{D} \,\mathcal{L}(G,D)
 = \mathbb{E}_{A\sim p(A)}\bigl[\log D(A)\bigr]
 \;+\;
@@ -3574,6 +3653,7 @@ NetGAN generates realistic synthetic graphs via adversarial training. By modelin
 ## **Graph Memory Networks**
 
 \[
+\Huge
 \mathbf{m}_{i}
 = \mathrm{Attention}\bigl(h_{i}, M\bigr),
 \quad
@@ -3626,6 +3706,7 @@ The heat kernel diffuses signals over a graph. It reveals multi-scale node simil
 ## **PDE-GCN**
 
 \[
+\Huge
 \frac{\partial H}{\partial t}
 = -\kappa\,\tilde{L}\,H \;+\; F\!\bigl(H, A\bigr)
 \]
@@ -3882,6 +3963,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 ## **Adam** –
 
 \[
+\Huge
 \hat{m}_t = \frac{\beta_1 \hat{m}_{t-1} + (1-\beta_1)\,g_t}{1 - \beta_1^t}, \quad
 \hat{v}_t = \frac{\beta_2 \hat{v}_{t-1} + (1-\beta_2)\,g_t^2}{1 - \beta_2^t}, \quad
 \theta_{t+1} = \theta_t - \alpha \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
@@ -3913,6 +3995,7 @@ Projects data onto a line that maximizes class separability. \(S_W\) is the with
 ## **DropConnect** –
 
 \[
+\Huge
 \widetilde{W} = M \odot W
 \]
 Randomly drops weights (instead of activations, as in Dropout). This encourages strong regularization by enforcing redundancy in parameter space, potentially improving generalization. Often used in fully-connected layers to mitigate overfitting.
@@ -3949,6 +4032,7 @@ Computes posterior distributions over parameters \(\theta\) given data \(X\). Fo
 ## **Ensemble Averaging** –
 
 \[
+\Huge
 \hat{y} \;=\; \frac{1}{M}\sum_{m=1}^{M} f_m(x)
 \]
 Averaging outputs from multiple independently trained models. Reduces variance, often boosting accuracy and robustness to outliers. Commonly used in competitions, where blending diverse model architectures yields strong final predictions.
@@ -3996,6 +4080,7 @@ Encourages similar representations for positive pairs and dissimilar for negativ
 ## **SWAG (Stochastic Weight Averaging-Gaussian)** –
 
 \[
+\Huge
 \theta_{\mathrm{SWAG}} \sim \mathcal{N}\Bigl(\bar{\theta}, \,\tfrac12 \,\Sigma\Bigr),
 \quad
 \bar{\theta} = \tfrac{1}{T}\sum_{t=1}^{T}\theta_t
@@ -4007,6 +4092,7 @@ Approximates a Gaussian over neural network parameters. Improves calibration and
 ## **Sparsemax** –
 
 \[
+\Huge
 \Huge
 \mathrm{sparsemax}(\mathbf{z}) = \arg\min_{\mathbf{p}\in\Delta} \|\mathbf{p} - \mathbf{z}\|^2
 \quad\text{subject to } \mathbf{p}\ge 0,\;\sum_i p_i=1
