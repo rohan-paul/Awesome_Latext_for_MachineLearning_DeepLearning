@@ -618,9 +618,9 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 or
 
-$`\int p(x) \log \frac{p(x)}{q(x)} dx`$
+# $`\int p(x) \log \frac{p(x)}{q(x)} dx`$
 
-*   Measures information loss when approximating distribution P with Q. Asymmetric ($D_{KL}(P\|Q) \neq D_{KL}(Q\|P)$). Central to variational inference.
+Measures information loss when approximating distribution P with Q. Asymmetric ($D_{KL}(P\|Q) \neq D_{KL}(Q\|P)$). Central to variational inference.
 
 -------------------
 
