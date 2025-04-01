@@ -512,7 +512,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d_\infty(x, z) = \max_i |x_i - z_i|$
 
-*   Also known as L∞ norm distance; measures the greatest difference along any single dimension. Useful in logistics for chessboard-like movements.
+Also known as L∞ norm distance; measures the greatest difference along any single dimension. Useful in logistics for chessboard-like movements.
 
 -------------------
 
@@ -520,7 +520,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d^2(x, z) = \sum_i (x_i - z_i)^2$
 
-*   Computationally cheaper than Euclidean (avoids square root). Emphasizes larger differences more strongly; frequently used in optimization objectives (e.g., k-means).
+Computationally cheaper than Euclidean (avoids square root). Emphasizes larger differences more strongly; frequently used in optimization objectives (e.g., k-means).
 
 -------------------
 
@@ -528,7 +528,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d_C(x, z) = \sum_i \frac{|x_i - z_i|}{|x_i| + |z_i|}$
 
-*   A weighted Manhattan distance, sensitive to changes near zero but less affected by large outliers. Useful for count data or non-negative sparse data.
+A weighted Manhattan distance, sensitive to changes near zero but less affected by large outliers. Useful for count data or non-negative sparse data.
 
 -------------------
 
@@ -536,7 +536,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d_{BC}(x, z) = \frac{\sum_i |x_i - z_i|}{\sum_i (x_i + z_i)}$
 
-*   Bounded between 0 and 1 (for non-negative data). Widely used in ecology; ignores joint absences and emphasizes composition over total abundance.
+Bounded between 0 and 1 (for non-negative data). Widely used in ecology; ignores joint absences and emphasizes composition over total abundance.
 
 -------------------
 
@@ -544,7 +544,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d_{corr}(x, z) = 1 - \frac{(x - \bar{x}) \cdot (z - \bar{z})}{\|x - \bar{x}\|_2 \|z - \bar{z}\|_2}$
 
-*   Measures dissimilarity based on Pearson correlation; sensitive to the linear relationship shape, invariant to scaling and translation of data.
+Measures dissimilarity based on Pearson correlation; sensitive to the linear relationship shape, invariant to scaling and translation of data.
 
 -------------------
 
@@ -552,7 +552,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d_A(x, z) = \frac{1}{\pi} \arccos(\cos(x, z))$
 
-*   Directly measures the angle between vectors, normalized to [0, 1]. Closely related to Cosine Similarity (Cosine Distance = 1 - Cosine Similarity).
+Directly measures the angle between vectors, normalized to [0, 1]. Closely related to Cosine Similarity (Cosine Distance = 1 - Cosine Similarity).
 
 -------------------
 
@@ -560,7 +560,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d_J(A, B) = 1 - \frac{|A \cap B|}{|A \cup B|} = \frac{|A \triangle B|}{|A \cup B|}$
 
-*   Measures dissimilarity between finite sets (or binary vectors); ignores shared absences (0-0 matches). Crucial for sparse data, like document similarity.
+Measures dissimilarity between finite sets (or binary vectors); ignores shared absences (0-0 matches). Crucial for sparse data, like document similarity.
 
 -------------------
 
@@ -568,7 +568,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d_{Dice}(A, B) = 1 - \frac{2|A \cap B|}{|A| + |B|}$
 
-*   Similar to Jaccard but gives more weight to intersections. Widely used in image segmentation (Dice score) and bioinformatics.
+Similar to Jaccard but gives more weight to intersections. Widely used in image segmentation (Dice score) and bioinformatics.
 
 -------------------
 
@@ -576,13 +576,13 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $S(A, B) = \frac{|A \cap B|}{|A \cap B| + \alpha |A \setminus B| + \beta |B \setminus A|}$
 
-*   Generalizes Dice ($\alpha=\beta=0.5$) and Jaccard ($\alpha=\beta=1$). Allows asymmetric weighting of differences, useful in modeling cognitive similarity judgments.
+Generalizes Dice ($\alpha=\beta=0.5$) and Jaccard ($\alpha=\beta=1$). Allows asymmetric weighting of differences, useful in modeling cognitive similarity judgments.
 
 -------------------
 
 ## **Levenshtein Distance** – `$d_L(u, v) = \text{minimum number of single-character edits (insertions, deletions, substitutions) required to change } u \text{ into } v`$
 
-*   Classic edit distance for strings. Fundamental in spell checking, DNA sequencing alignment, and natural language processing tasks.
+Classic edit distance for strings. Fundamental in spell checking, DNA sequencing alignment, and natural language processing tasks.
 
 -------------------
 
@@ -590,7 +590,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $d_{DL}(u, v) = \text{minimum edits like Levenshtein, plus transpositions of adjacent characters}$
 
-*   An extension of Levenshtein, counts transposition (e.g., "ca" -> "ac") as a single edit. Often more suitable for human typing errors.
+An extension of Levenshtein, counts transposition (e.g., "ca" -> "ac") as a single edit. Often more suitable for human typing errors.
 
 -------------------
 
@@ -600,7 +600,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 (where m = matching chars, t = transpositions)
 
-*   String similarity measure considering matching characters and transpositions within a proximity window. Good for record linkage (matching names/addresses).
+String similarity measure considering matching characters and transpositions within a proximity window. Good for record linkage (matching names/addresses).
 
 -------------------
 
@@ -608,7 +608,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 # $sim_W(s_1, s_2) = sim_J + l \cdot p (1 - sim_J)$` (where l = length of common prefix, p = scaling factor)
 
-*   Refines Jaro similarity by giving extra weight to matching prefixes. Improves accuracy significantly for names or identifiers where prefixes often match.
+Refines Jaro similarity by giving extra weight to matching prefixes. Improves accuracy significantly for names or identifiers where prefixes often match.
 
 -------------------
 
@@ -628,7 +628,7 @@ Measures information loss when approximating distribution P with Q. Asymmetric (
 
 # $JSD(P \| Q) = \frac{1}{2} D_{KL}(P \| M) + \frac{1}{2} D_{KL}(Q \| M)$, where`$M = \frac{1}{2}(P+Q)$
 
-*   A symmetric, smoothed version of KL divergence, bounded by`$\log 2$. Often preferred over KL as a finite distance metric between distributions.
+A symmetric, smoothed version of KL divergence, bounded by`$\log 2$. Often preferred over KL as a finite distance metric between distributions.
 
 -------------------
 
@@ -636,31 +636,37 @@ Measures information loss when approximating distribution P with Q. Asymmetric (
 
 # $W_p(P, Q) = \left( \inf_{\gamma \in \Gamma(P, Q)} \int_{\mathcal{X} \times \mathcal{X}} d(x, y)^p \, d\gamma(x, y) \right)^{1/p}$
 
-*   Measures the minimum "cost" to transform one distribution into another. Provides better gradients than KL/JS for training GANs, especially with non-overlapping supports.
+Measures the minimum "cost" to transform one distribution into another. Provides better gradients than KL/JS for training GANs, especially with non-overlapping supports.
 
 -------------------
 
 ## **Hellinger Distance**
 
-# $H(P, Q) = \frac{1}{\sqrt{2}} \sqrt{\sum_{i} (\sqrt{p_i} - \sqrt{q_i})^2}$` or`$H(P,Q) = \frac{1}{\sqrt{2}} \|\sqrt{p} - \sqrt{q}\|_2$
+# $`H(P, Q) = \frac{1}{\sqrt{2}} \sqrt{\sum_{i} (\sqrt{p_i} - \sqrt{q_i})^2}`$
 
-*   A symmetric metric measuring distance between probability distributions, related to Bhattacharyya distance. Bounded between 0 and 1.
+or
+
+# $`H(P,Q) = \frac{1}{\sqrt{2}} \|\sqrt{p} - \sqrt{q}\|_2`$
+
+A symmetric metric measuring distance between probability distributions, related to Bhattacharyya distance. Bounded between 0 and 1.
 
 -------------------
 
 ## **Bhattacharyya Distance**
 
-# $D_B(P, Q) = -\ln \left( \sum_{i} \sqrt{p_i q_i} \right)$
+# $`D_B(P, Q) = -\ln \left( \sum_{i} \sqrt{p_i q_i} \right)`$
 
-*   Measures the similarity of two probability distributions. Related to Hellinger; the term inside ln is the Bhattacharyya coefficient (similarity).
+Measures the similarity of two probability distributions. Related to Hellinger; the term inside ln is the Bhattacharyya coefficient (similarity).
 
 -------------------
 
 ## **Haversine Distance**
 
-# $d = 2r \arcsin\left(\sqrt{\sin^2\left(\frac{\phi_2-\phi_1}{2}\right) + \cos(\phi_1) \cos(\phi_2) \sin^2\left(\frac{\lambda_2-\lambda_1}{2}\right)}\right)$` (r=radius,`$\phi`$=lat,`$\lambda`$=lon)
+# $`d = 2r \arcsin\left(\sqrt{\sin^2\left(\frac{\phi_2-\phi_1}{2}\right) + \cos(\phi_1) \cos(\phi_2) \sin^2\left(\frac{\lambda_2-\lambda_1}{2}\right)}\right)`$
 
-*   Calculates great-circle distance between two points on a sphere given latitudes/longitudes. Essential for geospatial data analysis and location-based services.
+(r=radius,`$\phi`$=lat,`$\lambda`$=lon)
+
+Calculates great-circle distance between two points on a sphere given latitudes/longitudes. Essential for geospatial data analysis and location-based services.
 
 -------------------
 
@@ -668,7 +674,7 @@ Measures information loss when approximating distribution P with Q. Asymmetric (
 
 # $DTW(X, Y) = \min_{\pi} \sqrt{\sum_{(i, j) \in \pi} d(x_i, y_j)^2}$` (where`$\pi$` is a warping path)
 
-*   Finds optimal alignment between two time series that may vary in speed or timing. Widely used in speech recognition and time series analysis.
+Finds optimal alignment between two time series that may vary in speed or timing. Widely used in speech recognition and time series analysis.
 
 -------------------
 
@@ -676,7 +682,7 @@ Measures information loss when approximating distribution P with Q. Asymmetric (
 
 # $VI(X; Y) = H(X) + H(Y) - 2I(X; Y)$` (H=entropy, I=mutual information)
 
-*   An information-theoretic metric measuring distance between clusterings. Obeys the triangle inequality, making it a true metric.
+An information-theoretic metric measuring distance between clusterings. Obeys the triangle inequality, making it a true metric.
 
 -------------------
 
@@ -684,7 +690,7 @@ Measures information loss when approximating distribution P with Q. Asymmetric (
 
 # $NMI(X, Y) = \frac{I(X; Y)}{\sqrt{H(X) H(Y)}}$` or`$\frac{2 I(X;Y)}{H(X)+H(Y)}$
 
-*   Measures mutual dependence between two clusterings, normalized to [0, 1]. Widely used for evaluating clustering algorithm performance against ground truth.
+Measures mutual dependence between two clusterings, normalized to [0, 1]. Widely used for evaluating clustering algorithm performance against ground truth.
 
 -------------------
 
@@ -692,7 +698,7 @@ Measures information loss when approximating distribution P with Q. Asymmetric (
 
 # $d_{RR}(x, y) = \frac{n_{01} + n_{10}}{n}$` (for binary vectors:`$n_{ab}$` = count of`$a$` in`$x`$,`$b$` in`$y`$)
 
-*   Proportion of mismatches (0-1 or 1-0) in binary vectors. Simple but often less informative than Jaccard for sparse data.
+Proportion of mismatches (0-1 or 1-0) in binary vectors. Simple but often less informative than Jaccard for sparse data.
 
 -------------------
 
@@ -700,7 +706,7 @@ Measures information loss when approximating distribution P with Q. Asymmetric (
 
 # $d_{SM}(x, y) = \frac{2(n_{01} + n_{10})}{n_{00} + n_{11} + 2(n_{01} + n_{10})}$
 
-*   Gives equal weight to matches (0-0, 1-1) and mismatches (0-1, 1-0) in binary data comparisons.
+Gives equal weight to matches (0-0, 1-1) and mismatches (0-1, 1-0) in binary data comparisons.
 
 -------------------
 
@@ -708,7 +714,7 @@ Measures information loss when approximating distribution P with Q. Asymmetric (
 
 # $d_{RT}(x, y) = \frac{2(n_{01} + n_{10})}{n_{11} + n_{00} + 2(n_{01} + n_{10})}$
 
-*   Similar structure to Sokal-Michener but gives double weight to mismatches relative to matches in binary data.
+Similar structure to Sokal-Michener but gives double weight to mismatches relative to matches in binary data.
 
 =====================================================================
 ### 📣 Activation Functions
