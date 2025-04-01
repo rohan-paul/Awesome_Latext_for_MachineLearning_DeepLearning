@@ -3833,13 +3833,17 @@ GAEs learn low-dimensional node embeddings \(Z\) by reconstructing adjacency \(\
 
 ## **Variational Graph Autoencoder (VGAE)**
 
+
+
 ```math
-\Huge
+\huge
 q(\mathbf{Z}\mid X,A)
 = \prod_{i=1}^{N} q\bigl(\mathbf{z}_{i}\mid X,A\bigr),
 \quad
 \mathbf{z}_{i} \sim \mathcal{N}\!\bigl(\boldsymbol{\mu}_{i},\,\mathrm{diag}(\boldsymbol{\sigma}_{i}^{2})\bigr)
 ```
+
+
 VGAE introduces probabilistic embeddings, capturing uncertainty in node representations. Its latent variables follow Gaussian distributions, enabling more robust link prediction and anomaly detection on noisy or uncertain graphs.
 
 ---
