@@ -1124,7 +1124,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Mean Squared Error** –
 
-# \( L = \frac{1}{N}\sum_{i=1}^N (y_i - \hat{y}_i)^2 \) $$
+# $`L = \frac{1}{N}\sum_{i=1}^N (y_i - \hat{y}_i)^2`$
 
  – \(y_i\): true, \(\hat{y}_i\): pred – measures average squared regression error (penalizes large errors more). Often used for regression; its gradient is simpler than absolute errors, making it a common choice for gradient-based methods.
 
@@ -1132,7 +1132,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Mean Absolute Error** –
 
-\( L = \frac{1}{N}\sum_{i=1}^N |y_i - \hat{y}_i| \)
+# $`L = \frac{1}{N}\sum_{i=1}^N |y_i - \hat{y}_i|`$
 
  – absolute difference – linear penalty on error magnitude – robust to outliers (L1 loss). Less sensitive to outliers than MSE but less smooth, potentially complicating gradient-based optimization.
 
@@ -1140,7 +1140,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Binary Cross-Entropy** –
 
-\( L = -[\,y\log p + (1-y)\log(1-p)\,] \)
+# $`L = -[\,y\log p + (1-y)\log(1-p)\,]`$
 
  – \(y\): label, \(p\): predicted prob – logistic loss for binary classification (convex, smooth surrogate to 0–1 loss). Directly tied to maximum likelihood under Bernoulli distribution, providing probabilistically sound metrics for binary predictions.
 
@@ -1148,7 +1148,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Categorical Cross-Entropy** –
 
-\( L = -\sum_{c=1}^C y_c \log p_c \)
+# $`L = -\sum_{c=1}^C y_c \log p_c`$
 
  – \(y_c\): one-hot label, \(p_c\): predicted prob – multi-class classification loss (maximizes likelihood of correct class). Equivalent to maximizing likelihood under a multinomial model, ensuring well-calibrated probabilities for multi-class tasks.
 
@@ -1156,7 +1156,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Hinge Loss** –
 
-\( L = \max(0,\,1 - y\,f(x)) \)
+# $`L = \max(0,\,1 - y\,f(x))`$
 
  – \(y \in \{\pm1\}\), \(f(x)\): score – SVM margin loss – zero if correctly classified with margin, else linear penalty. Encourages a hard margin, but is not differentiable at the boundary, requiring subgradient or hinge-specific optimization techniques.
 
@@ -1164,7 +1164,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Squared Hinge Loss** –
 
-\( L = \max(0,\,1 - y f(x))^2 \)
+# $`L = \max(0,\,1 - y f(x))^2`$
 
  – variation of hinge – stronger penalty on violations – used in some SVM implementations. Amplifies penalty near the decision boundary, providing stronger gradient feedback but possibly slowing convergence.
 
@@ -1187,7 +1187,7 @@ L =
 
 ## **KL Divergence** –
 
-\( D_{KL}(P\|Q) = \sum_i P(i)\log\frac{P(i)}{Q(i)} \)
+\( D_{KL}(P\|Q) = \sum_i P(i)\log\frac{P(i)}{Q(i)}`$
 
  – \(P\): true distrib, \(Q\): pred distrib – non-symmetric difference of distributions – used in VAEs, teacher-student distillation. Widely employed for distribution matching in tasks like language modeling and knowledge distillation, but grows infinite if \(Q=0\) where \(P>0\).
 
@@ -1195,7 +1195,7 @@ L =
 
 ## **Focal Loss** –
 
-\( L = -(1-p)^\gamma \log p \)
+# $`L = -(1-p)^\gamma \log p`$
 
  – \(p\): predicted prob of true class, \(\gamma\): focusing param – down-weights easy examples, focuses on hard ones – useful for class imbalance (e.g. object detection). Often used in object detection to handle extreme class imbalance by down-weighting easy negatives through adjustable focusing parameter.
 
@@ -1203,7 +1203,7 @@ L =
 
 ## **Dice Loss** –
 
-\( L = 1 - \frac{2\sum_i p_i g_i}{\sum_i p_i + \sum_i g_i} \)
+# $`L = 1 - \frac{2\sum_i p_i g_i}{\sum_i p_i + \sum_i g_i}`$
 
  – \(p_i\): pred, \(g_i\): ground truth (binary mask) – loss based on overlap (Dice coefficient) – common in segmentation tasks. Especially beneficial for medical image segmentation, as it directly maximizes overlap between predicted and ground-truth structures.
 
@@ -1211,7 +1211,7 @@ L =
 
 ## **Triplet Loss** –
 
-\( L = \max(0,\,d(a,p) - d(a,n) + m) \)
+# $`L = \max(0,\,d(a,p) - d(a,n) + m)`$
 
  – \(d\): distance, \(m\): margin – pulls anchor \(a\) closer to positive \(p\) than to negative \(n\) – trains embedding for ranking (face recognition, metric learning). Enhances metric learning by separating positive and negative pairs, crucial for tasks like face or image similarity search.
 
@@ -1229,7 +1229,7 @@ L = -\log \frac{\exp(\text{sim}(x,x^+)/\tau)}{\exp(\text{sim}(x,x^+)/\tau) + \su
 
 ## **Exponential Loss** –
 
-\( L = \exp(-y f(x)) \)
+# $`L = \exp(-y f(x))`$
 
  – \(y\in\{\pm1\}\) – used in AdaBoost – heavily penalizes wrong predictions – leads to boosting weights update (upper bound on 0–1 loss). Exponential scaling intensifies the penalty for misclassified points, which can hasten overfitting if not carefully regularized.
 
@@ -1237,7 +1237,7 @@ L = -\log \frac{\exp(\text{sim}(x,x^+)/\tau)}{\exp(\text{sim}(x,x^+)/\tau) + \su
 
 ## **GAN Generator Loss** –
 
-\( L_G = -\mathbb{E}_{z}[\log D(G(z))] \)
+\( L_G = -\mathbb{E}_{z}[\log D(G(z))]`$
 
  – \(D\): discriminator, \(G\): generator – encourages generator to fool discriminator (maximize \(\log D(G(z))\)) – drives fake data realism. GAN training can collapse if the generator only produces limited outputs that consistently fool the discriminator, hindering diversity.
 
@@ -1245,7 +1245,7 @@ L = -\log \frac{\exp(\text{sim}(x,x^+)/\tau)}{\exp(\text{sim}(x,x^+)/\tau) + \su
 
 ## **GAN Discriminator Loss** –
 
-\( L_D = -\mathbb{E}_{x}[\log D(x)] - \mathbb{E}_{z}[\log(1 - D(G(z)))] \)
+\( L_D = -\mathbb{E}_{x}[\log D(x)] - \mathbb{E}_{z}[\log(1 - D(G(z)))]`$
 
  – outputs real vs fake – trains discriminator to distinguish real data from generator’s fakes. If discriminator overtakes generator too quickly, gradients vanish; balancing the training dynamics is crucial for stable GAN progress.
 
@@ -1253,7 +1253,7 @@ L = -\log \frac{\exp(\text{sim}(x,x^+)/\tau)}{\exp(\text{sim}(x,x^+)/\tau) + \su
 
 ## **Wasserstein Loss** –
 
-\( L = \mathbb{E}_{x}[D(x)] - \mathbb{E}_{z}[D(G(z))] \)
+# $`L = \mathbb{E}_{x}[D(x)] - \mathbb{E}_{z}[D(G(z))]`$
 
  – critic \(D\) tries to maximize this, \(G\) to minimize – yields Earth-Mover distance between real and generated distributions (stabilizes GAN training). Needs Lipschitz continuity for the critic, enforced via weight clipping or gradient penalty, to ensure meaningful distance computation.
 
@@ -1261,7 +1261,7 @@ L = -\log \frac{\exp(\text{sim}(x,x^+)/\tau)}{\exp(\text{sim}(x,x^+)/\tau) + \su
 
 ## **VAE Loss (ELBO)** –
 
-\( L = \mathbb{E}_{q(z|x)}[-\log p(x|z)] + D_{KL}(q(z|x)\|p(z)) \)
+# $`L = \mathbb{E}_{q(z|x)}[-\log p(x|z)] + D_{KL}(q(z|x)\|p(z))`$
 
  – \(q(z|x)\): encoder, \(p(x|z)\): decoder – reconstruction error + KL regularizer – balances data fit and latent simplicity. Enables unsupervised data generation while learning smooth latent spaces, supporting interpolation and semi-supervised tasks.
 
@@ -1269,7 +1269,7 @@ L = -\log \frac{\exp(\text{sim}(x,x^+)/\tau)}{\exp(\text{sim}(x,x^+)/\tau) + \su
 
 ## **CTC Loss** –
 
-\( L = -\ln \sum_{\pi \in \mathcal{B}^{-1}(y)} \prod_{t=1}^T P(\pi_t|x) \)
+# $`L = -\ln \sum_{\pi \in \mathcal{B}^{-1}(y)} \prod_{t=1}^T P(\pi_t|x)`$
 
  – sums probabilities of all label sequences \(\pi\) mapping to target \(y\) (collapsing repeats/blanks) – used for sequence alignment in speech/OCR without pre-segmentation. Allows end-to-end training in speech recognition systems by handling variable input lengths without explicit time alignment.
 
@@ -1288,7 +1288,7 @@ L = -\log \frac{e^{s(\cos(\theta_y + m))}}{e^{s(\cos(\theta_y + m))} + \sum_{j \
 
 ## **Poisson NLL Loss** –
 
-\( L = \hat{\lambda} - y \log \hat{\lambda} \)
+# $`L = \hat{\lambda} - y \log \hat{\lambda}`$
 
  – \(\hat{\lambda}\): predicted rate, \(y\): observed count – negative log-likelihood for Poisson regression – used for modeling count data. Useful when observed responses are counts, but excessive zero counts may require zero-inflated Poisson or hurdle models.
 
@@ -1296,7 +1296,7 @@ L = -\log \frac{e^{s(\cos(\theta_y + m))}}{e^{s(\cos(\theta_y + m))} + \sum_{j \
 
 ## **Quantile Loss** –
 
-\( L_{\tau}(e) = \max(\tau e,\;(\tau-1)e) \) where \(e=y-\hat{y}\) – \(\tau \in (0,1)\): quantile – asymmetric linear penalty – trains models to estimate specified quantile (used in forecasting). Aids in estimating uncertainty by learning quantiles, enabling more nuanced predictions like upper or lower bounds.
+\( L_{\tau}(e) = \max(\tau e,\;(\tau-1)e)`$ where \(e=y-\hat{y}\) – \(\tau \in (0,1)\): quantile – asymmetric linear penalty – trains models to estimate specified quantile (used in forecasting). Aids in estimating uncertainty by learning quantiles, enabling more nuanced predictions like upper or lower bounds.
 
 ### **Weighted Cross-Entropy**
 
@@ -1657,7 +1657,7 @@ Reweights cross-entropy using inverse effective sample sizes (\(\beta_c\)) for e
 
 ## **Lookahead** –
 
-\( \theta_{\text{fast}} \leftarrow \theta - \alpha \nabla_\theta L(\theta),\;\; \theta \leftarrow \theta + \beta \bigl(\theta_{\text{fast}} - \theta \bigr) \)
+\( \theta_{\text{fast}} \leftarrow \theta - \alpha \nabla_\theta L(\theta),\;\; \theta \leftarrow \theta + \beta \bigl(\theta_{\text{fast}} - \theta \bigr)`$
 
  – maintains a slow parameter copy alongside fast updates, periodically syncing them. It often enhances stability and convergence, preventing oscillations and yielding more robust optima across deep architectures with large batch sizes.
 
@@ -1962,7 +1962,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Orthogonal Regularization** –
 
-\( \Omega(W) = \alpha \,\bigl\|W^\top W - I\bigr\|_F^2 \)
+\( \Omega(W) = \alpha \,\bigl\|W^\top W - I\bigr\|_F^2`$
 
  – penalizes deviation from orthonormal weights – fosters uncorrelated embeddings, stabilizes backprop. It helps reduce overfitting by limiting redundant features and encouraging diverse representations.
 
@@ -1970,7 +1970,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Group Lasso** –
 
-\( \Omega(w) = \sum_{g} \lambda_g \,\|w_{g}\|_2 \)
+\( \Omega(w) = \sum_{g} \lambda_g \,\|w_{g}\|_2`$
 
  – extension of Lasso that groups coefficients – fosters structured sparsity by jointly shrinking entire feature groups. It is beneficial in models with known group or block structure.
 
@@ -1978,7 +1978,7 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 
 ## **Cutout** –
 
-\( x_{\text{masked}} = x \odot M \)
+\( x_{\text{masked}} = x \odot M`$
 
  – randomly masks out contiguous patches from the input – forces the model to rely on surrounding context, improving robustness. It combats overfitting by preventing reliance on specific spatial details.
 
@@ -2001,13 +2001,13 @@ C_{t+1} = \mathrm{cov\_update}\bigl(C_t,\dots\bigr)
 \Huge
 L_{\text{VAT}} = \Bigl\| f_{\theta}(x) \;-\; f_{\theta}\bigl(x + r_{\text{adv}}\bigr) \Bigr\|^2
 ```
-where \( r_{\text{adv}} \) maximizes divergence – improves robustness to perturbations, especially in semi-supervised contexts.
+where \( r_{\text{adv}}`$ maximizes divergence – improves robustness to perturbations, especially in semi-supervised contexts.
 
 -------------------
 
 ## **Entropy Regularization** –
 
-\( \Omega(p) = -\,\beta \sum_{c} p_{c} \log p_{c} \)
+\( \Omega(p) = -\,\beta \sum_{c} p_{c} \log p_{c}`$
 
  – encourages broader output distributions by penalizing high-confidence predictions – mitigates overconfidence and can enhance exploration in reinforcement learning or stabilize classification training.
 
@@ -2037,7 +2037,7 @@ w_{\text{SWA}} = \frac{1}{K} \sum_{k=1}^{K} w_k
 
 -------------------
 
-## **Shake-Shake Regularization** – forward pass: \( y = \alpha \,f_{1}(x) + (1-\alpha)\,f_{2}(x) \); backward pass uses a different random \(\alpha'\) – injects noise in multi-branch networks – improves generalization in deeply branched architectures.
+## **Shake-Shake Regularization** – forward pass: \( y = \alpha \,f_{1}(x) + (1-\alpha)\,f_{2}(x)`$; backward pass uses a different random \(\alpha'\) – injects noise in multi-branch networks – improves generalization in deeply branched architectures.
 
 -------------------
 
@@ -2334,7 +2334,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 
 ## **Instance Normalization** –
 
-\( \hat{x}_{n,c,h,w} = \frac{x_{n,c,h,w} - \mu_{n,c}}{\sqrt{\sigma_{n,c}^2 + \epsilon}} \)
+\( \hat{x}_{n,c,h,w} = \frac{x_{n,c,h,w} - \mu_{n,c}}{\sqrt{\sigma_{n,c}^2 + \epsilon}}`$
 
  – \(\mu_{n,c}, \sigma_{n,c}\): mean,std for each instance-channel – common in style transfer. By normalizing channel-wise per-image, it preserves stylistic variations and enables flexible manipulation of artistic features.
 
@@ -2345,7 +2345,7 @@ y = \frac{x}{\max\!\Big(\nu + \mathrm{Combine}(x^2),\,\mathrm{GroupMax}(x^2)\Big
 \( \text{ELU}(x) = \begin{cases}
 x & x \ge 0 \\
 \alpha\bigl(e^x - 1\bigr) & x < 0
-\end{cases} \)
+\end{cases}`$
 
  – shifts outputs closer to zero mean – can speed learning. Its negative exponential region helps push mean activations toward zero, potentially smoothing optimization paths compared to ReLU-based activations.
 
@@ -2353,7 +2353,7 @@ x & x \ge 0 \\
 
 ## **GELU (Gaussian Error Linear Unit)** –
 
-\( \text{GELU}(x) = x \cdot \Phi(x) \)
+\( \text{GELU}(x) = x \cdot \Phi(x)`$
 
  – \(\Phi(x)\): CDF of normal distribution – smoothly gates inputs. Widely used in Transformers, it often yields empirically better performance than ReLU variants by preserving fine-grained information in intermediate layers.
 
@@ -2361,7 +2361,7 @@ x & x \ge 0 \\
 
 ## **Transformer Feed-Forward** –
 
-\( \text{FFN}(x) = \max(0,\,xW_1 + b_1)\,W_2 + b_2 \)
+\( \text{FFN}(x) = \max(0,\,xW_1 + b_1)\,W_2 + b_2`$
 
  – MLP applied to each token independently – transforms per-position features. This dense projection and nonlinearity help blend extracted attention signals before passing them to subsequent layers.
 
@@ -2401,7 +2401,7 @@ h_t &= o_t \odot \tanh(C_t)
 
 ## **Softmax** –
 
-\( \text{softmax}(z)_i = \frac{e^{z_i}}{\sum_{j} e^{z_j}} \)
+\( \text{softmax}(z)_i = \frac{e^{z_i}}{\sum_{j} e^{z_j}}`$
 
  – normalizes logits into probability distribution – typically final layer in classification. By mapping arbitrary real values to [0,1] with sum=1, it enables training networks for multi-class outputs.
 
@@ -2444,7 +2444,7 @@ y_{n,c} = \sigma_s \frac{x_{n,c} - \mu(x_{n,c})}{\sigma(x_{n,c})} + \mu_s
 
 ## **Attention Gate** –
 
-\( \alpha = \sigma(\text{Conv}( [x, g] )) ,\; y = \alpha \cdot x \)
+\( \alpha = \sigma(\text{Conv}( [x, g] )) ,\; y = \alpha \cdot x`$
 
  – learns where to focus in encoder-decoder models – used in medical imaging segmentation. By gating spatial features with a learned attention map, it highlights regions of interest and suppresses irrelevant areas.
 
@@ -3367,7 +3367,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **Accuracy** –
 
-\( \text{Acc} = \frac{TP + TN}{TP + TN + FP + FN} \)
+\( \text{Acc} = \frac{TP + TN}{TP + TN + FP + FN}`$
 
  – proportion of correct predictions (true positives + true negatives) over total – overall success rate of classification. It can be misleading for highly imbalanced datasets, so always pair it with complementary metrics.
 
@@ -3375,7 +3375,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **Precision (Positive Predictive Value)** –
 
-\( \text{Prec} = \frac{TP}{TP + FP} \)
+\( \text{Prec} = \frac{TP}{TP + FP}`$
 
  – fraction of predicted positives that are actually positive – evaluates exactness (few false alarms). It can be drastically affected by class imbalance and is crucial in risk-sensitive tasks like fraud detection.
 
@@ -3383,7 +3383,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **Recall (Sensitivity)** –
 
-\( \text{Rec} = \frac{TP}{TP + FN} \)
+\( \text{Rec} = \frac{TP}{TP + FN}`$
 
  – fraction of actual positives that are correctly predicted – evaluates completeness (few misses). It's vital in medical screening, ensuring fewer missed cases, but can penalize over-prediction.
 
@@ -3391,7 +3391,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **F1 Score** –
 
-\( F1 = \frac{2\,\text{Precision}\cdot \text{Recall}}{\text{Precision}+\text{Recall}} \)
+\( F1 = \frac{2\,\text{Precision}\cdot \text{Recall}}{\text{Precision}+\text{Recall}}`$
 
  – harmonic mean of precision and recall – balances the two, useful for imbalanced classes. A single F1 may hide imbalance in sub-classes, so consider per-class F1 for deeper insight.
 
@@ -3399,13 +3399,13 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **ROC AUC** –
 
-\( \displaystyle AUC = \int_0^1 \text{TPR}(x)\,dx \) (area under ROC curve) – probability a random positive is ranked above a random negative – metric of classifier separability (1.0 = perfect, 0.5 = chance). It remains consistent under class distribution shifts, but can be deceiving under extreme label imbalance.
+\( \displaystyle AUC = \int_0^1 \text{TPR}(x)\,dx`$ (area under ROC curve) – probability a random positive is ranked above a random negative – metric of classifier separability (1.0 = perfect, 0.5 = chance). It remains consistent under class distribution shifts, but can be deceiving under extreme label imbalance.
 
 ----------------------
 
 ## **BLEU Score** –
 
-\( \displaystyle \text{BLEU} = \text{BP} \cdot \exp\Big(\frac{1}{N}\sum_{n=1}^N \ln p_n\Big) \)
+\( \displaystyle \text{BLEU} = \text{BP} \cdot \exp\Big(\frac{1}{N}\sum_{n=1}^N \ln p_n\Big)`$
 
  – geometric mean of modified n-gram precisions \(p_n\) times brevity penalty BP – evaluates machine translation quality against references. It does not measure semantic coherence, so high BLEU may still yield awkward translations.
 
@@ -3413,7 +3413,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **IoU (Jaccard Index)** –
 
-\( \text{IoU} = \frac{|A \cap B|}{|A \cup B|} \)
+\( \text{IoU} = \frac{|A \cap B|}{|A \cup B|}`$
 
  – overlap / union of predicted region \(A\) and ground truth \(B\) – used in object detection/segmentation accuracy (1.0 = perfect overlap). Small shifts in predicted boundaries can significantly reduce IoU, revealing sensitivity to localization errors.
 
@@ -3421,7 +3421,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **PSNR** –
 
-\( \displaystyle \text{PSNR} = 10 \log_{10}\!\frac{MAX^2}{\text{MSE}} \)
+\( \displaystyle \text{PSNR} = 10 \log_{10}\!\frac{MAX^2}{\text{MSE}}`$
 
  – \(MAX\): max signal value, MSE: mean squared error – measures reconstructed image quality in dB – higher is better (each 6dB ~ 2× RMSE improvement). Sensors with limited dynamic range can make high PSNR values unrepresentative of perceived quality.
 
@@ -3429,7 +3429,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **Specificity** –
 
-\( \text{Spec} = \frac{TN}{TN + FP} \)
+\( \text{Spec} = \frac{TN}{TN + FP}`$
 
  – true negative rate – fraction of actual negatives correctly identified – relevant for binary classification (along with sensitivity). High specificity is essential in ruling out conditions, reducing false positives in medical diagnostics.
 
@@ -3437,7 +3437,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **SSIM (Image Similarity)** –
 
-\( \displaystyle \text{SSIM}(x,y) = \frac{(2\mu_x\mu_y + C_1)(2\sigma_{xy} + C_2)}{(\mu_x^2 + \mu_y^2 + C_1)(\sigma_x^2 + \sigma_y^2 + C_2)} \)
+\( \displaystyle \text{SSIM}(x,y) = \frac{(2\mu_x\mu_y + C_1)(2\sigma_{xy} + C_2)}{(\mu_x^2 + \mu_y^2 + C_1)(\sigma_x^2 + \sigma_y^2 + C_2)}`$
 
  – compares images \(x\) and \(y\) in terms of luminance (\(\mu\)), contrast (\(\sigma\)), and structure (\(\sigma_{xy}\)) – value in \([0,1]\) (higher = more similar), used for image quality evaluation. SSIM can capture subtle structural distortions that simple MSE-based metrics often overlook.
 
@@ -3445,7 +3445,7 @@ Generates sequences by iterating hidden and cell states. LSTMs capture long-rang
 
 ## **Balanced Accuracy** –
 
-\( \displaystyle \text{BalancedAcc} = \tfrac{1}{2}\Bigl(\tfrac{TP}{TP + FN} + \tfrac{TN}{TN + FP}\Bigr) \)
+\( \displaystyle \text{BalancedAcc} = \tfrac{1}{2}\Bigl(\tfrac{TP}{TP + FN} + \tfrac{TN}{TN + FP}\Bigr)`$
 
  – average of sensitivity and specificity, tackling class imbalance better than plain accuracy. It provides a fairer measure when positive and negative classes are unequally represented.
 
@@ -3455,7 +3455,7 @@ Interesting fact (35-40 words): Balanced Accuracy prevents inflated performance 
 
 ## **Matthews Correlation Coefficient (MCC)** –
 
-\( \displaystyle \text{MCC} = \frac{TP \times TN - FP \times FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}} \)
+\( \displaystyle \text{MCC} = \frac{TP \times TN - FP \times FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}`$
 
  – a correlation measure between observed and predicted labels (range: \(-1\) to \(1\)).
 
@@ -3465,7 +3465,7 @@ Interesting fact (35-40 words): MCC captures all confusion matrix quadrants in o
 
 ## **Average Precision (AP) / AUPRC** –
 
-\( \displaystyle \text{AP} = \sum_{k=1}^{n} \bigl(r_k - r_{k-1}\bigr)p_k \)
+\( \displaystyle \text{AP} = \sum_{k=1}^{n} \bigl(r_k - r_{k-1}\bigr)p_k`$
 
  – area under the precision-recall curve, aggregating precision at different recall levels.
 
@@ -3475,7 +3475,7 @@ Interesting fact (35-40 words): AP is especially informative for imbalanced data
 
 ## **Dice Coefficient** –
 
-\( \displaystyle \text{Dice} = \frac{2\,|A \cap B|}{|A| + |B|} \)
+\( \displaystyle \text{Dice} = \frac{2\,|A \cap B|}{|A| + |B|}`$
 
  – overlap metric ranging from 0 to 1, often used in image segmentation to measure boundary similarity.
 
@@ -3485,7 +3485,7 @@ Interesting fact (35-40 words): Dice is more forgiving to small contour shifts t
 
 ## **Cohen’s Kappa** –
 
-\( \displaystyle \kappa = \frac{p_o - p_e}{1 - p_e} \)
+\( \displaystyle \kappa = \frac{p_o - p_e}{1 - p_e}`$
 
  – compares observed accuracy \(p_o\) with expected accuracy \(p_e\) under random chance, ranging from \(-1\) to \(1\).
 
@@ -3495,7 +3495,7 @@ Interesting fact (35-40 words): Kappa addresses chance agreement, making it valu
 
 ## **G-Mean** –
 
-\( \displaystyle \text{G-Mean} = \sqrt{\frac{TP}{TP + FN} \;\times\; \frac{TN}{TN + FP}} \)
+\( \displaystyle \text{G-Mean} = \sqrt{\frac{TP}{TP + FN} \;\times\; \frac{TN}{TN + FP}}`$
 
  – geometric mean of sensitivity and specificity, capturing balanced classification performance.
 
@@ -3505,7 +3505,7 @@ Interesting fact (35-40 words): G-Mean preserves the balance between detecting p
 
 ## **Log Loss (Cross-Entropy Loss)** –
 
-\( \displaystyle \text{LogLoss} = -\frac{1}{N} \sum_{i=1}^{N} \bigl[y_i\ln(\hat{y}_i) + (1 - y_i)\ln(1 - \hat{y}_i)\bigr] \)
+\( \displaystyle \text{LogLoss} = -\frac{1}{N} \sum_{i=1}^{N} \bigl[y_i\ln(\hat{y}_i) + (1 - y_i)\ln(1 - \hat{y}_i)\bigr]`$
 
  – penalizes confident but incorrect predictions, measuring probabilistic classification quality.
 
@@ -3515,7 +3515,7 @@ Interesting fact (35-40 words): Log Loss directly evaluates how well models esti
 
 ## **Brier Score** –
 
-\( \displaystyle \text{Brier} = \frac{1}{N} \sum_{i=1}^{N} (p_i - o_i)^2 \)
+\( \displaystyle \text{Brier} = \frac{1}{N} \sum_{i=1}^{N} (p_i - o_i)^2`$
 
  – mean squared error of predicted probabilities \(p_i\) for binary outcomes \(o_i\in \{0,1\}\).
 
@@ -3525,7 +3525,7 @@ Interesting fact (35-40 words): Brier Score is sensitive to both calibration and
 
 ## **Perplexity** –
 
-\( \displaystyle \text{PPL} = \exp\!\Bigl(-\frac{1}{N}\sum_{i=1}^N \ln p(x_i)\Bigr) \)
+\( \displaystyle \text{PPL} = \exp\!\Bigl(-\frac{1}{N}\sum_{i=1}^N \ln p(x_i)\Bigr)`$
 
  – measures how well a probabilistic model predicts a sample, commonly used in language modeling (lower is better).
 
@@ -3535,7 +3535,7 @@ Interesting fact (35-40 words): Perplexity quantifies prediction uncertainty in 
 
 ## **Mean Absolute Error (MAE)** –
 
-\( \displaystyle \text{MAE} = \frac{1}{N} \sum_{i=1}^N \lvert y_i - \hat{y}_i\rvert \)
+\( \displaystyle \text{MAE} = \frac{1}{N} \sum_{i=1}^N \lvert y_i - \hat{y}_i\rvert`$
 
  – average magnitude of errors without considering their direction, used in regression tasks.
 
@@ -3545,7 +3545,7 @@ Interesting fact (35-40 words): MAE yields a linear penalty for each unit of err
 
 ## **Mean Squared Error (MSE)** –
 
-\( \displaystyle \text{MSE} = \frac{1}{N} \sum_{i=1}^N (y_i - \hat{y}_i)^{2} \)
+\( \displaystyle \text{MSE} = \frac{1}{N} \sum_{i=1}^N (y_i - \hat{y}_i)^{2}`$
 
  – average of squared differences between predictions and actual values, ubiquitous in regression.
 
@@ -3555,7 +3555,7 @@ Interesting fact (35-40 words): MSE heavily penalizes large residuals, making mo
 
 ## **Root Mean Squared Error (RMSE)** –
 
-\( \displaystyle \text{RMSE} = \sqrt{\frac{1}{N} \sum_{i=1}^N (y_i - \hat{y}_i)^2} \)
+\( \displaystyle \text{RMSE} = \sqrt{\frac{1}{N} \sum_{i=1}^N (y_i - \hat{y}_i)^2}`$
 
  – square root of MSE, preserving error units.
 
@@ -3565,7 +3565,7 @@ Interesting fact (35-40 words): RMSE is more interpretable in the same scale as 
 
 ## **R² (Coefficient of Determination)** –
 
-\( \displaystyle R^2 = 1 - \frac{\sum_{i=1}^N (y_i - \hat{y}_i)^2}{\sum_{i=1}^N (y_i - \bar{y})^2} \)
+\( \displaystyle R^2 = 1 - \frac{\sum_{i=1}^N (y_i - \hat{y}_i)^2}{\sum_{i=1}^N (y_i - \bar{y})^2}`$
 
  – proportion of variance explained by the model.
 
@@ -3575,7 +3575,7 @@ Interesting fact (35-40 words): R² can become negative if the model is worse th
 
 ## **Adjusted Rand Index (ARI)** –
 
-\( \displaystyle \text{ARI} = \frac{\text{RI} - \mathbb{E}[\text{RI}]}{\max(\text{RI}) - \mathbb{E}[\text{RI}]} \)
+\( \displaystyle \text{ARI} = \frac{\text{RI} - \mathbb{E}[\text{RI}]}{\max(\text{RI}) - \mathbb{E}[\text{RI}]}`$
 
  – measures clustering similarity, adjusting for chance grouping, ranging from \(-1\) to \(1\).
 
@@ -3585,7 +3585,7 @@ Interesting fact (35-40 words): ARI rewards exact cluster matches and penalizes 
 
 ## **Silhouette Score** –
 
-\( \displaystyle \text{Silhouette}(i) = \frac{b_i - a_i}{\max(a_i, b_i)} \)
+\( \displaystyle \text{Silhouette}(i) = \frac{b_i - a_i}{\max(a_i, b_i)}`$
 
  – for each sample \(i\), where \(a_i\) is average intra-cluster distance, \(b_i\) is average nearest-cluster distance.
 
@@ -3595,7 +3595,7 @@ Interesting fact (35-40 words): The Silhouette Score ranges from \(-1\) to \(+1\
 
 ## **Normalized Mutual Information (NMI)** –
 
-\( \displaystyle \text{NMI}(U,V) = \frac{2 \, I(U;V)}{H(U) + H(V)} \)
+\( \displaystyle \text{NMI}(U,V) = \frac{2 \, I(U;V)}{H(U) + H(V)}`$
 
  – compares clustering partitions \(U\) and \(V\), normalizing mutual information to [0,1].
 
@@ -3605,7 +3605,7 @@ Interesting fact (35-40 words): NMI captures shared information between two clus
 
 ## **Word Error Rate (WER)** –
 
-\( \displaystyle \text{WER} = \frac{S + D + I}{N} \)
+\( \displaystyle \text{WER} = \frac{S + D + I}{N}`$
 
  – ratio of substitution (S), deletion (D), and insertion (I) errors to total words (N), assessing speech or text recognition accuracy.
 
@@ -3615,7 +3615,7 @@ Interesting fact (35-40 words): WER spotlights practical usability of speech sys
 
 ## **Hamming Loss** –
 
-\( \displaystyle \text{HammingLoss} = \frac{1}{N \times L} \sum_{i=1}^N \sum_{j=1}^L \mathbb{I}\bigl(\hat{y}_{ij} \neq y_{ij}\bigr) \)
+\( \displaystyle \text{HammingLoss} = \frac{1}{N \times L} \sum_{i=1}^N \sum_{j=1}^L \mathbb{I}\bigl(\hat{y}_{ij} \neq y_{ij}\bigr)`$
 
  – fraction of misclassified labels in multi-label problems.
 
@@ -3625,7 +3625,7 @@ Interesting fact (35-40 words): Hamming Loss uniformly penalizes each label misc
 
 ## **F\(\boldsymbol{\beta}\)-Score** –
 
-\( \displaystyle F_\beta = \bigl(1+\beta^2\bigr)\frac{\text{Precision}\cdot\text{Recall}}{\beta^2 \,\text{Precision} + \text{Recall}} \)
+\( \displaystyle F_\beta = \bigl(1+\beta^2\bigr)\frac{\text{Precision}\cdot\text{Recall}}{\beta^2 \,\text{Precision} + \text{Recall}}`$
 
  – generalization of F1, emphasizing recall if \(\beta>1\) or precision if \(\beta<1\).
 
@@ -3635,7 +3635,7 @@ Interesting fact (35-40 words): F\(\beta\)-Score allows domain-driven weighting 
 
 ## **Mean Reciprocal Rank (MRR)** –
 
-\( \displaystyle \text{MRR} = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{\text{rank}_i} \)
+\( \displaystyle \text{MRR} = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{\text{rank}_i}`$
 
  – averages the reciprocal of the first correct answer’s rank across queries \(Q\).
 
@@ -3645,7 +3645,7 @@ Interesting fact (35-40 words): MRR highlights how quickly a model retrieves the
 
 ## **Normalized Discounted Cumulative Gain (nDCG)** –
 
-\( \displaystyle \text{nDCG} = \frac{\text{DCG}@k}{\text{IDCG}@k} \), where \(\text{DCG}@k = \sum_{i=1}^k \frac{2^{rel_i}-1}{\log_2(i+1)}\).
+\( \displaystyle \text{nDCG} = \frac{\text{DCG}@k}{\text{IDCG}@k}`$, where \(\text{DCG}@k = \sum_{i=1}^k \frac{2^{rel_i}-1}{\log_2(i+1)}\).
 
 Interesting fact (35-40 words): nDCG rewards putting highly relevant items high in ranking. It accounts for the diminishing value of lower-ranked items. Widely used in web search and recommender systems to judge the quality of ordered lists.
 
@@ -3653,7 +3653,7 @@ Interesting fact (35-40 words): nDCG rewards putting highly relevant items high 
 
 ## **Expected Calibration Error (ECE)** –
 
-\( \displaystyle \text{ECE} = \sum_{m=1}^M \frac{|B_m|}{n}\Big\lvert \text{acc}(B_m) - \text{conf}(B_m)\Big\rvert \)
+\( \displaystyle \text{ECE} = \sum_{m=1}^M \frac{|B_m|}{n}\Big\lvert \text{acc}(B_m) - \text{conf}(B_m)\Big\rvert`$
 
  – bins predictions by confidence, then measures difference between average confidence and accuracy.
 
@@ -3671,7 +3671,7 @@ Interesting fact (35-40 words): JSD remains finite even if distributions have ze
 
 ## **Kullback–Leibler Divergence (KL Divergence)** –
 
-\( \displaystyle D_{\mathrm{KL}}(P\|Q) = \sum_{x} P(x)\,\ln\!\bigl(\tfrac{P(x)}{Q(x)}\bigr) \)
+\( \displaystyle D_{\mathrm{KL}}(P\|Q) = \sum_{x} P(x)\,\ln\!\bigl(\tfrac{P(x)}{Q(x)}\bigr)`$
 
  – non-symmetric measure of how one probability distribution diverges from another.
 
@@ -3681,7 +3681,7 @@ Interesting fact (35-40 words): KL divergence underpins variational inference an
 
 ## **Earth Mover’s Distance (Wasserstein Distance)** –
 
-\( \displaystyle W(P,Q) = \inf_{\gamma\in\Gamma(P,Q)} \mathbb{E}_{(x,y)\sim \gamma}[\,\lVert x - y\rVert\,] \)
+\( \displaystyle W(P,Q) = \inf_{\gamma\in\Gamma(P,Q)} \mathbb{E}_{(x,y)\sim \gamma}[\,\lVert x - y\rVert\,]`$
 
  – minimal “cost” to transform one distribution into another.
 
@@ -3691,7 +3691,7 @@ Interesting fact (35-40 words): Wasserstein distance has gained popularity in ge
 
 ## **Gini Impurity** –
 
-\( \displaystyle \text{Gini} = \sum_{k=1}^{K} p_k(1 - p_k) \)
+\( \displaystyle \text{Gini} = \sum_{k=1}^{K} p_k(1 - p_k)`$
 
  – used in decision trees to measure node impurity, where \(p_k\) is the proportion of class \(k\).
 
@@ -3701,7 +3701,7 @@ Interesting fact (35-40 words): Gini Impurity prefers binary splits leading to p
 
 ## **Top-\(k\) Accuracy** –
 
-\( \displaystyle \text{Top-}k \text{ Acc} = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}(\text{true label} \in \{\text{top }k\text{ predicted labels for }i\}) \)
+\( \displaystyle \text{Top-}k \text{ Acc} = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}(\text{true label} \in \{\text{top }k\text{ predicted labels for }i\})`$
 
  – fraction of samples whose correct label appears in top \(k\) predictions.
 
@@ -3714,7 +3714,7 @@ Interesting fact (35-40 words): Top-\(k\) metrics acknowledge near-misses in mul
 
 ## **GCN Layer** –
 
-\( h_i^{(l+1)} = \sigma\!\Big( \sum_{j \in N(i)} \frac{1}{\sqrt{|N(i)|\,|N(j)|}} W\,h_j^{(l)} \Big) \)
+\( h_i^{(l+1)} = \sigma\!\Big( \sum_{j \in N(i)} \frac{1}{\sqrt{|N(i)|\,|N(j)|}} W\,h_j^{(l)} \Big)`$
 
  – \(N(i)\): neighbors of node \(i\) – aggregates neighboring features with normalization – semi-supervised Graph Convolutional Network layer (Kipf & Welling). GCNs can suffer from over-smoothing as layers deepen, causing node embeddings to converge to similar values.
 
@@ -3722,15 +3722,15 @@ Interesting fact (35-40 words): Top-\(k\) metrics acknowledge near-misses in mul
 
 ## **Graph Attention (GAT)** –
 
-\( e_{ij} = a^T [Wh_i || Wh_j],\;\; \alpha_{ij} = \frac{\exp(\sigma(e_{ij}))}{\sum_{k \in N(i)}\exp(\sigma(e_{ik}))},\;\; h_i' = \sigma\!\Big(\sum_{j \in N(i)} \alpha_{ij} W_v h_j\Big) \)
+\( e_{ij} = a^T [Wh_i || Wh_j],\;\; \alpha_{ij} = \frac{\exp(\sigma(e_{ij}))}{\sum_{k \in N(i)}\exp(\sigma(e_{ik}))},\;\; h_i' = \sigma\!\Big(\sum_{j \in N(i)} \alpha_{ij} W_v h_j\Big)`$
 
- – learns attention \( \alpha_{ij} \) on neighbors \(j\) of node \(i\) – weights neighbors in aggregation via a learned function \(a^T\) (self-attention on graph nodes). By tuning attention coefficients, GAT can reveal which neighbor relationships matter most for each node's representation.
+ – learns attention \( \alpha_{ij}`$ on neighbors \(j\) of node \(i\) – weights neighbors in aggregation via a learned function \(a^T\) (self-attention on graph nodes). By tuning attention coefficients, GAT can reveal which neighbor relationships matter most for each node's representation.
 
 ----------------------
 
 ## **GraphSAGE** –
 
-\( h_i^{(l+1)} = \sigma\!\Big( W \big[ h_i^{(l)} || \text{AGG}_{j\in N(i)}(h_j^{(l)}) \big] \Big) \)
+\( h_i^{(l+1)} = \sigma\!\Big( W \big[ h_i^{(l)} || \text{AGG}_{j\in N(i)}(h_j^{(l)}) \big] \Big)`$
 
  – concatenates node’s current representation with an aggregate (mean/max/LSTM) of neighbor features, then linear & nonlinear – enables inductive node embedding by sampling neighbors (Hamilton et al.). GraphSAGE allows unseen nodes to be embedded by sampling neighbors, offering scalability to large dynamic graphs.
 
@@ -3738,7 +3738,7 @@ Interesting fact (35-40 words): Top-\(k\) metrics acknowledge near-misses in mul
 
 ## **PageRank** –
 
-\( r_{i}^{(t+1)} = \frac{1-\alpha}{N} + \alpha \sum_{j \in \text{in}(i)} \frac{r_j^{(t)}}{\deg(j)} \)
+\( r_{i}^{(t+1)} = \frac{1-\alpha}{N} + \alpha \sum_{j \in \text{in}(i)} \frac{r_j^{(t)}}{\deg(j)}`$
 
  – \(\alpha\): damping, \(N\): nodes count – iterative power method – ranks nodes by importance in graph (stationary distribution of random walk). PageRank can be personalized by adjusting the teleport vector to emphasize certain nodes or user interests.
 
@@ -4116,7 +4116,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Stacking** –
 
-\( \displaystyle \hat{y} = f_{\text{meta}}\!\bigl(f_1(x), f_2(x), \ldots, f_M(x)\bigr) \)
+\( \displaystyle \hat{y} = f_{\text{meta}}\!\bigl(f_1(x), f_2(x), \ldots, f_M(x)\bigr)`$
 
  – trains a meta-learner on base predictions to combine them effectively – popular in competitions (Kaggle). Stacking can overfit if meta-learner sees the same data as base models, so proper cross-validation is essential.
 
@@ -4124,7 +4124,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Blending** –
 
-\( \displaystyle \hat{y} = \beta\,f_{A}(x) + (1-\beta)\,f_{B}(x) \)
+\( \displaystyle \hat{y} = \beta\,f_{A}(x) + (1-\beta)\,f_{B}(x)`$
 
  – a simpler two-model ensemble that relies on a small held-out set to find blending weight \(\beta\) – faster than full stacking. Hidden data leakage in the blending phase can bias results, so strict separation is recommended.
 
@@ -4132,7 +4132,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Soft Voting** –
 
-\( \displaystyle \hat{y} = \arg\max_{c}\,\sum_{m=1}^{M} p_{m}(x,c) \)
+\( \displaystyle \hat{y} = \arg\max_{c}\,\sum_{m=1}^{M} p_{m}(x,c)`$
 
  – uses average predicted probabilities \(p_{m}(x,c)\) from each model – especially effective for probabilistic classifiers. Poorly calibrated probabilities can mislead soft voting, so regularizing or re-calibrating base models often helps.
 
@@ -4140,7 +4140,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Mixture of Experts** –
 
-\( \displaystyle y = \sum_{m=1}^{M} g_{m}(x)\,f_{m}(x)\quad \text{with} \quad \sum_{m=1}^{M} g_{m}(x) = 1 \)
+\( \displaystyle y = \sum_{m=1}^{M} g_{m}(x)\,f_{m}(x)\quad \text{with} \quad \sum_{m=1}^{M} g_{m}(x) = 1`$
 
  – a gating function \(g_{m}\) distributes inputs to specialized experts. Properly trained gating functions can partition complex feature space, but unbalanced gating sometimes causes a single expert to dominate.
 
@@ -4148,7 +4148,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Bayesian Model Averaging** –
 
-# \( \displaystyle p(y \mid x) = \sum_{m=1}^M p\bigl(y \mid x, M_m\bigr)\,p\bigl(M_m \mid D\bigr) \)
+# \( \displaystyle p(y \mid x) = \sum_{m=1}^M p\bigl(y \mid x, M_m\bigr)\,p\bigl(M_m \mid D\bigr)`$
 
 
 – weights each model by posterior probability – elegantly handles model uncertainty. Overly complex model sets risk posterior dilution, making careful prior selection and evidence-based pruning valuable.
@@ -4175,7 +4175,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Negative Correlation Learning** –
 
-\( \displaystyle \mathrm{NCL\,Loss} = \sum_{m=1}^M L\bigl(f_m(x), y\bigr) \;+\; \lambda\,\sum_{m=1}^M \sum_{j \neq m}\bigl(f_m(x)-f_j(x)\bigr)^2 \)
+\( \displaystyle \mathrm{NCL\,Loss} = \sum_{m=1}^M L\bigl(f_m(x), y\bigr) \;+\; \lambda\,\sum_{m=1}^M \sum_{j \neq m}\bigl(f_m(x)-f_j(x)\bigr)^2`$
 
  – penalizes correlated errors. Choosing \(\lambda\) too high disrupts individual learner quality, while too low reduces the ensemble’s benefit.
 
@@ -4183,7 +4183,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Snapshot Ensemble** –
 
-\( \displaystyle \hat{y} = \frac{1}{M}\sum_{m=1}^M f^{(m)}(x) \)
+\( \displaystyle \hat{y} = \frac{1}{M}\sum_{m=1}^M f^{(m)}(x)`$
 
 – collects multiple neural network “snapshots” saved at different local minima during cyclic learning rate scheduling – ensemble in one training run. Wide learning rate oscillations can produce more diverse snapshots, boosting final accuracy.
 
@@ -4191,7 +4191,7 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 ## **Ensemble Selection** –
 
-# \( \displaystyle \hat{y} = \arg\max_{c}\sum_{m \,\in\,S}w_m\,\mathbf{1}\bigl(h_m(x) = c\bigr) \;\text{with}\;\sum_{m \in S} w_m = 1 \)
+# \( \displaystyle \hat{y} = \arg\max_{c}\sum_{m \,\in\,S}w_m\,\mathbf{1}\bigl(h_m(x) = c\bigr) \;\text{with}\;\sum_{m \in S} w_m = 1`$
 
 – picks a subset \(S\) of candidate models with optimal weights – popular for large model libraries. Overzealous inclusion of redundant models may cause overfitting and increased computation.
 
