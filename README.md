@@ -1124,7 +1124,7 @@ Learns latent representations by maximizing a variational lower bound. Balances 
 
 ## **Mean Squared Error** –
 
-# \( L = \frac{1}{N}\sum_{i=1}^N (y_i - \hat{y}_i)^2 \)
+# \( L = \frac{1}{N}\sum_{i=1}^N (y_i - \hat{y}_i)^2 \) $$
 
  – \(y_i\): true, \(\hat{y}_i\): pred – measures average squared regression error (penalizes large errors more). Often used for regression; its gradient is simpler than absolute errors, making it a common choice for gradient-based methods.
 
