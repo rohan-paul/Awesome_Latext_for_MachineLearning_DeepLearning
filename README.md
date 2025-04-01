@@ -2481,7 +2481,13 @@ y_{n,c} = \sigma_s \frac{x_{n,c} - \mu(x_{n,c})}{\sigma(x_{n,c})} + \mu_s
 
 ----------------------
 
-## **LSTM Cell** – *Gating:*`$f_t = \sigma(W_f [h_{t-1},x_t] + b_f),\;\; i_t = \sigma(W_i[h_{t-1},x_t] + b_i),\;\; o_t = \sigma(W_o[h_{t-1},x_t] + b_o)$; *State:*`$\tilde{c}_t = \tanh(W_c[h_{t-1},x_t] + b_c),\;\; c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t,\;\; h_t = o_t \odot \tanh(c_t)$
+## **LSTM Cell** – *Gating:*
+
+# $`f_t = \sigma(W_f [h_{t-1},x_t] + b_f),\;\; i_t = \sigma(W_i[h_{t-1},x_t] + b_i),\;\; o_t = \sigma(W_o[h_{t-1},x_t] + b_o)`$;
+
+*State:*
+
+# $`\tilde{c}_t = \tanh(W_c[h_{t-1},x_t] + b_c),\;\; c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t,\;\; h_t = o_t \odot \tanh(c_t)`$
 
  – uses forget ($f_t`$), input ($i_t`$), output ($o_t`$) gates to control cell memory`$c_t`$
 
