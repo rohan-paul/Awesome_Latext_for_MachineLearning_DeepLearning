@@ -2676,12 +2676,15 @@ Incorporates a time gate that “opens” and “closes” based on an oscillati
 ## **Clockwork RNN**
 
 ```math
+{
 \Huge
 h_{t}^{(k)} =
 \begin{cases}
-\phi\big(W_{x}^{(k)} x_t + W_{h}^{(k,k)} h_{t-1}^{(k)} + \sum_{j<k} W_{h}^{(k,j)} h_{t}^{(j)}\big) &\text{if } t \mod \tau_k = 0,\\
-h_{t-1}^{(k)} &\text{otherwise}
+\phi\bigl(W_{x}^{(k)} x_t + W_{h}^{(k,k)} h_{t-1}^{(k)} + \sum_{j<k} W_{h}^{(k,j)} h_{t}^{(j)}\bigr)
+& \text{if } t \bmod \tau_k = 0,\\[1ex]
+h_{t-1}^{(k)} & \text{otherwise}
 \end{cases}
+}
 ```
 Partitions hidden units into modules running at different clock rates. Faster modules update frequently, slower ones more sparsely. This improves computational efficiency while capturing multi-timescale information in speech or sensor data.
 
