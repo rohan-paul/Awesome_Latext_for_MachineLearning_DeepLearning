@@ -3858,11 +3858,22 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 -------------------
 
-## **Bayesian Model Averaging** – \( \displaystyle p(y \mid x) = \sum_{m=1}^M p\bigl(y \mid x, M_m\bigr)\,p\bigl(M_m \mid D\bigr) \) – weights each model by posterior probability – elegantly handles model uncertainty. Overly complex model sets risk posterior dilution, making careful prior selection and evidence-based pruning valuable.
+## **Bayesian Model Averaging** –
+
+# \( \displaystyle p(y \mid x) = \sum_{m=1}^M p\bigl(y \mid x, M_m\bigr)\,p\bigl(M_m \mid D\bigr) \)
+
+
+– weights each model by posterior probability – elegantly handles model uncertainty. Overly complex model sets risk posterior dilution, making careful prior selection and evidence-based pruning valuable.
 
 -------------------
 
-## **Ensemble Distillation** – \( \displaystyle \mathcal{L} = \alpha\,\mathcal{L}_{\mathrm{CE}}(y, s) + (1-\alpha)\,\mathrm{KL}\!\bigl(p_{\mathrm{ensemble}} \,\|\, p_{\mathrm{student}}\bigr) \) – transfers ensemble “knowledge” into a single student network – reduces deployment complexity. If the ensemble is too large or heterogeneous, distillation can become cumbersome, diminishing the speed gain.
+## **Ensemble Distillation** –
+
+
+# $\( \displaystyle \mathcal{L} = \alpha\,\mathcal{L}_{\mathrm{CE}}(y, s) + (1-\alpha)\,\mathrm{KL}\!\bigl(p_{\mathrm{ensemble}} \,\|\, p_{\mathrm{student}}\bigr) \)$$
+
+
+– transfers ensemble “knowledge” into a single student network – reduces deployment complexity. If the ensemble is too large or heterogeneous, distillation can become cumbersome, diminishing the speed gain.
 
 -------------------
 
@@ -3878,7 +3889,11 @@ PDE-GCN interprets graph convolution as partial differential equations over grap
 
 -------------------
 
-## **Ensemble Selection** – \( \displaystyle \hat{y} = \arg\max_{c}\sum_{m \,\in\,S}w_m\,\mathbf{1}\bigl(h_m(x) = c\bigr) \;\text{with}\;\sum_{m \in S} w_m = 1 \) – picks a subset \(S\) of candidate models with optimal weights – popular for large model libraries. Overzealous inclusion of redundant models may cause overfitting and increased computation.
+## **Ensemble Selection** –
+
+# \( \displaystyle \hat{y} = \arg\max_{c}\sum_{m \,\in\,S}w_m\,\mathbf{1}\bigl(h_m(x) = c\bigr) \;\text{with}\;\sum_{m \in S} w_m = 1 \)
+
+– picks a subset \(S\) of candidate models with optimal weights – popular for large model libraries. Overzealous inclusion of redundant models may cause overfitting and increased computation.
 
 =====================================================================
 ### 📣 Advanced & Miscellaneous
